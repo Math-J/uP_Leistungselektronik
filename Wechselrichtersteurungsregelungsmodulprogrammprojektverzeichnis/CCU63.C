@@ -1,0 +1,424 @@
+//****************************************************************************
+// @Module        Capture / Compare Unit 63 (CCU63)
+// @Filename      CCU63.C
+// @Project       Motorsteuerung.dav
+//----------------------------------------------------------------------------
+// @Controller    Infineon XE167F-96F66
+//
+// @Compiler      Tasking Classic
+//
+// @Codegenerator 2.2
+//
+// @Description   This file contains functions that use the CCU63 module.
+//
+//----------------------------------------------------------------------------
+// @Date          9/28/2023 11:34:05
+//
+//****************************************************************************
+
+// USER CODE BEGIN (CCU63_General,1)
+
+// USER CODE END
+
+
+
+//****************************************************************************
+// @Project Includes
+//****************************************************************************
+
+#include "MAIN.H"
+
+// USER CODE BEGIN (CCU63_General,2)
+
+// USER CODE END
+
+
+//****************************************************************************
+// @Macros
+//****************************************************************************
+
+// USER CODE BEGIN (CCU63_General,3)
+
+// USER CODE END
+
+
+//****************************************************************************
+// @Defines
+//****************************************************************************
+
+// USER CODE BEGIN (CCU63_General,4)
+
+// USER CODE END
+
+
+//****************************************************************************
+// @Typedefs
+//****************************************************************************
+
+// USER CODE BEGIN (CCU63_General,5)
+
+// USER CODE END
+
+
+//****************************************************************************
+// @Imported Global Variables
+//****************************************************************************
+
+// USER CODE BEGIN (CCU63_General,6)
+   extern long int sinus[];
+   extern long int TYLER;
+   extern int direction;
+   extern long int sinusOffset;
+// USER CODE END
+
+
+//****************************************************************************
+// @Global Variables
+//****************************************************************************
+
+// USER CODE BEGIN (CCU63_General,7)
+
+// USER CODE END
+
+
+//****************************************************************************
+// @External Prototypes
+//****************************************************************************
+
+// USER CODE BEGIN (CCU63_General,8)
+
+// USER CODE END
+
+
+//****************************************************************************
+// @Prototypes Of Local Functions
+//****************************************************************************
+
+// USER CODE BEGIN (CCU63_General,9)
+
+// USER CODE END
+
+
+//****************************************************************************
+// @Function      void CCU63_vInit(void) 
+//
+//----------------------------------------------------------------------------
+// @Description   This is the initialization function of the CCU63 function 
+//                library. It is assumed that the SFRs used by this library 
+//                are in reset state. 
+//
+//----------------------------------------------------------------------------
+// @Returnvalue   None
+//
+//----------------------------------------------------------------------------
+// @Parameters    None
+//
+//----------------------------------------------------------------------------
+// @Date          9/28/2023
+//
+//****************************************************************************
+
+// USER CODE BEGIN (Init,1)
+   
+// USER CODE END
+
+void CCU63_vInit(void)
+{
+  // USER CODE BEGIN (Init,2)
+
+  // USER CODE END
+
+  ///  -----------------------------------------------------------------------
+  ///  Configuration of KERNEL REGISTERS :
+  ///  -----------------------------------------------------------------------
+  ///  - CCU63 Module is enabled.
+  ///  - The CCU63 module clock = 65.000 MHz. 
+  ///  - T12 is enabled.
+  ///  - T13 is enabled.
+  ///  - MCM is enabled.
+
+  CCU63_KSCFG    =  0x0003;      // Kernel State Configuration Register
+
+
+  _nop();    //No operation function as Delay
+  _nop();    //No operation function as Delay
+  _nop();    //No operation function as Delay
+  _nop();    //No operation function as Delay
+
+  ///  -----------------------------------------------------------------------
+  ///  Configuration of CCU63 Timer 12:
+  ///  -----------------------------------------------------------------------
+  ///  - Timer 12 Input clock factor (T12CLK) is 0
+  ///  - prescaler factor is 0
+  ///  - Timer 12 run bit is reset
+  ///  - Single shot mode is disabled
+  ///  - Timer 12 works in center aligned mode
+  ///  - Interrupt on period match is enabled
+  ///  - Interrupt on one match is enabled
+  ///  - No External run selection is selected.
+  ///  - Timer mode is selected.
+  ///  - 
+
+  CCU63_T12PR    =  0x073B;      // load CCU63 T12 period register
+
+  ///  -----------------------------------------------------------------------
+  ///  Configuration of T13HR Signal:
+  ///  -----------------------------------------------------------------------
+  ///  - Signal T13HRA is selected as Input
+
+  ///  -----------------------------------------------------------------------
+  ///  Configuration of CCU63 Timer 13:
+  ///  -----------------------------------------------------------------------
+  ///  - Timer 13 Input Clock factor (T13CLK) is 0
+  ///  - prescaler factor is 0
+  ///  - Timer 13 run bit is reset
+  ///  - Trigger control is disabled
+  ///  - No External run selection is selected.
+  ///  - Timer mode is selected.
+  ///  - 
+  ///  - Single shot mode is disabled
+  ///  - Interrupt on period match is disabled
+  ///  - Interrupt on compare match is disabled
+
+  CCU63_T13PR    =  0x0001;      // load CCU63 T13 period register
+
+  CCU63_TCTR0    =  0x0080;      // load CCU63 timer control register 0
+  CCU63_TCTR2    =  0x0020;      // load CCU63 timer control register 2
+
+  ///  -----------------------------------------------------------------------
+  ///  Configuration of Multi Channel Mode:
+  ///  -----------------------------------------------------------------------
+  ///  - Multi channel mode is disabled
+
+
+  ///  -----------------------------------------------------------------------
+  ///  Configuration of CCU63 Channel 0:
+  ///  -----------------------------------------------------------------------
+  ///  - Compare mode 1 is selected
+  ///  - T12 modulation for output CC60 is enabled
+  ///  - T13 modulation for output CC60 is disabled
+  ///  - The trap functionality of the pin CC60 is disabled
+  ///  - The compare output CC60 drives passive level while CC60ST is '0'
+  ///  - The passive level of the output CC60 is '0'
+  ///  - T12 modulation for output COUT60 is enabled
+  ///  - T13 modulation for output COUT60 is disabled
+  ///  - The trap functionality of the pin COUT60 is disabled
+  ///  - The compare output COUT60 drives passive level while CC60ST is '1'
+  ///  - The passive level of the output COUT60 is '0'
+  ///  - Dead time generation is enabled
+
+  ///  - Generation interrupt on flag ICC60R is disabled
+  ///  - Generation interrupt on flag ICC60F is disabled
+
+  CCU63_CC60SR   =  0x0000;      // Load CCU63 capture/compare shadow 
+                                 // register for channel 0
+
+  ///  -----------------------------------------------------------------------
+  ///  Configuration of CCU63 Channel 1:
+  ///  -----------------------------------------------------------------------
+  ///  - Compare mode 1 is selected
+  ///  - T12 modulation for output CC61 is enabled
+  ///  - T13 modulation for output CC61 is disabled
+  ///  - The trap functionality of the pin CC61 is disabled
+  ///  - The compare output CC61 drives passive level while CC61ST is '0'
+  ///  - The passive level of the output CC61 is '0'
+  ///  - T12 modulation for output COUT61 is enabled
+  ///  - T13 modulation for output COUT61 is disabled
+  ///  - The trap functionality of the pin COUT61 is disabled
+  ///  - The compare output COUT61 drives passive level while CC61ST is '1'
+  ///  - The passive level of the output COUT61 is '0'
+  ///  - Dead time generation is enabled
+
+  ///  - Generation interrupt on flag ICC61R is disabled
+  ///  - Generation interrupt on flag ICC61F is disabled
+
+  CCU63_CC61SR   =  0x0000;      // Load CCU63 capture/compare shadow 
+                                 // register for channel 1
+
+  ///  -----------------------------------------------------------------------
+  ///  Configuration of CCU63 Channel 2:
+  ///  -----------------------------------------------------------------------
+  ///  - Compare mode 1 is selected
+  ///  - T12 modulation for output CC62 is enabled
+  ///  - T13 modulation for output CC62 is disabled
+  ///  - The trap functionality of the pin CC62 is disabled
+  ///  - The compare output CC62 drives passive level while CC62ST is '0'
+  ///  - The passive level of the output CC62 is '0'
+  ///  - T12 modulation for output COUT62 is enabled
+  ///  - T13 modulation for output COUT62 is disabled
+  ///  - The trap functionality of the pin COUT62 is disabled
+  ///  - The compare output COUT62 drives passive level while CC62ST is '1'
+  ///  - The passive level of the output COUT62 is '0'
+  ///  - Dead time generation is enabled
+
+  ///  - Generation interrupt on flag ICC62R is disabled
+  ///  - Generation interrupt on flag ICC62F is disabled
+
+  CCU63_CC62SR   =  0x0000;      // Load CCU63 capture/compare shadow 
+                                 // register for channel 2
+
+  ///  -----------------------------------------------------------------------
+  ///  Configuration of CCU63 Channel 3:
+  ///  -----------------------------------------------------------------------
+  ///  - T13 output is not inverted
+
+
+  CCU63_CC63SR   =  0x0000;      // load CCU63 capture/compare shadow 
+                                 // register for channel 3
+
+
+  CCU63_T12DTC   =  0x07B6;      // load CCU63 dead time control register for 
+                                 // timer T12
+
+  CCU63_T12MSEL  =  0x0111;      // load CCU63 T12 campture/compare mode 
+                                 // select register
+
+  CCU63_CMPSTAT  =  0x2A00;      // load CCU63 compare status register
+
+  CCU63_MODCTR   =  0x003F;      // load CCU63 modulation control register
+
+  ///  -----------------------------------------------------------------------
+  ///  Configuration of CCU63 trap control:
+  ///  -----------------------------------------------------------------------
+  ///  - Trap can only be generated by SW by setting the bit TRPF
+  ///  - The trap state is left when a zero-match of T12 (while counting up) 
+  ///    is detected (synchronization to T12)
+  ///  - Bit TRPF is automatically cleared by HW (according to TRPPEN, TRPM0 
+  ///    and TRPM1)
+  ///  - Trap interrupt is disabled
+
+
+  ///  -----------------------------------------------------------------------
+  ///  Configuration of CCU63 interrupt control:
+  ///  -----------------------------------------------------------------------
+  ///  - For channel 0 interrupts is node I0 selected
+  ///  - For channel 1 interrupts is node I0 selected
+  ///  - For channel 2 interrupts is node I0 selected
+  ///  - For correct hall event interrupt is node I0 selected
+  ///  - For error interrupts is node I0 selected
+  ///  - For T12 interrupts is node I0 selected
+  ///  - For T13 interrupts is node I0 selected
+
+
+  CCU63_INP      =  0x0000;      // Load CCU63 capture/compare interrupt node 
+                                 // pointer register
+
+  CCU63_IEN      =  0x00C0;      // Load CCU63 capture/compare interrupt 
+                                 // enable register
+
+
+  ///  -----------------------------------------------------------------------
+  ///  Configuration of the used CCU63 Channel Port Pins:
+  ///  -----------------------------------------------------------------------
+  ///  - P9.0 is used for CCU63 output(CC60)
+  ///  - P9.1 is used for CCU63 output(CC61)
+  ///  - P9.2 is used for CCU63 output(CC62)
+  ///  - P9.3 is used for CCU63 output(COUT60)
+  ///  - P9.4 is used for CCU63 output(COUT61)
+  ///  - P9.5 is used for CCU63 output(COUT62)
+
+  P9_IOCR00 = 0x0090;    //set direction register
+  P9_IOCR01 = 0x0090;    //set direction register
+  P9_IOCR02 = 0x0090;    //set direction register
+  P9_IOCR03 = 0x0090;    //set direction register
+  P9_IOCR04 = 0x0090;    //set direction register
+  P9_IOCR05 = 0x0090;    //set direction register
+
+  CCU63_PISELL   =  0x3FEA;      // Load CCU63 Port Input Selection register
+
+  ///  -----------------------------------------------------------------------
+  ///  Configuration of the used CCU63 Channels Interrupts:
+  ///  -----------------------------------------------------------------------
+  ///  NodeI0 service request node configuration:
+  ///  - NodeI0 interrupt priority level (ILVL) = 13
+  ///  - NodeI0 interrupt group level (GLVL) = 0
+  ///  - NodeI0 group priority extension (GPX) = 0
+
+  CCU63_0IC      =  0x0074;     
+
+
+  ///  -----------------------------------------------------------------------
+  ///  Configuration of T12, T13 ---- CCU63_TCTR4 Register:
+  ///  -----------------------------------------------------------------------
+  ///  - Enable shadow transfer of T12 and T13
+  ///  - Timer 12 run bit is reset
+  ///  - Timer 13 run bit is reset
+  CCU63_TCTR4    =  0x4040;      // load CCU63 timer control register 4
+
+
+  // USER CODE BEGIN (NodeI3,3)
+  
+  // USER CODE END
+
+} //  End of function CCU63_vInit
+
+
+//****************************************************************************
+// @Function      void CCU63_viNodeI0(void) 
+//
+//----------------------------------------------------------------------------
+// @Description   This is the interrupt service routine for the CCU63 node 
+//                I0. If the content of the corresponding compare timer 
+//                (configurable) equals the content of the capture/compare 
+//                register or if a capture event occurs at the associated 
+//                port pin, the interrupt request flag is set and an 
+//                interrupt is triggered (only if enabled).
+//                Please note that you have to add application specific code 
+//                to this function.
+//
+//----------------------------------------------------------------------------
+// @Returnvalue   None
+//
+//----------------------------------------------------------------------------
+// @Parameters    None
+//
+//----------------------------------------------------------------------------
+// @Date          9/28/2023
+//
+//****************************************************************************
+
+// USER CODE BEGIN (NodeI0,1)
+
+// USER CODE END
+
+_interrupt(CCU63_NodeI0_INT)  void CCU63_viNodeI0(void)
+{
+  // USER CODE BEGIN (NodeI0,2)
+  CCU63_vLoadChannelShadowRegister(CCU63_CHANNEL_0, (sinus[0]+ sinusOffset)/TYLER);
+  CCU63_vLoadChannelShadowRegister(CCU63_CHANNEL_1, (sinus[1+direction] + sinusOffset)/TYLER);	//direction: 0-rechtslauf; 1-linkslauf
+  CCU63_vLoadChannelShadowRegister(CCU63_CHANNEL_2, (sinus[2-direction]+ sinusOffset)/TYLER);
+  CCU63_vEnableShadowTransfer(CCU63_TIMER_12);
+  // USER CODE END
+
+  if(CCU63_IS & 0x0040)  // if CCU63_IS_T12OM
+  {
+    // Timer T12 one match detection
+
+    // USER CODE BEGIN (NodeI0,20)
+	
+    // USER CODE END
+
+    CCU63_ISR |= 0x0040;  // clear flag CCU63_IS_T12OM
+  }
+
+  if(CCU63_IS & 0x0080)  // if CCU63_IS_T12PM
+  {
+    // Timer T12 period match detection
+
+    // USER CODE BEGIN (NodeI0,19)
+
+    // USER CODE END
+
+    CCU63_ISR |= 0x0080;  // clear flag CCU63_IS_T12PM
+  }
+
+
+} //  End of function CCU63_viNodeI0
+
+
+
+
+// USER CODE BEGIN (CCU63_General,10)
+
+// USER CODE END
+

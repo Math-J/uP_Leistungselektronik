@@ -1,0 +1,201 @@
+;Codewright Project File (do not remove or modify this line)
+[ProjInit]
+ConfigSetExtMode=2
+ProjSetConfigFlags=0x04110940
+
+[State]
+SysSetCwd='Z:\projekt_linhsen_gerlach_matthaei\wechselrichtersteurungsregelungsmodulprogrammprojektverzeichnis'
+SrchSetFlags=0x04106808
+SrchSetAgainFlags=0x00006000,0
+SrchSetAgainFlags=0x06100003,1
+FileSortMode=0x0
+_StateView='Z:\Projekt_Linhsen_Gerlach_Matthaei\Wechselrichtersteurungsregelungsmodulprogrammprojektverzeichnis\MAIN.C',52,52,942,279,-1,-1,544,75,518,1,1,'',0x0010001c,0,80,0,0,''
+_StateView='Z:\Projekt_Linhsen_Gerlach_Matthaei\Wechselrichtersteurungsregelungsmodulprogrammprojektverzeichnis\MAIN.H',78,78,942,279,-1,-1,35,41,16,1,4,'',0x0010000c,0,80,0,0,''
+_StateView='Z:\Projekt_Linhsen_Gerlach_Matthaei\Wechselrichtersteurungsregelungsmodulprogrammprojektverzeichnis\project_gerlach_linhsen_matthaei.mak',0,0,942,279,-1,-1,7,1,1,1,3,'',0x0010000c,0,80,0,0,''
+_StateView='Z:\Projekt_Linhsen_Gerlach_Matthaei\Wechselrichtersteurungsregelungsmodulprogrammprojektverzeichnis\GPT1.C',104,104,942,279,-1,-1,279,23,275,1,2,'',0x0010000c,0,80,0,0,''
+_StateBuffer='Z:\Projekt_Linhsen_Gerlach_Matthaei\Wechselrichtersteurungsregelungsmodulprogrammprojektverzeichnis\MAIN.C',0x0c00048e,544,75,25,'5 9','',0x0,'',1,72,1,0
+_StateBuffer='Z:\Projekt_Linhsen_Gerlach_Matthaei\Wechselrichtersteurungsregelungsmodulprogrammprojektverzeichnis\MAIN.H',0x0400048e,35,41,25,'5 9','',0x0,'',1,72,0,0
+_StateBuffer='Z:\Projekt_Linhsen_Gerlach_Matthaei\Wechselrichtersteurungsregelungsmodulprogrammprojektverzeichnis\project_gerlach_linhsen_matthaei.mak',0x0400048e,7,1,25,'5 9','',0x0,'',1,72,0,0
+_StateBuffer='Z:\Projekt_Linhsen_Gerlach_Matthaei\Wechselrichtersteurungsregelungsmodulprogrammprojektverzeichnis\GPT1.C',0x0400048e,279,23,25,'5 9','',0x0,'',1,72,0,0
+_StateHistory=FILELIST,'Z:\Projekt_Linhsen_Gerlach_Matthaei\Wechselrichtersteurungsregelungsmodulprogrammprojektverzeichnis\IO.C','Z:\Projekt_Linhsen_Gerlach_Matthaei\Wechselrichtersteurungsregelungsmodulprogrammprojektverzeichnis\ADC0.C','Z:\Projekt_Linhsen_Gerlach_Matthaei\Wechselrichtersteurungsregelungsmodulprogrammprojektverzeichnis\GPT1.H','Z:\Projekt_Linhsen_Gerlach_Matthaei\Wechselrichtersteurungsregelungsmodulprogrammprojektverzeichnis\GPT2.C','Z:\Projekt_Linhsen_Gerlach_Matthaei\Wechselrichtersteurungsregelungsmodulprogrammprojektverzeichnis\MAIN.C','Z:\Projekt_Linhsen_Gerlach_Matthaei\Wechselrichtersteurungsregelungsmodulprogrammprojektverzeichnis\MAIN.H','Z:\Projekt_Linhsen_Gerlach_Matthaei\Wechselrichtersteurungsregelungsmodulprogrammprojektverzeichnis\GPT1.C','Z:\Projekt_Linhsen_Gerlach_Matthaei\Wechselrichtersteurungsregelungsmodulprogrammprojektverzeichnis\project_gerlach_linhsen_matthaei.mak','Z:\Projekt_Linhsen_Gerlach_Matthaei\Wechselrichtersteurungsregelungsmodulprogrammprojektverzeichnis\MAIN.bak'
+_StateHistory=SEARCH,'T12MODEN','occurs','T12MODE','sinusTable','GPT1_vStartTmr','sinusTimerPeriod','OUTPUT_FREQUENCY','TIMER_STEP_GPT1','CCU63_CHANNEL_0','amplitude'
+_StateHistory=EDITFILE,'Z:\Projekt_Linhsen_Gerlach_Matthaei\Wechselrichtersteurungsregelungsmodulprogrammprojektverzeichnis\IO.H','Z:\Projekt_Linhsen_Gerlach_Matthaei\Wechselrichtersteurungsregelungsmodulprogrammprojektverzeichnis\IO.C','Z:\projekt_linhsen_gerlach_matthaei\wechselrichtersteurungsregelungsmodulprogrammprojektverzeichnis\CCU63.H','Z:\projekt_linhsen_gerlach_matthaei\wechselrichtersteurungsregelungsmodulprogrammprojektverzeichnis\CCU63.C','Z:\projekt_linhsen_gerlach_matthaei\wechselrichtersteurungsregelungsmodulprogrammprojektverzeichnis\ADC0.H','Z:\projekt_linhsen_gerlach_matthaei\wechselrichtersteurungsregelungsmodulprogrammprojektverzeichnis\ADC0.C','Z:\Projekt_Linhsen_Gerlach_Matthaei\Wechselrichtersteurungsregelungsmodulprogrammprojektverzeichnis\GPT2.H','Z:\Projekt_Linhsen_Gerlach_Matthaei\Wechselrichtersteurungsregelungsmodulprogrammprojektverzeichnis\GPT1.C','Z:\Projekt_Linhsen_Gerlach_Matthaei\Wechselrichtersteurungsregelungsmodulprogrammprojektverzeichnis\GPT1.H','Z:\Projekt_Linhsen_Gerlach_Matthaei\Wechselrichtersteurungsregelungsmodulprogrammprojektverzeichnis\GPT2.C'
+_StateHistory=DOCUMENTVISIT,'21          40          Z:\Projekt_Linhsen_Gerlach_Matthaei\Wechselrichtersteurungsregelungsmodulprogrammprojektverzeichnis\MAIN.H','271         30          Z:\Projekt_Linhsen_Gerlach_Matthaei\Wechselrichtersteurungsregelungsmodulprogrammprojektverzeichnis\GPT1.C','21          40          Z:\Projekt_Linhsen_Gerlach_Matthaei\Wechselrichtersteurungsregelungsmodulprogrammprojektverzeichnis\MAIN.H','1           1           Z:\Projekt_Linhsen_Gerlach_Matthaei\Wechselrichtersteurungsregelungsmodulprogrammprojektverzeichnis\project_gerlach_linhsen_matthaei.mak','506         32          Z:\Projekt_Linhsen_Gerlach_Matthaei\Wechselrichtersteurungsregelungsmodulprogrammprojektverzeichnis\MAIN.C','35          41          Z:\Projekt_Linhsen_Gerlach_Matthaei\Wechselrichtersteurungsregelungsmodulprogrammprojektverzeichnis\MAIN.H','403         5           Z:\Projekt_Linhsen_Gerlach_Matthaei\Wechselrichtersteurungsregelungsmodulprogrammprojektverzeichnis\MAIN.C','7           1           Z:\Projekt_Linhsen_Gerlach_Matthaei\Wechselrichtersteurungsregelungsmodulprogrammprojektverzeichnis\project_gerlach_linhsen_matthaei.mak','557         43          Z:\Projekt_Linhsen_Gerlach_Matthaei\Wechselrichtersteurungsregelungsmodulprogrammprojektverzeichnis\MAIN.C','395         3           Z:\Projekt_Linhsen_Gerlach_Matthaei\Wechselrichtersteurungsregelungsmodulprogrammprojektverzeichnis\MAIN.bak'
+_StateDocumentVisit=10
+
+[Editor]
+VCSProject=''
+VCSProjectPath=''
+VCSProjectLocalPath=''
+ScrapSetCount=1
+ClipboardSetCount=1
+ClipboardEnableSepStr=1
+ClipboardSetSepStr='\r\n',0
+ClipboardEnableTermStr=1
+ClipboardSetTermStr='\r\n',0
+
+[Tools]
+ToolDeleteList 
+ToolAddCmd='$_custom_tool_$_1','API Database Editor',1342177312,'cwtedit.exe'
+
+[Compiler]
+TagSetFile=''
+BrowseSetFile=''
+CompilerNewExt=.v
+CompilerNewExt=.src
+CompilerNewExt=.htm
+CompilerNewExt=.bas
+CompilerNewExt=.awk
+CompilerNewExt=.jsp
+CompilerNewExt=.cfml
+CompilerNewExt=.adb
+CompilerNewExt=.vhd
+CompilerNewExt=.pl
+CompilerNewExt=.pas
+CompilerNewExt=.tk
+CompilerNewExt=.rul
+CompilerNewExt=.asp
+CompilerNewExt=.js
+CompilerNewExt=.cob
+CompilerNewExt=.tcl
+CompilerNewExt=.rc
+CompilerNewExt=.php
+CompilerNewExt=.cc
+CompilerNewExt=.ini
+CompilerNewExt=.html
+CompilerNewExt=.bat
+CompilerNewExt=.cs
+CompilerNewExt=.txt
+CompilerNewExt=.nrx
+CompilerNewExt=.xml
+CompilerNewExt=.sqlj
+CompilerNewExt=.java
+TagSetCmd='"${HOME}${WTAGS}" -oc -d -t"${TAGFILE}.tag" -p"${TAGFILE}.ptg"',0x8000060
+
+[VersionControl:PVCS]
+VCSSetCmd=VCS_CHECKIN_ID,'put -n -T@"%Q" -M@"%Q" "%b%e"',0x8000040
+VCSSetCmd=VCS_CHECKINLOCK_ID,'put -n -T@"%Q" -M@"%Q" -l "%b%e"',0x8000040
+VCSSetCmd=VCS_CHECKOUT_ID,'get -y "%b%e"',0x8000040
+VCSSetCmd=VCS_CHECKOUTLOCK_ID,'get -y -l "%b%e"',0x8000040
+VCSSetCmd=VCS_CHECKLOCK_ID,'vcs -y -l "%b%e"',0x8000040
+VCSSetCmd=VCS_CHECKUNLOCK_ID,'vcs -y -u "%b%e"',0x8000040
+VCSSetCmd=VCS_CHECKLABEL_ID,'vcs -y -v"${VCSLABEL}" "%b%e"',0x8000040
+VCSSetCmd=VCS_CHECKLOG_ID,'vlog "%b%e"',0x8000040
+VCSSetCmd=VCS_CHECKPROP_ID,'vlog -b "%b%e"',0x8000040
+VCSSetCmd=VCS_CHECKDIFF_ID,'vdiff -r "%b%e"',0x8000040
+VCSSetCmd=VCS_CHECKMENU_ID,'pvcsvmwn',0x8000000
+VCSSetCmd=VCS_ADD_ID,'vcs -i -t@"%Q" "%b%e"',0x8000040
+VCSSetCmd=VCS_REMOVE_ID,'del /f "%b%{??v|___}e"',0x8000040
+
+[Files]
+.\ADC0.C
+.\ADC0.H
+.\MAIN.C
+.\MAIN.H
+.\Motorsteuerung.dav
+.\Motorsteuerung_Project_Space.psp
+.\Project_Gerlach_Linhsen_Matthaei.pjt
+.\Project_Gerlach_Linhsen_Matthaei.sbl
+.\SCS.C
+.\SCS.H
+.\XE16xREGS.H
+.\start_master.asm
+.\IO.H
+.\IO.C
+.\CCU63.H
+.\CCU63.C
+.\GPT2.H
+.\GPT1.C
+.\GPT1.H
+.\GPT2.C
+
+[Ede]
+Toolchain=c:\program files (x86)\tasking\c166 v8.7r1\etc\c166.dol
+ToolchainName=TASKING Tools for C166/ST10 v8.7 r1
+ProjectDir=z:\projekt_linhsen_gerlach_matthaei\wechselrichtersteurungsregelungsmodulprogrammprojektverzeichnis
+EdeVersion=99.9r9 (Build 150)
+CodeWrightVersion=6.5b
+DefBuildSettings=True
+SaveFiles=True
+AbsolutePathNames=False
+StopAfterError=True
+KeepTmpFiles=False
+ExtMakefile=False
+ExtMakefileName=
+UserMakefile=False
+UserMakefileName=
+UseMakeOptions=False
+MakeOptions=
+CheckTarget=True
+ExtDebugger=False
+ExtDebuggerName=
+UseDOSShell=False
+SaveOptionMethod=0
+SaveOptionFileName=
+LoadOptionFileName=z:\projekte\master.opt
+LoadOptionStartup=True
+GroupProc=0
+GroupCpp=0
+GroupC=0
+GroupMisraC=0
+GroupAsm=0
+GroupMpp=0
+GroupLL=0
+GroupXvw=0
+DASSetup=0
+GroupList=GroupProc,GroupCpp,GroupC,GroupMisraC,GroupAsm,GroupMpp,GroupLL,GroupXvw,DASSetup
+
+[Directories]
+BinDir1=$(PRODDIR)\bin
+IncDir1=$(PRODDIR)\include
+LibDir1=$(PRODDIR)\lib
+
+[DefaultOptions]
+CpuType=CpuXE167F
+XvwUseSim=0
+XvwExecEnvBoard=Inf_xe167f_das_singleCfg
+CpuDerivative=FlashXE167F96F
+CPUCON1=0x0007
+LocSmallModelDef=0
+LocSmallModelPag=1
+LocDPP0=256
+LocDPP1=257
+LocDPP2=768
+StartupFileName=start_master.asm
+CPUCON2=0x8FBB
+SYSCON1=0x0003
+VECSEG_enable=1
+VECSEG=0x00C0
+ADDRSEL1_enable=1
+ADDRSEL1=0x4009
+ADDRSEL2_enable=1
+ADDRSEL7=0x0000
+EBCMOD0_enable=1
+EBCMOD0=0x7145
+EBCMOD1_enable=1
+EBCMOD1=0x0010
+FCONCS0_enable=1
+FCONCS1_enable=1
+FCONCS1=0x0021
+FCONCS2_enable=1
+FCONCS2=0x0021
+FCONCS7=0x0027
+TCONCS0_enable=1
+TCONCS0=0x0040
+TCONCS1_enable=1
+TCONCS1=0x0040
+TCONCS2_enable=1
+TCONCS2=0x7c3d
+CMCTR_enable=1
+COptim=CNoOptim
+COptimReorder=0
+LnkLocRegMap=1
+LnkLocSymbTab=1
+LnkLocSummary=1
+LocMemList=LocMemListType,LocMemListTypeRam,LocMemListTypeRam,LocMemListTypeRam,LocMemListStart,0,0x400000,0x600000,LocMemListEnd,2,0x600000,0x680000,LocMemListFill,LocMemListFillNone,LocMemListFillNone,LocMemListFillNone,LocMemListPattern,0xFF,0xFF,0xFF,LocMemListNotes
+FlashWorkspace=0xa000
+XvwConfigList=XvwConfigField,TerminateServer,ResetDelay,XvwConfigValue,0,10
+XvwDASWigglerType=XvwDASMiniWigglerII
+
+[Options]
+FileList=

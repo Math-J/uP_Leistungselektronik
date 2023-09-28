@@ -1,0 +1,153 @@
+//****************************************************************************
+// @Module        Project Settings
+// @Filename      MAIN.H
+// @Project       Motorsteuerung.dav
+//----------------------------------------------------------------------------
+// @Controller    Infineon XE167F-96F66
+//
+// @Compiler      Tasking Classic
+//
+// @Codegenerator 2.2
+//
+// @Description   This file contains all function prototypes and macros for 
+//                the MAIN module.
+//
+//----------------------------------------------------------------------------
+// @Date          9/28/2023 11:34:01
+//
+//****************************************************************************
+
+// USER CODE BEGIN (MAIN_Header,1)
+#define PI							3.141592654
+#define SWITCHING_FREQUENCY 		18000		// Schaltfrequenz der IGBTs
+#define TABLE_SIZE					900
+#define POLPAARZAHL					2
+#define	TIMER_STEP_GPT1				62e-9
+#define TIMER_STEP_GPT1_INVERS		16250000	
+#define	TIMER_STEP_CCU63			15e-9
+#define F_Nenn 						50
+#define INCREMENTS_PR_HALF			1024		// 1024 Impulse für eine halbe Umdrehung (bei jeder Flanke)
+#define TIMER_T6_PERIOD				0x07EE		// 8 ms
+#define TIMER_T6_PERIOD_INVERS		125
+
+#define K_p							0.25		// ursprünglich: 0.524, niedriger da weniger Schwingen
+#define K_i							0.12
+#define K_s							1
+
+// Trajektorie
+#define RISING_P					0
+#define HOLD_1						1
+#define FALLING_P					2
+#define HOLD_2						3
+#define FALLING_N					4
+#define HOLD_3						5
+#define RISING_N					6
+#define	BRAKE						7
+#define CONTROL						8
+// USER CODE END
+
+
+
+#ifndef _MAIN_H_
+#define _MAIN_H_
+
+//****************************************************************************
+// @Project Includes
+//****************************************************************************
+
+// USER CODE BEGIN (MAIN_Header,2)
+
+// USER CODE END
+
+
+//****************************************************************************
+// @Macros
+//****************************************************************************
+
+// USER CODE BEGIN (MAIN_Header,3)
+
+// USER CODE END
+
+
+//****************************************************************************
+// @Defines
+//****************************************************************************
+#define TASKING_CLASSIC
+
+// USER CODE BEGIN (MAIN_Header,4)
+
+// USER CODE END
+
+
+//****************************************************************************
+// @Typedefs
+//****************************************************************************
+
+// USER CODE BEGIN (MAIN_Header,5)
+
+// USER CODE END
+
+
+//****************************************************************************
+// @Imported Global Variables
+//****************************************************************************
+
+// USER CODE BEGIN (MAIN_Header,6)
+
+// USER CODE END
+
+
+//****************************************************************************
+// @Global Variables
+//****************************************************************************
+
+// USER CODE BEGIN (MAIN_Header,7)
+
+// USER CODE END
+
+
+//****************************************************************************
+// @Prototypes Of Global Functions
+//****************************************************************************
+
+
+void MAIN_vUnlockProtecReg(void);
+
+void MAIN_vLockProtecReg(void);
+
+void MAIN_vChangeFreq(void);
+
+// USER CODE BEGIN (MAIN_Header,8)
+
+// USER CODE END
+
+
+//****************************************************************************
+// @Interrupt Vectors
+//****************************************************************************
+
+// USER CODE BEGIN (MAIN_Header,9)
+
+// USER CODE END
+
+
+//****************************************************************************
+// @Project Includes
+//****************************************************************************
+
+
+#include  "XE16xREGS.H"
+#include  "SCS.H"
+
+#include  "IO.H"
+#include  "GPT1.H"
+#include  "GPT2.H"
+#include  "CCU63.H"
+#include  "ADC0.H"
+
+// USER CODE BEGIN (MAIN_Header,10)
+#include <math.h>
+// USER CODE END
+
+
+#endif  // ifndef _MAIN_H_

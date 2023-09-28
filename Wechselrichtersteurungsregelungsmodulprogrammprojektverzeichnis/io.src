@@ -1,0 +1,356 @@
+; TASKING C166/ST10 C compiler v8.7r1 Build 775
+; options: -e -Ic:\program files (x86)\tasking\c166 v8.7r1\include -x2
+;          -Bhoeufmknladij -OB -OE -zswitch_tabmem_default -zautobitastruct-4
+;          -zautobita-0 -FSC -A1 -zvolatile_union -O0 -g -newerr -s -i0 -Ms
+$DEBUG
+$NOLOCALS
+$EXTEND2
+$NOMOD166
+$STDNAMES(regsuper10bo.def)
+$EXTMAC
+$CASE
+$NOEXPANDREGBANK
+$MODEL(SMALL)
+	NAME	IO_C
+	?SYMB	'io.c',32,80,16
+	?SYMB	'',1,82,0
+	?SYMB	'80166',0,84,0
+	?SYMB	'',0,81,0
+	?SYMB	'void',00H,45,1
+	?SYMB	'char',080000H,45,2
+	?SYMB	'unsigned char',080000H,45,3
+	?SYMB	'short',0100000H,45,4
+	?SYMB	'unsigned short',0100000H,45,5
+	?SYMB	'long',0200000H,45,6
+	?SYMB	'unsigned long',0200000H,45,7
+	?SYMB	'float',0200000H,45,10
+	?SYMB	'double',0400000H,45,11
+	?SYMB	'int',0100000H,45,16
+	?SYMB	'unsigned int',0100000H,45,18
+	?SYMB	'bit',010000H,7,256
+	?SYMB	'io.c',0,29,1
+	?SYMB	'',0,86,1
+; io.c        1	//****************************************************************************
+; io.c        2	// @Module        Parallel Ports
+; io.c        3	// @Filename      IO.C
+; io.c        4	// @Project       Motorsteuerung.dav
+; io.c        5	//----------------------------------------------------------------------------
+; io.c        6	// @Controller    Infineon XE167F-96F66
+; io.c        7	//
+; io.c        8	// @Compiler      Tasking Classic
+; io.c        9	//
+; io.c       10	// @Codegenerator 2.2
+; io.c       11	//
+; io.c       12	// @Description   This file contains functions that use the IO module.
+; io.c       13	//
+; io.c       14	//----------------------------------------------------------------------------
+; io.c       15	// @Date          9/28/2023 11:34:04
+; io.c       16	//
+; io.c       17	//****************************************************************************
+; io.c       18	
+; io.c       19	// USER CODE BEGIN (IO_General,1)
+; io.c       20	
+; io.c       21	// USER CODE END
+; io.c       22	
+; io.c       23	
+; io.c       24	
+; io.c       25	//****************************************************************************
+; io.c       26	// @Project Includes
+; io.c       27	//****************************************************************************
+; io.c       28	
+; io.c       29	#include "MAIN.H"
+	?SYMB	'MAIN.H',0,29,2
+	?SYMB	'',0,86,2
+	?SYMB	'XE16xREGS.H',0,29,3
+	?SYMB	'',0,86,3
+	?SYMB	'',0,86,2
+	?SYMB	'SCS.H',0,29,3
+	?SYMB	'',0,86,3
+	?SYMB	'T$2',0,14,257
+	?SYMB	'SCS_EXTCLK_F_SYS',0,33,257
+	?SYMB	'SCS_EXTCLK_F_OUT',1,33,257
+	?SYMB	'SCS_EXTCLK_F_PLL',2,33,257
+	?SYMB	'SCS_EXTCLK_F_OSC',3,33,257
+	?SYMB	'SCS_EXTCLK_F_WU',4,33,257
+	?SYMB	'SCS_EXTCLK_F_TCK',5,33,257
+	?SYMB	'SCS_EXTCLK_F_OSC_FL',6,33,257
+	?SYMB	'SCS_EXTCLK_F_RTC',8,33,257
+	?SYMB	'',16,16,0
+	?SYMB	'SCS_EXTCLK_Type',257,13,258
+	?SYMB	'',0,86,2
+	?SYMB	'IO.H',0,29,3
+	?SYMB	'',0,86,3
+	?SYMB	'',0,86,2
+	?SYMB	'GPT1.H',0,29,3
+	?SYMB	'',0,86,3
+	?SYMB	'',0,86,2
+	?SYMB	'GPT2.H',0,29,3
+	?SYMB	'',0,86,3
+	?SYMB	'',0,86,2
+	?SYMB	'CCU63.H',0,29,3
+	?SYMB	'',0,86,3
+	?SYMB	'',0,86,2
+	?SYMB	'ADC0.H',0,29,3
+	?SYMB	'',0,86,3
+	?SYMB	'ubyte',3,13,259
+	?SYMB	'',0,86,2
+	?SYMB	'c:\program files (x86)\tasking\c166 v8.7r1\include\math.h',0,29,3
+	?SYMB	'',0,86,3
+	?SYMB	'',0,86,2
+	?SYMB	'',0,86,1
+; io.c       30	
+; io.c       31	// USER CODE BEGIN (IO_General,2)
+; io.c       32	
+; io.c       33	// USER CODE END
+; io.c       34	
+; io.c       35	
+; io.c       36	//****************************************************************************
+; io.c       37	// @Macros
+; io.c       38	//****************************************************************************
+; io.c       39	
+; io.c       40	// USER CODE BEGIN (IO_General,3)
+; io.c       41	
+; io.c       42	// USER CODE END
+; io.c       43	
+; io.c       44	
+; io.c       45	//****************************************************************************
+; io.c       46	// @Defines
+; io.c       47	//****************************************************************************
+; io.c       48	
+; io.c       49	// USER CODE BEGIN (IO_General,4)
+; io.c       50	
+; io.c       51	// USER CODE END
+; io.c       52	
+; io.c       53	
+; io.c       54	//****************************************************************************
+; io.c       55	// @Typedefs
+; io.c       56	//****************************************************************************
+; io.c       57	
+; io.c       58	// USER CODE BEGIN (IO_General,5)
+; io.c       59	
+; io.c       60	// USER CODE END
+; io.c       61	
+; io.c       62	
+; io.c       63	//****************************************************************************
+; io.c       64	// @Imported Global Variables
+; io.c       65	//****************************************************************************
+; io.c       66	
+; io.c       67	// USER CODE BEGIN (IO_General,6)
+; io.c       68	
+; io.c       69	// USER CODE END
+; io.c       70	
+; io.c       71	
+; io.c       72	//****************************************************************************
+; io.c       73	// @Global Variables
+; io.c       74	//****************************************************************************
+; io.c       75	
+; io.c       76	// USER CODE BEGIN (IO_General,7)
+; io.c       77	
+; io.c       78	// USER CODE END
+; io.c       79	
+; io.c       80	
+; io.c       81	//****************************************************************************
+; io.c       82	// @External Prototypes
+; io.c       83	//****************************************************************************
+; io.c       84	
+; io.c       85	// USER CODE BEGIN (IO_General,8)
+; io.c       86	
+; io.c       87	// USER CODE END
+; io.c       88	
+; io.c       89	
+; io.c       90	//****************************************************************************
+; io.c       91	// @Prototypes Of Local Functions
+; io.c       92	//****************************************************************************
+; io.c       93	
+; io.c       94	// USER CODE BEGIN (IO_General,9)
+; io.c       95	
+; io.c       96	// USER CODE END
+; io.c       97	
+; io.c       98	
+; io.c       99	//****************************************************************************
+; io.c      100	// @Function      void IO_vInit(void) 
+; io.c      101	//
+; io.c      102	//----------------------------------------------------------------------------
+; io.c      103	// @Description   This is the initialization function of the IO function 
+; io.c      104	//                library. It is assumed that the SFRs used by this library 
+; io.c      105	//                are in reset state. 
+; io.c      106	//
+; io.c      107	//----------------------------------------------------------------------------
+; io.c      108	// @Returnvalue   None
+; io.c      109	//
+; io.c      110	//----------------------------------------------------------------------------
+; io.c      111	// @Parameters    None
+; io.c      112	//
+; io.c      113	//----------------------------------------------------------------------------
+; io.c      114	// @Date          9/28/2023
+; io.c      115	//
+; io.c      116	//****************************************************************************
+; io.c      117	
+; io.c      118	// USER CODE BEGIN (IO_Function,1)
+; io.c      119	
+; io.c      120	// USER CODE END
+; io.c      121	
+; io.c      122	void IO_vInit(void)
+; io.c      123	{
+IO_1_PR	SECTION	CODE WORD PUBLIC 'CPROGRAM'
+	?LINE	123
+	PUBLIC	_IO_vInit
+	?SYMB	'IO_vInit',_IO_vInit,37,1
+	?SYMB	'',123,8,34
+	?SYMB	'uword',18,13,261
+_IO_vInit	PROC	FAR
+	?SYMB	'',00H,95,0
+; Locals:
+; 
+; Statics:
+; 
+; CSEs:
+; 
+; io.c      124	  // USER CODE BEGIN (IO_Function,2)
+; io.c      125	
+; io.c      126	  // USER CODE END
+; io.c      127	
+; io.c      128	
+; io.c      129	  ///  -----------------------------------------------------------------------
+; io.c      130	  ///  Configuration of Port P0:
+; io.c      131	  ///  -----------------------------------------------------------------------
+; io.c      132	  ///  - no pin of port P0 is used
+; io.c      133	
+; io.c      134	
+; io.c      135	  ///  -----------------------------------------------------------------------
+; io.c      136	  ///  Configuration of Port P1:
+; io.c      137	  ///  -----------------------------------------------------------------------
+; io.c      138	  ///  - no pin of port P1 is used
+; io.c      139	
+; io.c      140	
+; io.c      141	  ///  -----------------------------------------------------------------------
+; io.c      142	  ///  Configuration of Port P2:
+; io.c      143	  ///  -----------------------------------------------------------------------
+; io.c      144	  ///  - no pin of port P2 is used
+; io.c      145	
+; io.c      146	
+; io.c      147	  ///  -----------------------------------------------------------------------
+; io.c      148	  ///  Configuration of Port P3:
+; io.c      149	  ///  -----------------------------------------------------------------------
+; io.c      150	  ///  - no pin of port P3 is used
+; io.c      151	
+; io.c      152	
+; io.c      153	  ///  -----------------------------------------------------------------------
+; io.c      154	  ///  Configuration of Port P4:
+; io.c      155	  ///  -----------------------------------------------------------------------
+; io.c      156	  ///  P4.6 is used as alternate input for the GPT12E  timer4Count input(T4IN)
+; io.c      157	
+; io.c      158	  ///  P4.0 - P4.3 output driver characteristic: strong driver
+; io.c      159	  ///  P4.4 - P4.7 output driver characteristic: strong driver
+; io.c      160	
+; io.c      161	  ///  P4.0 - P4.3 output edge characteristic: sharp edge mode
+; io.c      162	  ///  P4.4 - P4.7 output edge characteristic: sharp edge mode
+; io.c      163	
+; io.c      164	
+; io.c      165	  ///  -----------------------------------------------------------------------
+; io.c      166	  ///  Configuration of Port P5:
+; io.c      167	  ///  -----------------------------------------------------------------------
+; io.c      168	  ///  P5.6 is used as alternate input for the  Analog Input Pin (AN56)
+; io.c      169	
+; io.c      170	
+; io.c      171	  ///  -----------------------------------------------------------------------
+; io.c      172	  ///  Configuration of Port P6:
+; io.c      173	  ///  -----------------------------------------------------------------------
+; io.c      174	  ///  - no pin of port P6 is used
+; io.c      175	
+; io.c      176	
+; io.c      177	  ///  -----------------------------------------------------------------------
+; io.c      178	  ///  Configuration of Port P7:
+; io.c      179	  ///  -----------------------------------------------------------------------
+; io.c      180	  ///  - no pin of port P7 is used
+; io.c      181	
+; io.c      182	
+; io.c      183	  ///  -----------------------------------------------------------------------
+; io.c      184	  ///  Configuration of Port P8:
+; io.c      185	  ///  -----------------------------------------------------------------------
+; io.c      186	  ///  P8.0 is used as general purpose output
+; io.c      187	  ///  - push/pull output is selected
+; io.c      188	  ///  - the pin status is low level
+; io.c      189	  ///  P8.1 is used as general purpose output
+; io.c      190	  ///  - push/pull output is selected
+; io.c      191	  ///  - the pin status is low level
+; io.c      192	
+; io.c      193	  ///  P8.0 - P8.3 output driver characteristic: strong driver
+; io.c      194	  ///  P8.4 - P8.6 output driver characteristic: strong driver
+; io.c      195	
+; io.c      196	  ///  P8.0 - P8.3 output edge characteristic: sharp edge mode
+; io.c      197	  ///  P8.4 - P8.6 output edge characteristic: sharp edge mode
+; io.c      198	
+; io.c      199	  P8_IOCR00      =  0x0080;      // load port control register 0
+	?LINE	199
+	MOV	R12,#080h
+	MOV	0E900h,R12
+; io.c      200	  P8_IOCR01      =  0x0080;      // load port control register 1
+	?LINE	200
+	MOV	R12,#080h
+	MOV	0E902h,R12
+; io.c      201	
+; io.c      202	  ///  -----------------------------------------------------------------------
+; io.c      203	  ///  Configuration of Port P9:
+; io.c      204	  ///  -----------------------------------------------------------------------
+; io.c      205	  ///  P9.0 is used as alternate output for the CCU63 output(CC60)
+; io.c      206	  ///  - push/pull output is selected
+; io.c      207	  ///  P9.1 is used as alternate output for the CCU63 output(CC61)
+; io.c      208	  ///  - push/pull output is selected
+; io.c      209	  ///  P9.2 is used as alternate output for the CCU63 output(CC62)
+; io.c      210	  ///  - push/pull output is selected
+; io.c      211	  ///  P9.3 is used as alternate output for the CCU63 output(COUT60)
+; io.c      212	  ///  - push/pull output is selected
+; io.c      213	  ///  P9.4 is used as alternate output for the CCU63 output(COUT61)
+; io.c      214	  ///  - push/pull output is selected
+; io.c      215	  ///  P9.5 is used as alternate output for the CCU63 output(COUT62)
+; io.c      216	  ///  - push/pull output is selected
+; io.c      217	
+; io.c      218	  ///  P9.0 - P9.3 output driver characteristic: strong driver
+; io.c      219	  ///  P9.4 - P9.7 output driver characteristic: strong driver
+; io.c      220	
+; io.c      221	  ///  P9.0 - P9.3 output edge characteristic: sharp edge mode
+; io.c      222	  ///  P9.4 - P9.7 output edge characteristic: sharp edge mode
+; io.c      223	
+; io.c      224	
+; io.c      225	  ///  -----------------------------------------------------------------------
+; io.c      226	  ///  Configuration of Port P10:
+; io.c      227	  ///  -----------------------------------------------------------------------
+; io.c      228	  ///  - no pin of port P10 is used
+; io.c      229	
+; io.c      230	
+; io.c      231	  ///  -----------------------------------------------------------------------
+; io.c      232	  ///  Configuration of Port P11:
+; io.c      233	  ///  -----------------------------------------------------------------------
+; io.c      234	  ///  - no pin of port P11 is used
+; io.c      235	
+; io.c      236	
+; io.c      237	  ///  -----------------------------------------------------------------------
+; io.c      238	  ///  Configuration of Port P15:
+; io.c      239	  ///  -----------------------------------------------------------------------
+; io.c      240	  ///  - no pin of port P15 is used
+; io.c      241	  ///  - Port15 Data register P15(Read only)
+; io.c      242	
+; io.c      243	
+; io.c      244	
+; io.c      245	  // USER CODE BEGIN (IO_Function,3)
+; io.c      246	
+; io.c      247	  // USER CODE END
+; io.c      248	
+; io.c      249	} //  End of function IO_vInit
+	?LINE	249
+	RETS
+_IO_vInit	ENDP
+	?SYMB	'',$,17,249
+; io.c      250	
+; io.c      251	
+; io.c      252	
+; io.c      253	
+; io.c      254	// USER CODE BEGIN (IO_General,10)
+; io.c      255	
+; io.c      256	// USER CODE END
+; io.c      257	
+IO_1_PR	ENDS
+
+	REGDEF	R0-R15
+	END

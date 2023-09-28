@@ -1,0 +1,19 @@
+* TASKING build target information file
+*
+* Project:	project_gerlach_linhsen_matthaei.pjt
+* Toolchain:	TASKING Tools for C166/ST10 v8.7 r1
+* EDE Version:	99.9r9 (Build 150)
+*
+
+adc0.obj|1695381939|709821073
+ccu63.obj|1695381939|2584148198
+gpt1.obj|1695381939|807222244
+gpt2.obj|1695381939|4213748146
+io.obj|1695381939|2257741454
+main.obj|1695381939|984643822
+motorsteuerung.obj|1695206447|2896936158
+project_gerlach_linhsen_matthaei.abs|1695206533|3939043981
+project_gerlach_linhsen_matthaei.out|1695381939|935267624
+scs.obj|1695381939|2898411668
+start.obj|1695206425|1825303486
+start_master.obj|1695206533|4210036495

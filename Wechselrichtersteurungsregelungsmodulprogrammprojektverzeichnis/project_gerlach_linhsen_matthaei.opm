@@ -1,0 +1,4 @@
+-G "z:\projekt_linhsen_gerlach_matthaei\wechselrichtersteurungsregelungsmodulprogrammprojektverzeichnis"
+-err "project_gerlach_linhsen_matthaei.err"
+-r
+-f "project_gerlach_linhsen_matthaei.mak"

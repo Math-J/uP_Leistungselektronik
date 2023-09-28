@@ -1,0 +1,49 @@
+TASKING program builder v8.7r1 Build 088
+Warning: Infinite loop detected; Not building sub-project project_gerlach_linhsen_matthaei.pjt
+Compiling and assembling adc0.c
+Trial version.  3 day(s) remaining
+Trial version.  3 day(s) remaining
+Compiling and assembling main.c
+Trial version.  3 day(s) remaining
+main.c:
+   385:   generateSinus();
+W  91: no prototype for function "generateSinus"
+total errors: 0, warnings: 1
+Trial version.  3 day(s) remaining
+Compiling and assembling scs.c
+Trial version.  3 day(s) remaining
+Trial version.  3 day(s) remaining
+Preprocessing start_master.asm
+Trial version.  3 day(s) remaining
+Compiling and assembling io.c
+Trial version.  3 day(s) remaining
+Trial version.  3 day(s) remaining
+Compiling and assembling ccu63.c
+Trial version.  3 day(s) remaining
+Trial version.  3 day(s) remaining
+Compiling and assembling gpt1.c
+Trial version.  3 day(s) remaining
+Trial version.  3 day(s) remaining
+Compiling and assembling gpt2.c
+Trial version.  3 day(s) remaining
+Trial version.  3 day(s) remaining
+Linking and locating to project_gerlach_linhsen_matthaei.out
+Trial version.  3 day(s) remaining
+
+	Number of symbols		: 1592
+	Number of sections		: 35
+	Number of groups		: 0
+	Number of classes		: 10
+	Number of modules		: 36
+	Total section size		: 0003634h
+	Total memory size		: 0344A04h
+		consisting of RAM	: 0284A04h
+		              ROM	: 00C0000h
+	Total RAM filled		: 0001208h
+	Total ROM filled		: 000242Ch
+	System stack size		: 0000200h
+	Heap size			: 0000000h
+	User stack size			: 00001ACh
+	Time spent			: 00:00:2.21
+Converting project_gerlach_linhsen_matthaei.out to project_gerlach_linhsen_matthaei.abs in IEEE-695 format
+Trial version.  3 day(s) remaining

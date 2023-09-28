@@ -1,0 +1,760 @@
+; TASKING C166/ST10 C compiler v8.7r1 Build 775
+; options: -e -Ic:\program files (x86)\tasking\c166 v8.7r1\include -x2
+;          -Bhoeufmknladij -OB -OE -zswitch_tabmem_default -zautobitastruct-4
+;          -zautobita-0 -FSC -A1 -zvolatile_union -O0 -g -newerr -s -i0 -Ms
+$DEBUG
+$NOLOCALS
+$EXTEND2
+$NOMOD166
+$STDNAMES(regsuper10bo.def)
+$EXTMAC
+$CASE
+$NOEXPANDREGBANK
+$MODEL(SMALL)
+	NAME	ADC0_C
+	?SYMB	'adc0.c',32,80,16
+	?SYMB	'',1,82,0
+	?SYMB	'80166',0,84,0
+	?SYMB	'',0,81,0
+	?SYMB	'void',00H,45,1
+	?SYMB	'char',080000H,45,2
+	?SYMB	'unsigned char',080000H,45,3
+	?SYMB	'short',0100000H,45,4
+	?SYMB	'unsigned short',0100000H,45,5
+	?SYMB	'long',0200000H,45,6
+	?SYMB	'unsigned long',0200000H,45,7
+	?SYMB	'float',0200000H,45,10
+	?SYMB	'double',0400000H,45,11
+	?SYMB	'int',0100000H,45,16
+	?SYMB	'unsigned int',0100000H,45,18
+	?SYMB	'bit',010000H,7,256
+	?SYMB	'adc0.c',0,29,1
+	?SYMB	'',0,86,1
+; adc0.c      1	//****************************************************************************
+; adc0.c      2	// @Module        Analog / Digital Converter  (ADC0)
+; adc0.c      3	// @Filename      ADC0.C
+; adc0.c      4	// @Project       Motorsteuerung.dav
+; adc0.c      5	//----------------------------------------------------------------------------
+; adc0.c      6	// @Controller    Infineon XE167F-96F66
+; adc0.c      7	//
+; adc0.c      8	// @Compiler      Tasking Classic
+; adc0.c      9	//
+; adc0.c     10	// @Codegenerator 2.2
+; adc0.c     11	//
+; adc0.c     12	// @Description   This file contains functions that use the ADC0 module.
+; adc0.c     13	//
+; adc0.c     14	//----------------------------------------------------------------------------
+; adc0.c     15	// @Date          9/28/2023 11:34:06
+; adc0.c     16	//
+; adc0.c     17	//****************************************************************************
+; adc0.c     18	
+; adc0.c     19	// USER CODE BEGIN (ADC0_General,1)
+; adc0.c     20	
+; adc0.c     21	// USER CODE END
+; adc0.c     22	
+; adc0.c     23	
+; adc0.c     24	
+; adc0.c     25	//****************************************************************************
+; adc0.c     26	// @Project Includes
+; adc0.c     27	//****************************************************************************
+; adc0.c     28	
+; adc0.c     29	#include "MAIN.H"
+	?SYMB	'MAIN.H',0,29,2
+	?SYMB	'',0,86,2
+	?SYMB	'XE16xREGS.H',0,29,3
+	?SYMB	'',0,86,3
+	?SYMB	'',0,86,2
+	?SYMB	'SCS.H',0,29,3
+	?SYMB	'',0,86,3
+	?SYMB	'T$2',0,14,257
+	?SYMB	'SCS_EXTCLK_F_SYS',0,33,257
+	?SYMB	'SCS_EXTCLK_F_OUT',1,33,257
+	?SYMB	'SCS_EXTCLK_F_PLL',2,33,257
+	?SYMB	'SCS_EXTCLK_F_OSC',3,33,257
+	?SYMB	'SCS_EXTCLK_F_WU',4,33,257
+	?SYMB	'SCS_EXTCLK_F_TCK',5,33,257
+	?SYMB	'SCS_EXTCLK_F_OSC_FL',6,33,257
+	?SYMB	'SCS_EXTCLK_F_RTC',8,33,257
+	?SYMB	'',16,16,0
+	?SYMB	'SCS_EXTCLK_Type',257,13,258
+	?SYMB	'',0,86,2
+	?SYMB	'IO.H',0,29,3
+	?SYMB	'',0,86,3
+	?SYMB	'',0,86,2
+	?SYMB	'GPT1.H',0,29,3
+	?SYMB	'',0,86,3
+	?SYMB	'',0,86,2
+	?SYMB	'GPT2.H',0,29,3
+	?SYMB	'',0,86,3
+	?SYMB	'',0,86,2
+	?SYMB	'CCU63.H',0,29,3
+	?SYMB	'',0,86,3
+	?SYMB	'',0,86,2
+	?SYMB	'ADC0.H',0,29,3
+	?SYMB	'',0,86,3
+	?SYMB	'ubyte',3,13,259
+	?SYMB	'',0,86,2
+	?SYMB	'c:\program files (x86)\tasking\c166 v8.7r1\include\math.h',0,29,3
+	?SYMB	'',0,86,3
+	?SYMB	'',0,86,2
+	?SYMB	'',0,86,1
+; adc0.c     30	
+; adc0.c     31	// USER CODE BEGIN (ADC0_General,2)
+; adc0.c     32	
+; adc0.c     33	// USER CODE END
+; adc0.c     34	
+; adc0.c     35	
+; adc0.c     36	//****************************************************************************
+; adc0.c     37	// @Macros
+; adc0.c     38	//****************************************************************************
+; adc0.c     39	
+; adc0.c     40	// USER CODE BEGIN (ADC0_General,3)
+; adc0.c     41	
+; adc0.c     42	// USER CODE END
+; adc0.c     43	
+; adc0.c     44	
+; adc0.c     45	//****************************************************************************
+; adc0.c     46	// @Defines
+; adc0.c     47	//****************************************************************************
+; adc0.c     48	
+; adc0.c     49	// USER CODE BEGIN (ADC0_General,4)
+; adc0.c     50	
+; adc0.c     51	// USER CODE END
+; adc0.c     52	
+; adc0.c     53	
+; adc0.c     54	//****************************************************************************
+; adc0.c     55	// @Typedefs
+; adc0.c     56	//****************************************************************************
+; adc0.c     57	
+; adc0.c     58	// USER CODE BEGIN (ADC0_General,5)
+; adc0.c     59	
+; adc0.c     60	// USER CODE END
+; adc0.c     61	
+; adc0.c     62	
+; adc0.c     63	//****************************************************************************
+; adc0.c     64	// @Imported Global Variables
+; adc0.c     65	//****************************************************************************
+; adc0.c     66	
+; adc0.c     67	// USER CODE BEGIN (ADC0_General,6)
+; adc0.c     68	   
+; adc0.c     69	// USER CODE END
+; adc0.c     70	
+; adc0.c     71	
+; adc0.c     72	//****************************************************************************
+; adc0.c     73	// @Global Variables
+; adc0.c     74	//****************************************************************************
+; adc0.c     75	
+; adc0.c     76	// USER CODE BEGIN (ADC0_General,7)
+; adc0.c     77	   
+; adc0.c     78	// USER CODE END
+; adc0.c     79	
+; adc0.c     80	
+; adc0.c     81	//****************************************************************************
+; adc0.c     82	// @External Prototypes
+; adc0.c     83	//****************************************************************************
+; adc0.c     84	
+; adc0.c     85	// USER CODE BEGIN (ADC0_General,8)
+; adc0.c     86	
+; adc0.c     87	// USER CODE END
+; adc0.c     88	
+; adc0.c     89	
+; adc0.c     90	//****************************************************************************
+; adc0.c     91	// @Prototypes Of Local Functions
+; adc0.c     92	//****************************************************************************
+; adc0.c     93	
+; adc0.c     94	// USER CODE BEGIN (ADC0_General,9)
+; adc0.c     95	
+; adc0.c     96	// USER CODE END
+; adc0.c     97	
+; adc0.c     98	
+; adc0.c     99	//****************************************************************************
+; adc0.c    100	// @Function      void ADC0_vInit(void) 
+; adc0.c    101	//
+; adc0.c    102	//----------------------------------------------------------------------------
+; adc0.c    103	// @Description   This is the initialization function of the ADC function 
+; adc0.c    104	//                library. It is assumed that the SFRs used by this library 
+; adc0.c    105	//                are in reset state. 
+; adc0.c    106	//                
+; adc0.c    107	//                Following SFR fields will be initialized:
+; adc0.c    108	//                GLOBCTR  - Global Control
+; adc0.c    109	//                RSPR0    - Priority and Arbitration Register
+; adc0.c    110	//                ASENR    - Arbitration slot enable register
+; adc0.c    111	//                CHCTRx   - Channel Control Register x
+; adc0.c    112	//                RCRx     - Result Control Register x
+; adc0.c    113	//                KSCFG    - Module configuration Register
+; adc0.c    114	//                INPCR    - Input class Registers
+; adc0.c    115	//                CHINPRx  - Channel Interrupt register
+; adc0.c    116	//                EVINPRx  - Event Interrupt register
+; adc0.c    117	//                SYNCTR   - Synchronisation control register
+; adc0.c    118	//                LCBRx    - Limit check boundary register
+; adc0.c    119	//                PISEL    - Port input selection
+; adc0.c    120	//                QMR0     - Sequential 0 mode register
+; adc0.c    121	//                CRMR1    - Parallel mode register
+; adc0.c    122	//                QMR2     - Sequential 2 mode register
+; adc0.c    123	//
+; adc0.c    124	//----------------------------------------------------------------------------
+; adc0.c    125	// @Returnvalue   None
+; adc0.c    126	//
+; adc0.c    127	//----------------------------------------------------------------------------
+; adc0.c    128	// @Parameters    None
+; adc0.c    129	//
+; adc0.c    130	//----------------------------------------------------------------------------
+; adc0.c    131	// @Date          9/28/2023
+; adc0.c    132	//
+; adc0.c    133	//****************************************************************************
+; adc0.c    134	
+; adc0.c    135	// USER CODE BEGIN (ADC0_Init,1)
+; adc0.c    136	
+; adc0.c    137	// USER CODE END
+; adc0.c    138	
+; adc0.c    139	void ADC0_vInit(void)
+; adc0.c    140	{
+ADC0_1_PR	SECTION	CODE WORD PUBLIC 'CPROGRAM'
+	?LINE	140
+	PUBLIC	_ADC0_vInit
+	?SYMB	'ADC0_vInit',_ADC0_vInit,37,1
+	?SYMB	'',140,8,34
+	?SYMB	'uword',18,13,261
+_ADC0_vInit	PROC	FAR
+	?SYMB	'',00H,95,0
+; Locals:
+; 
+; Statics:
+; 
+; CSEs:
+; 
+; adc0.c    141	  // USER CODE BEGIN (ADC0_Init,2)
+; adc0.c    142	
+; adc0.c    143	  // USER CODE END
+; adc0.c    144	
+; adc0.c    145	  ///  -----------------------------------------------------------------------
+; adc0.c    146	  ///  Configuration of ADC0 kernel configuration register:
+; adc0.c    147	  ///  -----------------------------------------------------------------------
+; adc0.c    148	  ADC0_KSCFG     =  0x0003;      // load ADC0 kernel configuration register
+	?LINE	148
+	MOV	R12,#03h
+	MOV	0E00Ch,R12
+; adc0.c    149	
+; adc0.c    150	  ///  - the ADC module clock is enabled
+; adc0.c    151	  ///  - the ADC module clock = 65.00 MHz
+; adc0.c    152	  ///   
+; adc0.c    153	
+; adc0.c    154	  _nop();  // one cycle delay 
+	?LINE	154
+	NOP
+; adc0.c    155	
+; adc0.c    156	  _nop();  // one cycle delay 
+	?LINE	156
+	NOP
+; adc0.c    157	
+; adc0.c    158	  ///  -----------------------------------------------------------------------
+; adc0.c    159	  ///  Configure global control register:
+; adc0.c    160	  ///  -----------------------------------------------------------------------
+; adc0.c    161	  ///  --- Conversion Timing -----------------
+; adc0.c    162	  ///  - conversion time (CTC)    = 01.31 us
+; adc0.c    163	
+; adc0.c    164	  ///  _Analog clock is 1/5th of module clock and digital clock is 1/1 times 
+; adc0.c    165	  ///  of module clock
+; adc0.c    166	
+; adc0.c    167	  ///  - the permanent arbitration mode is selected
+; adc0.c    168	  ADC0_GLOBCTR   =  0x0004;      // load global control register
+	?LINE	168
+	MOV	R12,#04h
+	MOV	0E010h,R12
+; adc0.c    169	
+; adc0.c    170	  ///  -----------------------------------------------------------------------
+; adc0.c    171	  ///  Configuration of Arbitration Slot enable register and also the Source 
+; adc0.c    172	  ///  Priority register:
+; adc0.c    173	  ///  -----------------------------------------------------------------------
+; adc0.c    174	  ///  - Arbitration Slot 0 is enabled
+; adc0.c    175	
+; adc0.c    176	  ///  - Arbitration Slot 1 is disabled
+; adc0.c    177	
+; adc0.c    178	  ///  - Arbitration Slot 2 is disabled
+; adc0.c    179	
+; adc0.c    180	  ///  - the priority of request source 0 is low
+; adc0.c    181	  ///  - the wait-for-start mode is selected for source 0
+; adc0.c    182	  ///  - the priority of request source 1 is low
+; adc0.c    183	  ///  - the wait-for-start mode is selected for source 1
+; adc0.c    184	  ///  - the priority of request source 2 is low
+; adc0.c    185	  ///  - the wait-for-start mode is selected for source 2
+; adc0.c    186	  ADC0_ASENR     =  0x0001;      // load Arbitration Slot enable register
+	?LINE	186
+	MOV	R12,#01h
+	MOV	0E018h,R12
+; adc0.c    187	
+; adc0.c    188	  ADC0_RSPR0     =  0x0000;      // load Priority and Arbitration register
+	?LINE	188
+	MOV	R12,#00h
+	MOV	0E014h,R12
+; adc0.c    189	
+; adc0.c    190	  ///  -----------------------------------------------------------------------
+; adc0.c    191	  ///  Configuration of Channel Control Registers:
+; adc0.c    192	  ///  -----------------------------------------------------------------------
+; adc0.c    193	  ///  Configuration of Channel 6
+; adc0.c    194	  ///  - the result register0 is selected
+; adc0.c    195	  ///  - the limit check 0 is selected
+; adc0.c    196	
+; adc0.c    197	  ///  - the reference voltage selected is Standard Voltage (Varef)
+; adc0.c    198	
+; adc0.c    199	  ///  - the input class selected is Input Class 0
+; adc0.c    200	
+; adc0.c    201	  ///  - LCBR0 is selected as upper boundary
+; adc0.c    202	
+; adc0.c    203	  ///  - LCBR1 is selected as lower boundary
+; adc0.c    204	
+; adc0.c    205	  ADC0_CHCTR6    =  0x0004;      // load channel control register
+	?LINE	205
+	MOV	R12,#04h
+	MOV	0E02Ch,R12
+; adc0.c    206	
+; adc0.c    207	  ///  -----------------------------------------------------------------------
+; adc0.c    208	  ///  Configuration of Sample Time and Resolution:
+; adc0.c    209	  ///  -----------------------------------------------------------------------
+; adc0.c    210	
+; adc0.c    211	  ///  10 bit resolution selected
+; adc0.c    212	
+; adc0.c    213	  ADC0_INPCR0    =  0x0000;      // load input class0 register
+	?LINE	213
+	MOV	R12,#00h
+	MOV	0E0C0h,R12
+; adc0.c    214	
+; adc0.c    215	  ///  10 bit resolution selected
+; adc0.c    216	
+; adc0.c    217	  ADC0_INPCR1    =  0x0000;      // load input class1 register
+	?LINE	217
+	MOV	R12,#00h
+	MOV	0E0C2h,R12
+; adc0.c    218	
+; adc0.c    219	  ///  -----------------------------------------------------------------------
+; adc0.c    220	  ///  Configuration of Result Control Registers:
+; adc0.c    221	  ///  -----------------------------------------------------------------------
+; adc0.c    222	  ///  Configuration of Result Control Register 0
+; adc0.c    223	  ///  - the data reduction filter is disabled
+; adc0.c    224	  ///  - the event interrupt is disabled
+; adc0.c    225	  ///  - the wait-for-read mode is enabled
+; adc0.c    226	
+; adc0.c    227	  ///  - the FIFO functionality is disabled
+; adc0.c    228	
+; adc0.c    229	  ADC0_RCR0      =  0x0040;      // load result control register 0
+	?LINE	229
+	MOV	R12,#040h
+	MOV	0E0B0h,R12
+; adc0.c    230	
+; adc0.c    231	  ///  Configuration of Result Control Register 1
+; adc0.c    232	  ///  - the data reduction filter is disabled
+; adc0.c    233	  ///  - the event interrupt is disabled
+; adc0.c    234	  ///  - the wait-for-read mode is disabled
+; adc0.c    235	
+; adc0.c    236	  ///  - the FIFO functionality is disabled
+; adc0.c    237	
+; adc0.c    238	  ADC0_RCR1      =  0x0000;      // load result control register 1
+	?LINE	238
+	MOV	R12,#00h
+	MOV	0E0B2h,R12
+; adc0.c    239	
+; adc0.c    240	  ///  Configuration of Result Control Register 2
+; adc0.c    241	  ///  - the data reduction filter is disabled
+; adc0.c    242	  ///  - the event interrupt is disabled
+; adc0.c    243	  ///  - the wait-for-read mode is disabled
+; adc0.c    244	
+; adc0.c    245	  ///  - the FIFO functionality is disabled
+; adc0.c    246	
+; adc0.c    247	  ADC0_RCR2      =  0x0000;      // load result control register 2
+	?LINE	247
+	MOV	R12,#00h
+	MOV	0E0B4h,R12
+; adc0.c    248	
+; adc0.c    249	  ///  Configuration of Result Control Register 3
+; adc0.c    250	  ///  - the data reduction filter is disabled
+; adc0.c    251	  ///  - the event interrupt is disabled
+; adc0.c    252	  ///  - the wait-for-read mode is disabled
+; adc0.c    253	
+; adc0.c    254	  ///  - the FIFO functionality is disabled
+; adc0.c    255	
+; adc0.c    256	  ADC0_RCR3      =  0x0000;      // load result control register 3
+	?LINE	256
+	MOV	R12,#00h
+	MOV	0E0B6h,R12
+; adc0.c    257	
+; adc0.c    258	  ///  Configuration of Result Control Register 4
+; adc0.c    259	  ///  - the data reduction filter is disabled
+; adc0.c    260	  ///  - the event interrupt is disabled
+; adc0.c    261	  ///  - the wait-for-read mode is disabled
+; adc0.c    262	
+; adc0.c    263	  ///  - the FIFO functionality is disabled
+; adc0.c    264	
+; adc0.c    265	  ADC0_RCR4      =  0x0000;      // load result control register 4
+	?LINE	265
+	MOV	R12,#00h
+	MOV	0E0B8h,R12
+; adc0.c    266	
+; adc0.c    267	  ///  Configuration of Result Control Register 5
+; adc0.c    268	  ///  - the data reduction filter is disabled
+; adc0.c    269	  ///  - the event interrupt is disabled
+; adc0.c    270	  ///  - the wait-for-read mode is disabled
+; adc0.c    271	
+; adc0.c    272	  ///  - the FIFO functionality is disabled
+; adc0.c    273	
+; adc0.c    274	  ADC0_RCR5      =  0x0000;      // load result control register 5
+	?LINE	274
+	MOV	R12,#00h
+	MOV	0E0BAh,R12
+; adc0.c    275	
+; adc0.c    276	  ///  Configuration of Result Control Register 6
+; adc0.c    277	  ///  - the data reduction filter is disabled
+; adc0.c    278	  ///  - the event interrupt is disabled
+; adc0.c    279	  ///  - the wait-for-read mode is disabled
+; adc0.c    280	
+; adc0.c    281	  ///  - the FIFO functionality is disabled
+; adc0.c    282	
+; adc0.c    283	  ADC0_RCR6      =  0x0000;      // load result control register 6
+	?LINE	283
+	MOV	R12,#00h
+	MOV	0E0BCh,R12
+; adc0.c    284	
+; adc0.c    285	  ///  Configuration of Result Control Register 7
+; adc0.c    286	  ///  - the data reduction filter is disabled
+; adc0.c    287	  ///  - the event interrupt is disabled
+; adc0.c    288	  ///  - the wait-for-read mode is disabled
+; adc0.c    289	
+; adc0.c    290	  ///  - the FIFO functionality is disabled
+; adc0.c    291	
+; adc0.c    292	  ADC0_RCR7      =  0x0000;      // load result control register 7
+	?LINE	292
+	MOV	R12,#00h
+	MOV	0E0BEh,R12
+; adc0.c    293	
+; adc0.c    294	  ///  -----------------------------------------------------------------------
+; adc0.c    295	  ///  Configuration of Channel Interrupt Node Pointer Register:
+; adc0.c    296	  ///  -----------------------------------------------------------------------
+; adc0.c    297	  ADC0_CHINPR0   =  0x0000;      // load channel interrupt node pointer 
+	?LINE	297
+	MOV	R12,#00h
+	MOV	0E098h,R12
+; adc0.c    298	                                 // register
+; adc0.c    299	
+; adc0.c    300	  ///  - the SR0 line become activated if channel 6 interrupt is generated
+; adc0.c    301	
+; adc0.c    302	  ADC0_CHINPR4   =  0x0000;      // load channel interrupt node pointer 
+	?LINE	302
+	MOV	R12,#00h
+	MOV	0E09Ah,R12
+; adc0.c    303	                                 // register
+; adc0.c    304	
+; adc0.c    305	  ADC0_CHINPR8   =  0x0000;      // load channel interrupt node pointer 
+	?LINE	305
+	MOV	R12,#00h
+	MOV	0E09Ch,R12
+; adc0.c    306	                                 // register
+; adc0.c    307	
+; adc0.c    308	  ADC0_CHINPR12  =  0x0000;      // load channel interrupt node pointer 
+	?LINE	308
+	MOV	R12,#00h
+	MOV	0E09Eh,R12
+; adc0.c    309	                                 // register
+; adc0.c    310	
+; adc0.c    311	  ///  -----------------------------------------------------------------------
+; adc0.c    312	  ///  Configuration of Event Interrupt Node Pointer Register for Source 
+; adc0.c    313	  ///  Interrupts:
+; adc0.c    314	  ///  -----------------------------------------------------------------------
+; adc0.c    315	  ///  - the SR 0 line become activated if the event 0 interrupt is generated
+; adc0.c    316	
+; adc0.c    317	  ADC0_EVINPR0   =  0x0000;      // load event interrupt set flag register 
+	?LINE	317
+	MOV	R12,#00h
+	MOV	0E0A8h,R12
+; adc0.c    318	
+; adc0.c    319	  ///  -----------------------------------------------------------------------
+; adc0.c    320	  ///  Configuration of Event Interrupt Node Pointer Register for Result 
+; adc0.c    321	  ///  Interrupts:
+; adc0.c    322	  ///  -----------------------------------------------------------------------
+; adc0.c    323	
+; adc0.c    324	  ADC0_EVINPR8   =  0x0000;      // load event interrupt set flag register 
+	?LINE	324
+	MOV	R12,#00h
+	MOV	0E0ACh,R12
+; adc0.c    325	
+; adc0.c    326	
+; adc0.c    327	  ADC0_EVINPR12  =  0x0000;      // load event interrupt set flag register 
+	?LINE	327
+	MOV	R12,#00h
+	MOV	0E0AEh,R12
+; adc0.c    328	
+; adc0.c    329	  ///  -----------------------------------------------------------------------
+; adc0.c    330	  ///  Configuration of Service Request Nodes 0 - 3 :
+; adc0.c    331	  ///  -----------------------------------------------------------------------
+; adc0.c    332	
+; adc0.c    333	  ///  -----------------------------------------------------------------------
+; adc0.c    334	  ///  Configuration of Limit Check Boundary:
+; adc0.c    335	  ///  -----------------------------------------------------------------------
+; adc0.c    336	
+; adc0.c    337	  ADC0_LCBR0     =  0x0198;      // load limit check boundary register 0
+	?LINE	337
+	MOV	R12,#0198h
+	MOV	0E084h,R12
+; adc0.c    338	
+; adc0.c    339	  ADC0_LCBR1     =  0x0E64;      // load limit check boundary register 1
+	?LINE	339
+	MOV	R12,#0E64h
+	MOV	0E086h,R12
+; adc0.c    340	
+; adc0.c    341	  ADC0_LCBR2     =  0x0554;      // load limit check boundary register 2
+	?LINE	341
+	MOV	R12,#0554h
+	MOV	0E088h,R12
+; adc0.c    342	
+; adc0.c    343	  ADC0_LCBR3     =  0x0AA8;      // load limit check boundary register 3
+	?LINE	343
+	MOV	R12,#0AA8h
+	MOV	0E08Ah,R12
+; adc0.c    344	
+; adc0.c    345	  ///  -----------------------------------------------------------------------
+; adc0.c    346	  ///  Configuration of Gating source and External Trigger Control:
+; adc0.c    347	  ///  -----------------------------------------------------------------------
+; adc0.c    348	  ///  - No Gating source selected for Arbitration Source 0
+; adc0.c    349	
+; adc0.c    350	  ///  - the trigger input ETR00 is selected for Source 0
+; adc0.c    351	
+; adc0.c    352	  ///  - No Gating source selected for Arbitration Source 1
+; adc0.c    353	
+; adc0.c    354	  ///  - the trigger input ETR00 is selected for Source 1
+; adc0.c    355	
+; adc0.c    356	  ///  - No Gating source selected for Arbitration Source 2
+; adc0.c    357	
+; adc0.c    358	  ///  - the trigger input ETR00 is selected for Source 1
+; adc0.c    359	
+; adc0.c    360	  ADC0_PISEL     =  0x0444;      // load external trigger control register
+	?LINE	360
+	MOV	R12,#0444h
+	MOV	0E004h,R12
+; adc0.c    361	
+; adc0.c    362	  ///  -----------------------------------------------------------------------
+; adc0.c    363	  ///  Configuration of Conversion Queue Mode Register:Sequential Source 0
+; adc0.c    364	  ///  -----------------------------------------------------------------------
+; adc0.c    365	  ///  - the gating line is permanently Enabled
+; adc0.c    366	  ///  - the external trigger is disabled
+; adc0.c    367	
+; adc0.c    368	  ADC0_QMR0      =  0x0001;      // load queue mode register
+	?LINE	368
+	MOV	R12,#01h
+	MOV	0E0E0h,R12
+; adc0.c    369	
+; adc0.c    370	  ///  -----------------------------------------------------------------------
+; adc0.c    371	  ///  Configuration of Conversion Queue Mode Register:Sequential Source 2
+; adc0.c    372	  ///  -----------------------------------------------------------------------
+; adc0.c    373	  ///  - the gating line is permanently Disabled
+; adc0.c    374	  ///  - the external trigger is disabled
+; adc0.c    375	  ///  - the trigger mode 0 is selected
+; adc0.c    376	
+; adc0.c    377	  ADC0_QMR2      =  0x0000;      // load queue mode register
+	?LINE	377
+	MOV	R12,#00h
+	MOV	0E0F0h,R12
+; adc0.c    378	
+; adc0.c    379	  ///  -----------------------------------------------------------------------
+; adc0.c    380	  ///  Configuration of Conversion Request Mode Registers:Parallel Source 
+; adc0.c    381	  ///  -----------------------------------------------------------------------
+; adc0.c    382	  ///  - the gating line is permanently Disabled
+; adc0.c    383	  ///  - the external trigger is disabled
+; adc0.c    384	  ///  - the source interrupt is disabled
+; adc0.c    385	  ///  - the autoscan functionality is disabled
+; adc0.c    386	
+; adc0.c    387	  ADC0_CRMR1     =  0x0000;      // load conversion request mode register 1
+	?LINE	387
+	MOV	R12,#00h
+	MOV	0E0ECh,R12
+; adc0.c    388	
+; adc0.c    389	  ///  -----------------------------------------------------------------------
+; adc0.c    390	  ///  Configuration of Synchronisation Registers:
+; adc0.c    391	  ///  -----------------------------------------------------------------------
+; adc0.c    392	  ///  - ADC0 is master 
+; adc0.c    393	  ADC0_SYNCTR   |=  0x0010;      // Synchronisation register
+	?LINE	393
+	MOV	R12,#0E01Ah
+	MOV	R13,[R12]
+	BSET	R13.4
+	MOV	[R12],R13
+; adc0.c    394	
+; adc0.c    395	  P5_DIDIS       =  0x0040;      // Port 5 Digital input disable register
+	?LINE	395
+	MOV	R12,#040h
+	MOV	0FE8Ah,R12
+; adc0.c    396	
+; adc0.c    397	  ADC0_GLOBCTR  |=  0x0300;      // turn on Analog part
+	?LINE	397
+	MOV	R12,#0E010h
+	MOV	R13,[R12]
+	OR	R13,#0300h
+	MOV	[R12],R13
+; adc0.c    398	
+; adc0.c    399	
+; adc0.c    400	  // USER CODE BEGIN (ADC0_Init,3)
+; adc0.c    401	
+; adc0.c    402	  // USER CODE END
+; adc0.c    403	
+; adc0.c    404	} //  End of function ADC0_vInit
+	?LINE	404
+	RETS
+_ADC0_vInit	ENDP
+	?SYMB	'',$,17,404
+; adc0.c    405	
+; adc0.c    406	
+; adc0.c    407	//****************************************************************************
+; adc0.c    408	// @Function      void ADC0_vStartSeq0ReqChNum(ubyte ubExtTrg, ubyte 
+; adc0.c    409	//                ubEnIntr, ubyte ubRFill, ubyte ubChannelNum) 
+; adc0.c    410	//
+; adc0.c    411	//----------------------------------------------------------------------------
+; adc0.c    412	// @Description   This function starts the conversion of the requested 
+; adc0.c    413	//                channel.
+; adc0.c    414	//                NOTE -
+; adc0.c    415	//                Before passing ubEnIntr argument as 1,make sure that Seq 0 
+; adc0.c    416	//                source interrupt is enabled.
+; adc0.c    417	//                External Trigger -> 0,Indicates software trigger 
+; adc0.c    418	//                (Conversion starts once this function is executed)
+; adc0.c    419	//
+; adc0.c    420	//----------------------------------------------------------------------------
+; adc0.c    421	// @Returnvalue   None
+; adc0.c    422	//
+; adc0.c    423	//----------------------------------------------------------------------------
+; adc0.c    424	// @Parameters    ubExtTrg: 
+; adc0.c    425	//                External Trigger : defines external trigger.
+; adc0.c    426	// @Parameters    ubEnIntr: 
+; adc0.c    427	//                Enable Source Interrupt : defines source interrupt
+; adc0.c    428	// @Parameters    ubRFill: 
+; adc0.c    429	//                Refill : defines the refill
+; adc0.c    430	// @Parameters    ubChannelNum: 
+; adc0.c    431	//                Channel number : Name of the Request Channel Number (0 - 
+; adc0.c    432	//                15)- see macros defined in the header file
+; adc0.c    433	//
+; adc0.c    434	//----------------------------------------------------------------------------
+; adc0.c    435	// @Date          9/28/2023
+; adc0.c    436	//
+; adc0.c    437	//****************************************************************************
+; adc0.c    438	
+; adc0.c    439	void ADC0_vStartSeq0ReqChNum(ubyte ubExtTrg, ubyte ubEnIntr, ubyte ubRFill, ubyte ubChannelNum)
+; adc0.c    440	{
+	?LINE	440
+	PUBLIC	_ADC0_vStartSeq0ReqChNum
+	?SYMB	'ADC0_vStartSeq0ReqChNum',_ADC0_vStartSeq0ReqChNum,37,1
+	?SYMB	'',440,8,34
+_ADC0_vStartSeq0ReqChNum	PROC	FAR
+	?SYMB	'',00H,95,0
+	MOV	[-R0],R15
+	?SYMB	'',$,96,2
+	MOV	[-R0],R12
+	?SYMB	'',$,96,4
+	MOV	[-R0],R13
+	?SYMB	'',$,96,6
+	MOV	[-R0],R14
+	?SYMB	'',$,96,8
+	SUB	R0,#02h
+	?SYMB	'',$,96,10
+; Locals:
+;     uwVal = offset 0
+;     ubRFill = offset 2
+;     ubEnIntr = offset 4
+;     ubExtTrg = offset 6
+;     ubChannelNum = offset 8
+; 
+; Statics:
+; 
+; CSEs:
+; 
+	?SYMB	'ubExtTrg',4,99,259
+	?SYMB	'-4',$,101,4
+	?SYMB	'ubEnIntr',3,99,259
+	?SYMB	'-6',$,101,3
+	?SYMB	'ubRFill',2,99,259
+	?SYMB	'-8',$,101,2
+	?SYMB	'ubChannelNum',5,99,259
+	?SYMB	'-2',$,101,5
+; adc0.c    441	
+; adc0.c    442	    uword uwVal = 0;
+	?SYMB	'uwVal',1,98,261
+	?SYMB	'-a',$,101,1
+	?LINE	442
+	MOV	R12,#00h
+	MOV	[R0],R12
+; adc0.c    443	    if (ubExtTrg == 1)
+	?LINE	443
+	MOVB	RL1,[R0+#06H]
+	CMPB	RL1,#01h
+	JMPR	cc_NE,_6
+; adc0.c    444	    {
+; adc0.c    445	        uwVal = 0x0080;
+	?LINE	445
+	MOV	R12,#080h
+	MOV	[R0],R12
+; adc0.c    446	    }
+	?LINE	446
+_6:
+; adc0.c    447	    if (ubEnIntr == 1)
+	?LINE	447
+	MOVB	RL1,[R0+#04H]
+	CMPB	RL1,#01h
+	JMPR	cc_NE,_7
+; adc0.c    448	    {
+; adc0.c    449	        uwVal = uwVal + 0x0040;
+	?LINE	449
+	MOV	R12,[R0]
+	ADD	R12,#040h
+	MOV	[R0],R12
+; adc0.c    450	    }
+	?LINE	450
+_7:
+; adc0.c    451	    if (ubRFill == 1)
+	?LINE	451
+	MOVB	RL1,[R0+#02H]
+	CMPB	RL1,#01h
+	JMPR	cc_NE,_8
+; adc0.c    452	    {
+; adc0.c    453	        uwVal = uwVal + 0x0020;
+	?LINE	453
+	MOV	R12,[R0]
+	ADD	R12,#020h
+	MOV	[R0],R12
+; adc0.c    454	    }
+	?LINE	454
+_8:
+; adc0.c    455	    uwVal = uwVal + (ubChannelNum & 0x001f);
+	?LINE	455
+	MOVB	RL1,[R0+#08H]
+	AND	R1,#01Fh
+	MOV	R12,[R0]
+	ADD	R12,R1
+	MOV	[R0],R12
+; adc0.c    456	
+; adc0.c    457	   ADC0_QINR0 = uwVal; // requested channel 
+	?LINE	457
+	MOV	R12,[R0]
+	MOV	0E0E6h,R12
+; adc0.c    458	
+; adc0.c    459	} //  End of function ADC0_vStartSeq0ReqChNum
+	?SYMB	'',$,102,1
+	?SYMB	'',$,102,5
+	?SYMB	'',$,102,2
+	?SYMB	'',$,102,3
+	?SYMB	'',$,102,4
+	?LINE	459
+	ADD	R0,#0Ah
+	?SYMB	'',$,96,0
+	RETS
+_ADC0_vStartSeq0ReqChNum	ENDP
+	?SYMB	'',$,17,459
+; adc0.c    460	
+; adc0.c    461	
+; adc0.c    462	
+; adc0.c    463	
+; adc0.c    464	// USER CODE BEGIN (ADC0_General,10)
+; adc0.c    465	
+; adc0.c    466	// USER CODE END
+; adc0.c    467	
+ADC0_1_PR	ENDS
+
+C166_US	SECTION	LDAT WORD GLBUSRSTACK 'CUSTACK'
+	DS	10
+C166_US	ENDS
+
+	REGDEF	R0-R15
+	END

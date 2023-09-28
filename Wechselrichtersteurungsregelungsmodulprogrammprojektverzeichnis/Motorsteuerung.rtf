@@ -1,0 +1,1741 @@
+{\rtf1\ansi\deff0\deftab720{\fonttbl{\f0\fnil MS Sans Serif;}{\f1\fnil\fcharset2 Symbol;}{\f2\fswiss\fprq2 System;}{\f3\fnil Times New Roman;}{\f4\fswiss\fprq2 Arial;}}
+{\colortbl\red0\green0\blue0;\red0\green0\blue128;\red255\green0\blue0;}
+\deflang1031\pard\plain\f4\fs28\cf0 DAvE's Project Documentation
+\par \plain\f4\fs22\cf0
+\par \plain\f4\fs22\cf0 Project: \tab\tab\b Motorsteuerung.dav
+\par 
+\par \plain\f4\fs22\cf0 Controller: \tab\tab\b XE167F-96F66
+\par \plain\f4\fs22\cf0 Compiler: \tab\tab\b Tasking Classic
+\par \plain\f4\fs22\cf0 Memory Model: \tab\b SMALL
+\par 
+\par \plain\f4\fs22\cf0 Date: \tab\tab\tab\b 9/28/2023 11:34:06
+\par 
+\par 
+\par \plain\f4\fs22\cf2\b Please read this document carefully and note
+\par \plain\f4\fs22\cf2\b the red-colored hints.
+\par 
+\par \plain\f4\fs22\cf2\b If you miss a file in the generated files list
+\par \plain\f4\fs22\cf2\b maybe you have forgotten to select the
+\par \plain\f4\fs22\cf2\b initialisation function of the related module.
+\par 
+\par \plain\f4\fs22\cf0 Generated Files:
+\plain\f4\fs20\cf0\b
+\par \tab\tab\tab MAIN.H
+\par \tab\tab\tab MAIN.C
+\par \tab\tab\tab SCS.H
+\par \tab\tab\tab SCS.C
+\par \tab\tab\tab XE16XREGS.H
+\par \tab\tab\tab IO.H
+\par \tab\tab\tab IO.C
+\par \tab\tab\tab GPT1.H
+\par \tab\tab\tab GPT1.C
+\par \tab\tab\tab GPT2.H
+\par \tab\tab\tab GPT2.C
+\par \tab\tab\tab CCU63.H
+\par \tab\tab\tab CCU63.C
+\par \tab\tab\tab ADC0.H
+\par \tab\tab\tab ADC0.C
+\par \tab\tab\tab MOTORSTEUERUNG.ASM
+\par 
+\par 
+\par \plain\f4\fs20\cf0
+\par \plain\f4\fs28\cf0\ul Project Settings
+\par
+\par \plain\f4\fs24\cf0 Macros:\f4\fs20\cf0
+\par \plain\f4\fs24\cf0 Functions:\f4\fs20\cf0
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void MAIN_vInit(void)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This function initializes the microcontroller.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab None
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void MAIN_vUnlockProtecReg(void)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This function makes it possible to write one protected
+
+\par \tab \tab register.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab None
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void MAIN_vLockProtecReg(void)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This function makes it possible to lock one protected
+
+\par \tab \tab register.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab None
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void MAIN_vChangeFreq(void)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This function is used to select the external crystal and
+
+\par \tab \tab configure the system frequency to 80Mhz/66Mhz.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab None
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void main(void)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This is the main function.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab None
+
+\par
+\par \plain\f4\fs24\cf0 Initialization:
+\par \plain\f4\fs20\cf0\b
+\par
+\tab Configuration of the System Clock:\par 
+\tab - VCO clock used, input clock is connected\par 
+\tab - input frequency is 10.00 MHz\par 
+\tab - configured system frequency is 66.00 MHz\par 
+\par 
+
+\par \plain\f4\fs20\cf0
+\par \plain\f4\fs28\cf0\ul Project Settings
+\par
+\par \plain\f4\fs24\cf0 Macros:\f4\fs20\cf0
+\par \plain\f4\fs24\cf0 Functions:\f4\fs20\cf0
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void SetK2(unsigned int K2)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab Sets K2 divider and waits until PLL is locked.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab K2: K2 divider
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void EnableVcoBypass(void)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab Enables VCO bypass and waits until bypass status is OK.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab None
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void DisableVcoBypass(void)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab Disables VCO bypass and waits until bypass status is OK.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab None
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void WaitForTimer13Stop(void)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This function waits until CCU6 timer T13 has stopped.
+
+\par \tab \tab Notes:
+
+\par \tab \tab - Function StartT13 should have been called before.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab None
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void SCS_StartXtalOsc(unsigned int UseTimer)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This function starts the crystal oscillator at XTAL1 and
+
+\par \tab \tab XTAL2 or enables the external oscillator input at XTAL1.
+
+\par \tab \tab If specified, the function enables and starts CCU6 timer T13
+
+\par \tab \tab and sets EXTCLK for counting XTAL clocks; if required, PLL
+
+\par \tab \tab frequency will be increased for synchronization purposes.
+
+\par \tab \tab Notes:
+
+\par \tab \tab - If UseTimer is set, the function will enable CCU6 and will
+
+\par \tab \tab overwrite previous settings for T13; additionally, it will
+
+\par \tab \tab overwrite previous EXTCLK clock multiplexer settings.
+
+\par \tab \tab - The user is responsible for disabling the register
+
+\par \tab \tab protection.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab UseTimer: 0 = no XTAL clock counting, >0 = XTAL clock counting
+
+\par \tab \tab via T13
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void SCS_SwitchSystemClock(unsigned int UseTimer)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This function switches the system clock from its state after
+
+\par \tab \tab boot program execution (internal oscillator and VCO usage) to
+
+\par \tab \tab XTAL clock (crystal or external oscillator) and VCO usage.
+
+\par \tab \tab If specified, the function waits for a certain number of XTAL
+
+\par \tab \tab clocks before switching to this clock.
+
+\par \tab \tab Notes:
+
+\par \tab \tab - It is assumed that the HP oscillator has been started.
+
+\par \tab \tab - UseTimer > 0 should be used only if SCS_StartXtal() with
+
+\par \tab \tab parameter UseTimer > 0 has been called before.
+
+\par \tab \tab - If UseTimer = 0, it must be guaranteed that XTAL
+
+\par \tab \tab clock is stable.
+
+\par \tab \tab - The user is responsible for disabling the register
+
+\par \tab \tab protection.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab UseTimer: 0 = no XTAL clock counting, > 0 = XTAL clock counting
+
+\par \tab \tab via T13
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void SCS_SwitchToHighPrecBandgap(void)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This function switches to high precision bandgap which is
+
+\par \tab \tab required e. g. for flash operation.
+
+\par \tab \tab Notes:
+
+\par \tab \tab - It is assumed that high precision bandgap has been enabled
+
+\par \tab \tab a sufficient time ago.
+
+\par \tab \tab - The user is responsible for disabling the register
+
+\par \tab \tab protection.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab None
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void SCS_CountClocksWithTimer (SCS_EXTCLK_Type Source,\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This function enables and starts CCU6 timer T13 for counting
+
+\par \tab \tab a certain number of ticks at EXTCLK. After that time, T13
+
+\par \tab \tab will stop.
+
+\par \tab \tab Notes:
+
+\par \tab \tab - The function will enable CCU6 and will overwrite previous
+
+\par \tab \tab settings for T13; additionally, it will overwrite previous
+
+\par \tab \tab EXTCLK clock multiplexer settings.
+
+\par \tab \tab - System frequency must be >= 2 * clock frequency.
+
+\par \tab \tab - The user is responsible for disabling the register
+
+\par \tab \tab protection.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab Source: The following clock source options are possible:
+
+\par \tab \tab SCS_EXTCLK_F_PLL     PLL output frequency
+
+\par \tab \tab SCS_EXTCLK_F_OSC     HP oscillator frequency
+
+\par \tab \tab SCS_EXTCLK_F_WU      wakeup oscillator frequency
+
+\par \tab \tab SCS_EXTCLK_F_TCK     test clock at Pin 2.9
+
+\par \tab \tab SCS_EXTCLK_F_OSC_FL  internal flash oscillator frequency
+
+\par \tab \tab SCS_EXTCLK_F_RTC     real-time clock
+
+\par \tab \tab Clocks: Number of clocks to count, 1...65535
+
+\par \plain\f4\fs20\cf0
+\par \plain\f4\fs28\cf0\ul Parallel Ports
+\par
+\par \plain\f4\fs24\cf0 Macros:\f4\fs20\cf0
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab IO_vSetPin(PinName)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro sets the chosen portpin to '1'.
+
+\par \tab \tab Note:
+
+\par \tab \tab See the 'Defines for the parameter PinName' section in this
+
+\par \tab \tab header file for the available definitions for the parameter
+
+\par \tab \tab PinName.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab PinName:
+
+\par \tab \tab Pin to be set to '1'
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab IO_vResetPin(PinName)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro sets the chosen portpin to '0'.
+
+\par \tab \tab Note:
+
+\par \tab \tab See the 'Defines for the parameter PinName' section in this
+
+\par \tab \tab header file for the available definitions for the parameter
+
+\par \tab \tab PinName.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab PinName:
+
+\par \tab \tab Pin to be set to '0'
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab IO_vTogglePin(PinName)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This marco toggles the chosen portpin.
+
+\par \tab \tab Note:
+
+\par \tab \tab See the 'Defines for the parameter PinName' section in this
+
+\par \tab \tab header file for the available definitions for the parameter
+
+\par \tab \tab PinName.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab PinName:
+
+\par \tab \tab Pin to be toggled
+
+\par \plain\f4\fs24\cf0 Functions:\f4\fs20\cf0
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void IO_vInit(void)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This is the initialization function of the IO function
+
+\par \tab \tab library. It is assumed that the SFRs used by this library
+
+\par \tab \tab are in reset state.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab None
+
+\par
+\par \plain\f4\fs24\cf0 Initialization:
+\par \plain\f4\fs20\cf0\b
+\par
+\tab Configuration of Port P0:\par 
+\tab - no pin of port P0 is used\par 
+\par 
+\tab Configuration of Port P1:\par 
+\tab - no pin of port P1 is used\par 
+\par 
+\tab Configuration of Port P2:\par 
+\tab - no pin of port P2 is used\par 
+\par 
+\tab Configuration of Port P3:\par 
+\tab - no pin of port P3 is used\par 
+\par 
+\tab Configuration of Port P4:\par 
+\tab P4.6 is used as alternate input for the GPT12E  timer4Count input(T4IN)\par 
+\par 
+\tab P4.0 - P4.3 output driver characteristic: strong driver\par 
+\tab P4.4 - P4.7 output driver characteristic: strong driver\par 
+\par 
+\tab P4.0 - P4.3 output edge characteristic: sharp edge mode\par 
+\tab P4.4 - P4.7 output edge characteristic: sharp edge mode\par 
+\par 
+\tab Configuration of Port P5:\par 
+\tab P5.6 is used as alternate input for the  Analog Input Pin (AN56)\par 
+\par 
+\tab Configuration of Port P6:\par 
+\tab - no pin of port P6 is used\par 
+\par 
+\tab Configuration of Port P7:\par 
+\tab - no pin of port P7 is used\par 
+\par 
+\tab Configuration of Port P8:\par 
+\tab P8.0 is used as general purpose output\par 
+\tab - push/pull output is selected\par 
+\tab - the pin status is low level\par 
+\tab P8.1 is used as general purpose output\par 
+\tab - push/pull output is selected\par 
+\tab - the pin status is low level\par 
+\par 
+\tab P8.0 - P8.3 output driver characteristic: strong driver\par 
+\tab P8.4 - P8.6 output driver characteristic: strong driver\par 
+\par 
+\tab P8.0 - P8.3 output edge characteristic: sharp edge mode\par 
+\tab P8.4 - P8.6 output edge characteristic: sharp edge mode\par 
+\par 
+\tab Configuration of Port P9:\par 
+\tab P9.0 is used as alternate output for the CCU63 output(CC60)\par 
+\tab - push/pull output is selected\par 
+\tab P9.1 is used as alternate output for the CCU63 output(CC61)\par 
+\tab - push/pull output is selected\par 
+\tab P9.2 is used as alternate output for the CCU63 output(CC62)\par 
+\tab - push/pull output is selected\par 
+\tab P9.3 is used as alternate output for the CCU63 output(COUT60)\par 
+\tab - push/pull output is selected\par 
+\tab P9.4 is used as alternate output for the CCU63 output(COUT61)\par 
+\tab - push/pull output is selected\par 
+\tab P9.5 is used as alternate output for the CCU63 output(COUT62)\par 
+\tab - push/pull output is selected\par 
+\par 
+\tab P9.0 - P9.3 output driver characteristic: strong driver\par 
+\tab P9.4 - P9.7 output driver characteristic: strong driver\par 
+\par 
+\tab P9.0 - P9.3 output edge characteristic: sharp edge mode\par 
+\tab P9.4 - P9.7 output edge characteristic: sharp edge mode\par 
+\par 
+\tab Configuration of Port P10:\par 
+\tab - no pin of port P10 is used\par 
+\par 
+\tab Configuration of Port P11:\par 
+\tab - no pin of port P11 is used\par 
+\par 
+\tab Configuration of Port P15:\par 
+\tab - no pin of port P15 is used\par 
+\tab - Port15 Data register P15(Read only)\par 
+\par 
+
+\par \plain\f4\fs20\cf0
+\par \plain\f4\fs28\cf0\ul General Purpose Timer Unit (GPT1)
+\par
+\par \plain\f4\fs24\cf0 Macros:\f4\fs20\cf0
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab GPT1_vStartTmr(TimerNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro starts the selected GPT1 timer. The timer
+
+\par \tab \tab continues to count from where it had stopped. The following
+
+\par \tab \tab definitions are available for TimerNr:
+
+\par \tab \tab GPT1_TIMER_2
+
+\par \tab \tab GPT1_TIMER_3
+
+\par \tab \tab GPT1_TIMER_4
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab TimerNr:
+
+\par \tab \tab the name of the timer to be started
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab GPT1_vStopTmr(TimerNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro stops the selected GPT1 timer. The contents of
+
+\par \tab \tab the timer register remain unchanged. The remote control of
+
+\par \tab \tab the selected timer is cleared. The following definitions
+
+\par \tab \tab are available for TimerNr:
+
+\par \tab \tab GPT1_TIMER_2
+
+\par \tab \tab GPT1_TIMER_3
+
+\par \tab \tab GPT1_TIMER_4
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab TimerNr:
+
+\par \tab \tab The name of the timer to be stopped
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab GPT1_vClearTmr(TimerNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro stops the selected GPT1 timer and sets the timer
+
+\par \tab \tab register to 0. The remote control of the selected timer is
+
+\par \tab \tab cleared. The following definitions are available for
+
+\par \tab \tab TimerNr:
+
+\par \tab \tab GPT1_TIMER_2
+
+\par \tab \tab GPT1_TIMER_3
+
+\par \tab \tab GPT1_TIMER_4
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab TimerNr:
+
+\par \tab \tab The name of the timer to be cleared
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab GPT1_uwReadTmr(TimerNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro returns the contents of the selected GPT1 timer.
+
+\par \tab \tab The timer is not stopped. Access of the CPU to the
+
+\par \tab \tab registers of the timer is of higher priority than a timer
+
+\par \tab \tab increment, a reload or a capture event. The following
+
+\par \tab \tab definitions are available for TimerNr:
+
+\par \tab \tab GPT1_TIMER_2
+
+\par \tab \tab GPT1_TIMER_3
+
+\par \tab \tab GPT1_TIMER_4
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b Current 16-bit value of the timer\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab TimerNr:
+
+\par \tab \tab The name of the timer to be readed
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab GPT1_vLoadTmr(TimerNr, Value)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro loads the selected GPT1 timer with the forwarded
+
+\par \tab \tab value. The timer is not stopped. The access of the CPU to
+
+\par \tab \tab the registers of the timers is of higher priority than a
+
+\par \tab \tab timer increment, a reload or a capture event. The following
+
+\par \tab \tab definitions are available for TimerNr:
+
+\par \tab \tab GPT1_TIMER_2
+
+\par \tab \tab GPT1_TIMER_3
+
+\par \tab \tab GPT1_TIMER_4
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab TimerNr:
+
+\par \tab \tab The name of the timer to be loaded
+
+\par \tab \tab Value:
+
+\par \tab \tab 16-bit value to be loaded
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab GPT1_vCountUp(TimerNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro sets the counter direction of the selected timer
+
+\par \tab \tab to up. The timer is not stopped.
+
+\par \tab \tab Note:
+
+\par \tab \tab Concerning timer x it is possible to make the counter
+
+\par \tab \tab direction dependent on the level at TxEUD. If this
+
+\par \tab \tab functionality has been selected, then function
+
+\par \tab \tab GPT1_vCountUp() set a  0 at TxEUD enabling counting up of
+
+\par \tab \tab timer x and a 1 at TxEUD enabling counting down of timer x.
+
+\par \tab \tab The following definitions are available for TimerNr:
+
+\par \tab \tab GPT1_TIMER_2
+
+\par \tab \tab GPT1_TIMER_3
+
+\par \tab \tab GPT1_TIMER_4
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab TimerNr:
+
+\par \tab \tab The name of the timer to be used
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab GPT1_vCountDown(TimerNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro sets the counter direction of the selected timer
+
+\par \tab \tab to down. The timer is not stopped.
+
+\par \tab \tab Note:
+
+\par \tab \tab Concerning timer x it is possible to make the counter
+
+\par \tab \tab direction dependent on the level at TxEUD. If this
+
+\par \tab \tab functionality has been selected, then function
+
+\par \tab \tab GPT1_vCountDown() set a 0 at TxEUD enabling counting down
+
+\par \tab \tab of timer x and a 1 at TxEUD enabling counting up of timer
+
+\par \tab \tab x. The following definitions are available for TimerNr:
+
+\par \tab \tab GPT1_TIMER_2
+
+\par \tab \tab GPT1_TIMER_3
+
+\par \tab \tab GPT1_TIMER_4
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab TimerNr:
+
+\par \tab \tab The name of the timer to be used
+
+\par \plain\f4\fs24\cf0 Functions:\f4\fs20\cf0
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void GPT1_vInit(void)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This is the initialization function of the GPT1 function
+
+\par \tab \tab library. It is assumed that the SFRs used by this library
+
+\par \tab \tab are in reset state.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab None
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void GPT1_viTmr3(void)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This is the interrupt service routine for the GPT1 timer 3.
+
+\par \tab \tab It is called up in the case of over or underflow of the
+
+\par \tab \tab timer 3 register.
+
+\par \tab \tab If the incremental interface mode is selected it is called
+
+\par \tab \tab up if count edge or count direction was detected.
+
+\par \tab \tab Please note that you have to add application specific code
+
+\par \tab \tab to this function.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab None
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void GPT1_viTmr2(void)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This is the interrupt service routine for the GPT1 timer 2.
+
+\par \tab \tab It is called up in the case of over or underflow of the
+
+\par \tab \tab timer 2 register.
+
+\par \tab \tab If the incremental interface mode is selected and the
+
+\par \tab \tab interrupt for this mode is not disabled it is called up if
+
+\par \tab \tab count edge or count direction was detected.
+
+\par \tab \tab Please note that you have to add application specific code
+
+\par \tab \tab to this function.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab None
+
+\par
+\par \plain\f4\fs24\cf0 Initialization:
+\par \plain\f4\fs20\cf0\b
+\par
+\tab Configuration of Timer Block Prescaler 1:\par 
+\par 
+\tab Configuration of Timer Block Prescaler 1:\par 
+\tab - prescaler for timer block 1 is 4\par 
+\par 
+\tab Configuration of the GPT1 Core Timer 3:\par 
+\tab - timer 3 works in timer mode\par 
+\tab - external up/down control is disabled\par 
+\tab - prescaler factor is 4\par 
+\tab - up/down control bit is set\par 
+\tab - alternate output function T3OUT (P7.0) is disabled\par 
+\tab - timer 3 output toggle latch (T3OTL) is set to 0\par 
+\tab - timer 3 run bit is reset\par 
+\par 
+\tab - prescaler for timer block 1 is 4\par 
+\par 
+\tab Configuration of the GPT1 Auxiliary Timer 2:\par 
+\tab - timer 2 works in timer mode\par 
+\tab - external up/down control is disabled\par 
+\tab - prescaler factor is 128\par 
+\tab - up/down control bit is reset\par 
+\tab - timer 2 run bit is reset\par 
+\par 
+\tab - prescaler for timer block 1 is 4\par 
+\par 
+\tab Configuration of the GPT1 Auxiliary Timer 4:\par 
+\tab - timer 4 works in counter mode\par 
+\tab - external up/down control is disabled\par 
+\tab - timer 4 is clocked by any transition on T4IN ()\par 
+\tab - up/down control bit is reset\par 
+\tab - timer 4 run bit is reset\par 
+\par 
+\tab - prescaler for timer block 1 is 4\par 
+\par 
+\tab Configuration of the used GPT1 Port Pins:\par 
+\tab - P4.6 is used for GPT12E  timer4Count input(T4IN)\par 
+\par 
+\tab Configuration of the used GPT1 Interrupts:\par 
+\tab timer 2 service request node configuration:\par 
+\tab - timer 2 interrupt priority level (ILVL) = 1\par 
+\tab - timer 2 interrupt group level (GLVL) = 0\par 
+\tab - timer 2 group priority extension (GPX) = 0\par 
+\par 
+\tab timer 3 service request node configuration:\par 
+\tab - timer 3 interrupt priority level (ILVL) = 15\par 
+\tab - timer 3 interrupt group level (GLVL) = 0\par 
+\tab - timer 3 group priority extension (GPX) = 0\par 
+\par 
+\tab Use PEC channel 4 for GPT1 T3 INT:\par 
+\tab - normal interrupt\par 
+\tab - pointers are not modified\par 
+\tab - transfer a word\par 
+\tab - service End of PEC interrrupt by a EOP interrupt node is disabled\par 
+\tab - channel link mode is disabled\par 
+\par 
+
+\par \plain\f4\fs20\cf0
+\par \plain\f4\fs28\cf0\ul General Purpose Timer Unit (GPT2)
+\par
+\par \plain\f4\fs24\cf0 Macros:\f4\fs20\cf0
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab GPT2_vStartTmr(TimerNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro starts the selected GPT2 timer. The timer
+
+\par \tab \tab continues to count from where it had stopped. The following
+
+\par \tab \tab definitions are available for TimerNr:
+
+\par \tab \tab GPT2_TIMER_5
+
+\par \tab \tab GPT2_TIMER_6
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab TimerNr:
+
+\par \tab \tab The name of the timer to be started
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab GPT2_vStopTmr(TimerNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro stops the selected GPT2 timer. The contents of
+
+\par \tab \tab the timer register remain unchanged. The remote control of
+
+\par \tab \tab the selected timer is cleared. The following definitions
+
+\par \tab \tab are available for TimerNr:
+
+\par \tab \tab GPT2_TIMER_5
+
+\par \tab \tab GPT2_TIMER_6
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab TimerNr:
+
+\par \tab \tab The name of the timer to be stopped
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab GPT2_vClearTmr(TimerNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro stops the selected GPT2 timer and sets the timer
+
+\par \tab \tab register to 0. The remote control of the selected timer is
+
+\par \tab \tab cleared. The following definitions are available for
+
+\par \tab \tab TimerNr:
+
+\par \tab \tab GPT2_TIMER_5
+
+\par \tab \tab GPT2_TIMER_6
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab TimerNr:
+
+\par \tab \tab The name of the timer to be cleared
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab GPT2_uwReadTmr(TimerNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro returns the contents of the selected GPT2 timer.
+
+\par \tab \tab The timer is not stopped. Access of the CPU to the
+
+\par \tab \tab registers of the timer is of higher priority than a timer
+
+\par \tab \tab increment, a reload or a capture event. The following
+
+\par \tab \tab definitions are available for TimerNr:
+
+\par \tab \tab GPT2_TIMER_5
+
+\par \tab \tab GPT2_TIMER_6
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b Current 16-bit value of the timer\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab TimerNr:
+
+\par \tab \tab The name of the timer to be readed
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab GPT2_vLoadTmr(TimerNr, Value)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro loads the selected GPT2 timer with the forwarded
+
+\par \tab \tab value. The timer is not stopped. The access of the CPU to
+
+\par \tab \tab the registers of the timers is of higher priority than a
+
+\par \tab \tab timer increment, a reload or a capture event. The following
+
+\par \tab \tab definitions are available for TimerNr:
+
+\par \tab \tab GPT2_TIMER_5
+
+\par \tab \tab GPT2_TIMER_6
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab TimerNr:
+
+\par \tab \tab The name of the timer to be loaded
+
+\par \tab \tab Value:
+
+\par \tab \tab 16-bit value to be loaded
+
+\par \plain\f4\fs24\cf0 Functions:\f4\fs20\cf0
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void GPT2_vInit(void)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This is the initialization function of the GPT2 function
+
+\par \tab \tab library. It is assumed that the SFRs used by this library
+
+\par \tab \tab are in reset state.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab None
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void GPT2_viTmr6(void)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This is the interrupt service routine for the GPT2 timer 6.
+
+\par \tab \tab It is called up in the case of over or underflow of the
+
+\par \tab \tab timer 6 register.
+
+\par \tab \tab Please note that you have to add application specific code
+
+\par \tab \tab to this function.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab None
+
+\par
+\par \plain\f4\fs24\cf0 Initialization:
+\par \plain\f4\fs20\cf0\b
+\par
+\tab Configuration of Timer Block Prescaler 1:\par 
+\par 
+\tab Configuration of Timer Block Prescaler 2:\par 
+\tab - prescaler for timer block 2 is 16\par 
+\par 
+\tab Configuration of the GPT2 Core Timer 5:\par 
+\tab - timer 5 works in timer mode\par 
+\tab - prescaler factor is 16\par 
+\tab - up/down control bit is reset\par 
+\tab - external up/down control is disabled\par 
+\tab - timer 5 run bit is reset\par 
+\tab - timer 5 remote control is disabled\par 
+\par 
+\tab Configuration of the GPT2 Core Timer 6:\par 
+\tab - timer 6 works in timer mode\par 
+\tab - prescaler factor is 256\par 
+\tab - up/down control bit is set\par 
+\tab - external up/down control is disabled\par 
+\tab - alternate output function T6OUT (P6.2) is disabled\par 
+\tab - alternate output function T6OUT (P7.0) is disabled\par 
+\tab - timer 6 output toggle latch (T6OTL) is set to 0\par 
+\tab - timer 6 run bit is reset\par 
+\tab - timer 6 is not cleared on a capture\par 
+\par 
+\tab Configuration of the GPT2 CAPREL:\par 
+\tab - capture T5 into CAPREL is disabled\par 
+\tab - capture trigger from pin CAPIN\par 
+\tab - capure is disabled\par 
+\tab - timer 5 is not cleared on a capture\par 
+\tab - timer 5 is just captured without any correction\par 
+\par 
+\tab Configuration of the used GPT2 Port Pins:\par 
+\par 
+\tab Configuration of the used GPT2 Interrupts:\par 
+\tab timer 6 service request node configuration:\par 
+\tab - timer 6 interrupt priority level (ILVL) = 3\par 
+\tab - timer 6 interrupt group level (GLVL) = 0\par 
+\tab - timer 6 group priority extension (GPX) = 0\par 
+\par 
+
+\par \plain\f4\fs20\cf0
+\par \plain\f4\fs28\cf0\ul Capture / Compare Unit 63 (CCU63)
+\par
+\par \plain\f4\fs24\cf0 Macros:\f4\fs20\cf0
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab CCU63_vStartTmr(TimerNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro starts the selected CCU63 timer. The timer
+
+\par \tab \tab continues counting from where it stopped.
+
+\par \tab \tab The following definitions for TimerNr are available:
+
+\par \tab \tab CCU63_TIMER_12
+
+\par \tab \tab CCU63_TIMER_13
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab TimerNr:
+
+\par \tab \tab Name of the CCU63 timer to be started
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab CCU63_vStopTmr(TimerNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro stops the selected CCU63 timer. The content of
+
+\par \tab \tab the timer register remains unchanged.
+
+\par \tab \tab The following definitions for TimerNr are available:
+
+\par \tab \tab CCU63_TIMER_12
+
+\par \tab \tab CCU63_TIMER_13
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab TimerNr:
+
+\par \tab \tab Name of the CCU63 timer to be stopped
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab CCU63_vResetTmr(TimerNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro sets the selected CCU63 timer counter register
+
+\par \tab \tab to zero. Timer is not stopped.
+
+\par \tab \tab The following definitions for TimerNr are available:
+
+\par \tab \tab CCU63_TIMER_12
+
+\par \tab \tab CCU63_TIMER_13
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab TimerNr:
+
+\par \tab \tab Name of the CCU63 timer to be cleared
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab CCU63_vSetTmrPeriod(TimerNr, Value)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro loads the period register of the selected CCU63
+
+\par \tab \tab timer.
+
+\par \tab \tab Note: Call the macro CCU63_vEnableShadowTransfer() to
+
+\par \tab \tab enable the shadow transfer.
+
+\par \tab \tab The following definitions for TimerNr are available:
+
+\par \tab \tab CCU63_TIMER_12
+
+\par \tab \tab CCU63_TIMER_13
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab TimerNr:
+
+\par \tab \tab Name of the CCU63 timer to be used
+
+\par \tab \tab Value:
+
+\par \tab \tab 16-bit Value with which the CCU63 timer reload register is
+
+\par \tab \tab to be loaded
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab CCU63_uwGetTmrCounter(TimerNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro returns the contens of the selected CCU63 timer
+
+\par \tab \tab counter register.
+
+\par \tab \tab The following definitions for TimerNr are available:
+
+\par \tab \tab CCU63_TIMER_12
+
+\par \tab \tab CCU63_TIMER_13
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b 16-bit counter value\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab TimerNr:
+
+\par \tab \tab Name of the CCU63 timer to be used
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab CCU63_vEnableShadowTransfer(TimerNr)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro enables the transfer from the shadow registers
+
+\par \tab \tab to the actual CCU63 registers.
+
+\par \tab \tab The following definitions for TimerNr are available:
+
+\par \tab \tab CCU63_TIMER_12
+
+\par \tab \tab CCU63_TIMER_13
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab TimerNr:
+
+\par \tab \tab Name of the CCU63 timer to be used
+
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab CCU63_vLoadChannelShadowRegister(ChName, Value)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro loads the selected CCU63 channel shadow register
+
+\par \tab \tab with the parameter Value.
+
+\par \tab \tab The following definitions are available for RegName:
+
+\par \tab \tab CCU63_CHANNEL_0 .. CCU63_CHANNEL_3 (see @Defines in header
+
+\par \tab \tab file)
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab ChName:
+
+\par \tab \tab Name of the CCU63 channel to be loaded
+
+\par \tab \tab Value:
+
+\par \tab \tab 16-bit Value with which the CCU63 shadow register is to be
+
+\par \tab \tab loaded
+
+\par \plain\f4\fs24\cf0 Functions:\f4\fs20\cf0
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void CCU63_vInit(void)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This is the initialization function of the CCU63 function
+
+\par \tab \tab library. It is assumed that the SFRs used by this library
+
+\par \tab \tab are in reset state.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab None
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void CCU63_viNodeI0(void)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This is the interrupt service routine for the CCU63 node
+
+\par \tab \tab I0. If the content of the corresponding compare timer
+
+\par \tab \tab (configurable) equals the content of the capture/compare
+
+\par \tab \tab register or if a capture event occurs at the associated
+
+\par \tab \tab port pin, the interrupt request flag is set and an
+
+\par \tab \tab interrupt is triggered (only if enabled).
+
+\par \tab \tab Please note that you have to add application specific code
+
+\par \tab \tab to this function.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab None
+
+\par
+\par \plain\f4\fs24\cf0 Initialization:
+\par \plain\f4\fs20\cf0\b
+\par
+\tab Configuration of KERNEL REGISTERS :\par 
+\tab - CCU63 Module is enabled.\par 
+\tab - The CCU63 module clock = 65.000 MHz.\par 
+\tab - T12 is enabled.\par 
+\tab - T13 is enabled.\par 
+\tab - MCM is enabled.\par 
+\par 
+\tab Configuration of CCU63 Timer 12:\par 
+\tab - Timer 12 Input clock factor (T12CLK) is 0\par 
+\tab - prescaler factor is 0\par 
+\tab - Timer 12 run bit is reset\par 
+\tab - Single shot mode is disabled\par 
+\tab - Timer 12 works in center aligned mode\par 
+\tab - Interrupt on period match is enabled\par 
+\tab - Interrupt on one match is enabled\par 
+\tab - No External run selection is selected.\par 
+\tab - Timer mode is selected.\par 
+\tab -\par 
+\par 
+\tab Configuration of T13HR Signal:\par 
+\tab - Signal T13HRA is selected as Input\par 
+\par 
+\tab Configuration of CCU63 Timer 13:\par 
+\tab - Timer 13 Input Clock factor (T13CLK) is 0\par 
+\tab - prescaler factor is 0\par 
+\tab - Timer 13 run bit is reset\par 
+\tab - Trigger control is disabled\par 
+\tab - No External run selection is selected.\par 
+\tab - Timer mode is selected.\par 
+\tab -\par 
+\tab - Single shot mode is disabled\par 
+\tab - Interrupt on period match is disabled\par 
+\tab - Interrupt on compare match is disabled\par 
+\par 
+\tab Configuration of Multi Channel Mode:\par 
+\tab - Multi channel mode is disabled\par 
+\par 
+\tab Configuration of CCU63 Channel 0:\par 
+\tab - Compare mode 1 is selected\par 
+\tab - T12 modulation for output CC60 is enabled\par 
+\tab - T13 modulation for output CC60 is disabled\par 
+\tab - The trap functionality of the pin CC60 is disabled\par 
+\tab - The compare output CC60 drives passive level while CC60ST is '0'\par 
+\tab - The passive level of the output CC60 is '0'\par 
+\tab - T12 modulation for output COUT60 is enabled\par 
+\tab - T13 modulation for output COUT60 is disabled\par 
+\tab - The trap functionality of the pin COUT60 is disabled\par 
+\tab - The compare output COUT60 drives passive level while CC60ST is '1'\par 
+\tab - The passive level of the output COUT60 is '0'\par 
+\tab - Dead time generation is enabled\par 
+\par 
+\tab - Generation interrupt on flag ICC60R is disabled\par 
+\tab - Generation interrupt on flag ICC60F is disabled\par 
+\par 
+\tab Configuration of CCU63 Channel 1:\par 
+\tab - Compare mode 1 is selected\par 
+\tab - T12 modulation for output CC61 is enabled\par 
+\tab - T13 modulation for output CC61 is disabled\par 
+\tab - The trap functionality of the pin CC61 is disabled\par 
+\tab - The compare output CC61 drives passive level while CC61ST is '0'\par 
+\tab - The passive level of the output CC61 is '0'\par 
+\tab - T12 modulation for output COUT61 is enabled\par 
+\tab - T13 modulation for output COUT61 is disabled\par 
+\tab - The trap functionality of the pin COUT61 is disabled\par 
+\tab - The compare output COUT61 drives passive level while CC61ST is '1'\par 
+\tab - The passive level of the output COUT61 is '0'\par 
+\tab - Dead time generation is enabled\par 
+\par 
+\tab - Generation interrupt on flag ICC61R is disabled\par 
+\tab - Generation interrupt on flag ICC61F is disabled\par 
+\par 
+\tab Configuration of CCU63 Channel 2:\par 
+\tab - Compare mode 1 is selected\par 
+\tab - T12 modulation for output CC62 is enabled\par 
+\tab - T13 modulation for output CC62 is disabled\par 
+\tab - The trap functionality of the pin CC62 is disabled\par 
+\tab - The compare output CC62 drives passive level while CC62ST is '0'\par 
+\tab - The passive level of the output CC62 is '0'\par 
+\tab - T12 modulation for output COUT62 is enabled\par 
+\tab - T13 modulation for output COUT62 is disabled\par 
+\tab - The trap functionality of the pin COUT62 is disabled\par 
+\tab - The compare output COUT62 drives passive level while CC62ST is '1'\par 
+\tab - The passive level of the output COUT62 is '0'\par 
+\tab - Dead time generation is enabled\par 
+\par 
+\tab - Generation interrupt on flag ICC62R is disabled\par 
+\tab - Generation interrupt on flag ICC62F is disabled\par 
+\par 
+\tab Configuration of CCU63 Channel 3:\par 
+\tab - T13 output is not inverted\par 
+\par 
+\tab Configuration of CCU63 trap control:\par 
+\tab - Trap can only be generated by SW by setting the bit TRPF\par 
+\tab - The trap state is left when a zero-match of T12 (while counting up)\par 
+\tab is detected (synchronization to T12)\par 
+\tab - Bit TRPF is automatically cleared by HW (according to TRPPEN, TRPM0\par 
+\tab and TRPM1)\par 
+\tab - Trap interrupt is disabled\par 
+\par 
+\tab Configuration of CCU63 interrupt control:\par 
+\tab - For channel 0 interrupts is node I0 selected\par 
+\tab - For channel 1 interrupts is node I0 selected\par 
+\tab - For channel 2 interrupts is node I0 selected\par 
+\tab - For correct hall event interrupt is node I0 selected\par 
+\tab - For error interrupts is node I0 selected\par 
+\tab - For T12 interrupts is node I0 selected\par 
+\tab - For T13 interrupts is node I0 selected\par 
+\par 
+\tab Configuration of the used CCU63 Channel Port Pins:\par 
+\tab - P9.0 is used for CCU63 output(CC60)\par 
+\tab - P9.1 is used for CCU63 output(CC61)\par 
+\tab - P9.2 is used for CCU63 output(CC62)\par 
+\tab - P9.3 is used for CCU63 output(COUT60)\par 
+\tab - P9.4 is used for CCU63 output(COUT61)\par 
+\tab - P9.5 is used for CCU63 output(COUT62)\par 
+\par 
+\tab Configuration of the used CCU63 Channels Interrupts:\par 
+\tab NodeI0 service request node configuration:\par 
+\tab - NodeI0 interrupt priority level (ILVL) = 13\par 
+\tab - NodeI0 interrupt group level (GLVL) = 0\par 
+\tab - NodeI0 group priority extension (GPX) = 0\par 
+\par 
+\tab Configuration of T12, T13 ---- CCU63_TCTR4 Register:\par 
+\tab - Enable shadow transfer of T12 and T13\par 
+\tab - Timer 12 run bit is reset\par 
+\tab - Timer 13 run bit is reset\par 
+\par 
+
+\par \plain\f4\fs20\cf0
+\par \plain\f4\fs28\cf0\ul Analog / Digital Converter  (ADC0)
+\par
+\par \plain\f4\fs24\cf0 Macros:\f4\fs20\cf0
+\par
+\par
+\par \plain\f4\fs20\cf0 \tab Macro:
+\par \plain\f4\fs20\cf0\b \tab \tab uword ADC0_uwGetResultData(RegNum)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This macro returns the left aligned, 10-bit result data of
+
+\par \tab \tab the last conversion from requested result register
+
+\par \tab \tab Ex- RegNum = RESULT_REG_0,for Result register 0
+
+\par \tab \tab RegNum = RESULT_REG_2,for Result register 2
+
+\par \tab \tab - For 8 bit resolution user has to right shift the result
+
+\par \tab \tab by 2 bits as shown below
+
+\par \tab \tab uwResult = ADC0_uwGetResultData(RESULT_REG_0);
+
+\par \tab \tab uwResult >>= 2;
+
+\par \tab \tab NOTE -
+
+\par \tab \tab If this macro is called before ADC0_uwGetResultChNum macro
+
+\par \tab \tab for the same result register then channel information will
+
+\par \tab \tab be lost.So always call ADC0_uwGetResultChNum macro before
+
+\par \tab \tab this macro if channel information is required.
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b Returns result data from requested result register\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab RegNum:
+
+\par \tab \tab RegNum: defines the result register number
+
+\par \plain\f4\fs24\cf0 Functions:\f4\fs20\cf0
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void ADC0_vInit(void)\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This is the initialization function of the ADC function
+
+\par \tab \tab library. It is assumed that the SFRs used by this library
+
+\par \tab \tab are in reset state.
+
+\par \tab \tab Following SFR fields will be initialized:
+
+\par \tab \tab GLOBCTR  - Global Control
+
+\par \tab \tab RSPR0    - Priority and Arbitration Register
+
+\par \tab \tab ASENR    - Arbitration slot enable register
+
+\par \tab \tab CHCTRx   - Channel Control Register x
+
+\par \tab \tab RCRx     - Result Control Register x
+
+\par \tab \tab KSCFG    - Module configuration Register
+
+\par \tab \tab INPCR    - Input class Registers
+
+\par \tab \tab CHINPRx  - Channel Interrupt register
+
+\par \tab \tab EVINPRx  - Event Interrupt register
+
+\par \tab \tab SYNCTR   - Synchronisation control register
+
+\par \tab \tab LCBRx    - Limit check boundary register
+
+\par \tab \tab PISEL    - Port input selection
+
+\par \tab \tab QMR0     - Sequential 0 mode register
+
+\par \tab \tab CRMR1    - Parallel mode register
+
+\par \tab \tab QMR2     - Sequential 2 mode register
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab None
+
+\par
+\par \plain\f4\fs20\cf0 \tab Function:
+\par \plain\f4\fs20\cf0\b \tab \tab void ADC0_vStartSeq0ReqChNum(ubyte ubExtTrg, ubyte\plain\f4\fs20\cf0
+\par \tab Description:
+\par \plain\f4\fs20\cf0\i
+\tab \tab This function starts the conversion of the requested
+
+\par \tab \tab channel.
+
+\par \tab \tab NOTE -
+
+\par \tab \tab Before passing ubEnIntr argument as 1,make sure that Seq 0
+
+\par \tab \tab source interrupt is enabled.
+
+\par \tab \tab External Trigger -> 0,Indicates software trigger
+
+\par \tab \tab (Conversion starts once this function is executed)
+
+\par \plain\f4\fs20\cf0 \tab Returnvalue:
+\par \tab \tab \plain\f4\fs20\cf0\b None\plain\f4\fs20\cf0
+\par \plain\f4\fs20\cf0 \tab Parameters:
+\par \plain\f4\fs20\cf0\b 
+\tab \tab ubExtTrg:
+
+\par \tab \tab External Trigger : defines external trigger.
+
+\par \tab \tab ubEnIntr:
+
+\par \tab \tab Enable Source Interrupt : defines source interrupt
+
+\par \tab \tab ubRFill:
+
+\par \tab \tab Refill : defines the refill
+
+\par \tab \tab ubChannelNum:
+
+\par \tab \tab Channel number : Name of the Request Channel Number (0 -
+
+\par \tab \tab 15)- see macros defined in the header file
+
+\par
+\par \plain\f4\fs24\cf0 Initialization:
+\par \plain\f4\fs20\cf0\b
+\par
+\tab Configuration of ADC0 kernel configuration register:\par 
+\par 
+\tab - the ADC module clock is enabled\par 
+\tab - the ADC module clock = 65.00 MHz\par 
+\tab \par 
+\par 
+\tab Configure global control register:\par 
+\tab --- Conversion Timing -----------------\par 
+\tab - conversion time (CTC)    = 01.31 us\par 
+\par 
+\tab _Analog clock is 1/5th of module clock and digital clock is 1/1 times\par 
+\tab of module clock\par 
+\par 
+\tab - the permanent arbitration mode is selected\par 
+\par 
+\tab Configuration of Arbitration Slot enable register and also the Source\par 
+\tab Priority register:\par 
+\tab - Arbitration Slot 0 is enabled\par 
+\par 
+\tab - Arbitration Slot 1 is disabled\par 
+\par 
+\tab - Arbitration Slot 2 is disabled\par 
+\par 
+\tab - the priority of request source 0 is low\par 
+\tab - the wait-for-start mode is selected for source 0\par 
+\tab - the priority of request source 1 is low\par 
+\tab - the wait-for-start mode is selected for source 1\par 
+\tab - the priority of request source 2 is low\par 
+\tab - the wait-for-start mode is selected for source 2\par 
+\par 
+\tab Configuration of Channel Control Registers:\par 
+\tab Configuration of Channel 6\par 
+\tab - the result register0 is selected\par 
+\tab - the limit check 0 is selected\par 
+\par 
+\tab - the reference voltage selected is Standard Voltage (Varef)\par 
+\par 
+\tab - the input class selected is Input Class 0\par 
+\par 
+\tab - LCBR0 is selected as upper boundary\par 
+\par 
+\tab - LCBR1 is selected as lower boundary\par 
+\par 
+\tab Configuration of Sample Time and Resolution:\par 
+\par 
+\tab 10 bit resolution selected\par 
+\par 
+\tab 10 bit resolution selected\par 
+\par 
+\tab Configuration of Result Control Registers:\par 
+\tab Configuration of Result Control Register 0\par 
+\tab - the data reduction filter is disabled\par 
+\tab - the event interrupt is disabled\par 
+\tab - the wait-for-read mode is enabled\par 
+\par 
+\tab - the FIFO functionality is disabled\par 
+\par 
+\tab Configuration of Result Control Register 1\par 
+\tab - the data reduction filter is disabled\par 
+\tab - the event interrupt is disabled\par 
+\tab - the wait-for-read mode is disabled\par 
+\par 
+\tab - the FIFO functionality is disabled\par 
+\par 
+\tab Configuration of Result Control Register 2\par 
+\tab - the data reduction filter is disabled\par 
+\tab - the event interrupt is disabled\par 
+\tab - the wait-for-read mode is disabled\par 
+\par 
+\tab - the FIFO functionality is disabled\par 
+\par 
+\tab Configuration of Result Control Register 3\par 
+\tab - the data reduction filter is disabled\par 
+\tab - the event interrupt is disabled\par 
+\tab - the wait-for-read mode is disabled\par 
+\par 
+\tab - the FIFO functionality is disabled\par 
+\par 
+\tab Configuration of Result Control Register 4\par 
+\tab - the data reduction filter is disabled\par 
+\tab - the event interrupt is disabled\par 
+\tab - the wait-for-read mode is disabled\par 
+\par 
+\tab - the FIFO functionality is disabled\par 
+\par 
+\tab Configuration of Result Control Register 5\par 
+\tab - the data reduction filter is disabled\par 
+\tab - the event interrupt is disabled\par 
+\tab - the wait-for-read mode is disabled\par 
+\par 
+\tab - the FIFO functionality is disabled\par 
+\par 
+\tab Configuration of Result Control Register 6\par 
+\tab - the data reduction filter is disabled\par 
+\tab - the event interrupt is disabled\par 
+\tab - the wait-for-read mode is disabled\par 
+\par 
+\tab - the FIFO functionality is disabled\par 
+\par 
+\tab Configuration of Result Control Register 7\par 
+\tab - the data reduction filter is disabled\par 
+\tab - the event interrupt is disabled\par 
+\tab - the wait-for-read mode is disabled\par 
+\par 
+\tab - the FIFO functionality is disabled\par 
+\par 
+\tab Configuration of Channel Interrupt Node Pointer Register:\par 
+\par 
+\tab - the SR0 line become activated if channel 6 interrupt is generated\par 
+\par 
+\tab Configuration of Event Interrupt Node Pointer Register for Source\par 
+\tab Interrupts:\par 
+\tab - the SR 0 line become activated if the event 0 interrupt is generated\par 
+\par 
+\tab Configuration of Event Interrupt Node Pointer Register for Result\par 
+\tab Interrupts:\par 
+\par 
+\tab Configuration of Service Request Nodes 0 - 3 :\par 
+\par 
+\tab Configuration of Limit Check Boundary:\par 
+\par 
+\tab Configuration of Gating source and External Trigger Control:\par 
+\tab - No Gating source selected for Arbitration Source 0\par 
+\par 
+\tab - the trigger input ETR00 is selected for Source 0\par 
+\par 
+\tab - No Gating source selected for Arbitration Source 1\par 
+\par 
+\tab - the trigger input ETR00 is selected for Source 1\par 
+\par 
+\tab - No Gating source selected for Arbitration Source 2\par 
+\par 
+\tab - the trigger input ETR00 is selected for Source 1\par 
+\par 
+\tab Configuration of Conversion Queue Mode Register:Sequential Source 0\par 
+\tab - the gating line is permanently Enabled\par 
+\tab - the external trigger is disabled\par 
+\par 
+\tab Configuration of Conversion Queue Mode Register:Sequential Source 2\par 
+\tab - the gating line is permanently Disabled\par 
+\tab - the external trigger is disabled\par 
+\tab - the trigger mode 0 is selected\par 
+\par 
+\tab Configuration of Conversion Request Mode Registers:Parallel Source\par 
+\tab - the gating line is permanently Disabled\par 
+\tab - the external trigger is disabled\par 
+\tab - the source interrupt is disabled\par 
+\tab - the autoscan functionality is disabled\par 
+\par 
+\tab Configuration of Synchronisation Registers:\par 
+\tab - ADC0 is master\par 
+\par 
+
+}

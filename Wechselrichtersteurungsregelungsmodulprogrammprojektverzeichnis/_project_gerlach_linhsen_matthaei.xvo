@@ -1,0 +1,17 @@
+-G "."
+-tcfg "z:\projekt_linhsen_gerlach_matthaei\wechselrichtersteurungsregelungsmodulprogrammprojektverzeichnis\_project_gerlach_linhsen_matthaei.cfg"
+-D TCP,localhost,1
+--single_instance
+--load_application_download=true
+--load_application_verify=true
+--enable_flash=true
+--load_application_use_map_file=true
+--load_application_signal=true
+--load_application_program_reset=true
+--load_application_target_reset=true
+--load_application_goto_main=true
+--load_application_break_on_exit=true
+-i
+-a 100
+-b 200
+-s 26

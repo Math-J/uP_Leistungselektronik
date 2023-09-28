@@ -1,0 +1,1300 @@
+; TASKING C166/ST10 C compiler v8.7r1 Build 775
+; options: -e -Ic:\program files (x86)\tasking\c166 v8.7r1\include -x2
+;          -Bhoeufmknladij -OB -OE -zswitch_tabmem_default -zautobitastruct-4
+;          -zautobita-0 -FSC -A1 -zvolatile_union -O0 -g -newerr -s -i0 -Ms
+$DEBUG
+$NOLOCALS
+$EXTEND2
+$NOMOD166
+$STDNAMES(regsuper10bo.def)
+$EXTMAC
+$CASE
+$NOEXPANDREGBANK
+$MODEL(SMALL)
+	NAME	SCS_C
+	?SYMB	'scs.c',32,80,16
+	?SYMB	'',1,82,0
+	?SYMB	'80166',0,84,0
+	?SYMB	'',0,81,0
+	?SYMB	'void',00H,45,1
+	?SYMB	'char',080000H,45,2
+	?SYMB	'unsigned char',080000H,45,3
+	?SYMB	'short',0100000H,45,4
+	?SYMB	'unsigned short',0100000H,45,5
+	?SYMB	'long',0200000H,45,6
+	?SYMB	'unsigned long',0200000H,45,7
+	?SYMB	'float',0200000H,45,10
+	?SYMB	'double',0400000H,45,11
+	?SYMB	'int',0100000H,45,16
+	?SYMB	'unsigned int',0100000H,45,18
+	?SYMB	'bit',010000H,7,256
+	?SYMB	'scs.c',0,29,1
+	?SYMB	'',0,86,1
+; scs.c       1	//****************************************************************************
+; scs.c       2	// @Module        Project Settings
+; scs.c       3	// @Filename      SCS.C
+; scs.c       4	// @Project       Motorsteuerung.dav
+; scs.c       5	//----------------------------------------------------------------------------
+; scs.c       6	// @Controller    Infineon XE167F-96F66
+; scs.c       7	//
+; scs.c       8	// @Compiler      Tasking Classic
+; scs.c       9	//
+; scs.c      10	// @Codegenerator 2.2
+; scs.c      11	//
+; scs.c      12	// @Description   This file contains the SCS driver.
+; scs.c      13	//                      
+; scs.c      14	//                Note:
+; scs.c      15	//                This file should not be changed by 
+; scs.c      16	//                the user.
+; scs.c      17	//
+; scs.c      18	//----------------------------------------------------------------------------
+; scs.c      19	// @Date          9/28/2023 11:34:01
+; scs.c      20	//
+; scs.c      21	//****************************************************************************
+; scs.c      22	
+; scs.c      23	// USER CODE BEGIN (SCS_General,1)
+; scs.c      24	
+; scs.c      25	// USER CODE END
+; scs.c      26	
+; scs.c      27	
+; scs.c      28	
+; scs.c      29	//****************************************************************************
+; scs.c      30	// @Project Includes
+; scs.c      31	//****************************************************************************
+; scs.c      32	
+; scs.c      33	#include "MAIN.H"
+	?SYMB	'MAIN.H',0,29,2
+	?SYMB	'',0,86,2
+	?SYMB	'XE16xREGS.H',0,29,3
+	?SYMB	'',0,86,3
+	?SYMB	'',0,86,2
+	?SYMB	'SCS.H',0,29,3
+	?SYMB	'',0,86,3
+	?SYMB	'T$2',0,14,257
+	?SYMB	'SCS_EXTCLK_F_SYS',0,33,257
+	?SYMB	'SCS_EXTCLK_F_OUT',1,33,257
+	?SYMB	'SCS_EXTCLK_F_PLL',2,33,257
+	?SYMB	'SCS_EXTCLK_F_OSC',3,33,257
+	?SYMB	'SCS_EXTCLK_F_WU',4,33,257
+	?SYMB	'SCS_EXTCLK_F_TCK',5,33,257
+	?SYMB	'SCS_EXTCLK_F_OSC_FL',6,33,257
+	?SYMB	'SCS_EXTCLK_F_RTC',8,33,257
+	?SYMB	'',16,16,0
+	?SYMB	'SCS_EXTCLK_Type',257,13,258
+	?SYMB	'',0,86,2
+	?SYMB	'IO.H',0,29,3
+	?SYMB	'',0,86,3
+	?SYMB	'',0,86,2
+	?SYMB	'GPT1.H',0,29,3
+	?SYMB	'',0,86,3
+	?SYMB	'',0,86,2
+	?SYMB	'GPT2.H',0,29,3
+	?SYMB	'',0,86,3
+	?SYMB	'',0,86,2
+	?SYMB	'CCU63.H',0,29,3
+	?SYMB	'',0,86,3
+	?SYMB	'',0,86,2
+	?SYMB	'ADC0.H',0,29,3
+	?SYMB	'',0,86,3
+	?SYMB	'ubyte',3,13,259
+	?SYMB	'',0,86,2
+	?SYMB	'c:\program files (x86)\tasking\c166 v8.7r1\include\math.h',0,29,3
+	?SYMB	'',0,86,3
+	?SYMB	'',0,86,2
+	?SYMB	'',0,86,1
+; scs.c      34	
+; scs.c      35	// USER CODE BEGIN (SCS_General,2)
+; scs.c      36	
+; scs.c      37	// USER CODE END
+; scs.c      38	
+; scs.c      39	
+; scs.c      40	//****************************************************************************
+; scs.c      41	// @Macros
+; scs.c      42	//****************************************************************************
+; scs.c      43	
+; scs.c      44	
+; scs.c      45	//****************************************************************************
+; scs.c      46	// @Defines
+; scs.c      47	//****************************************************************************
+; scs.c      48	
+; scs.c      49	// USER CODE BEGIN (SCS_General,3)
+; scs.c      50	
+; scs.c      51	// USER CODE END
+; scs.c      52	
+; scs.c      53	
+; scs.c      54	// Check frequency related values /////////////////////////////////////////////
+; scs.c      55	// Check fP
+; scs.c      56	#if SCS_F_P < 4000000 || SCS_F_P > 16000000
+; scs.c      57	#   error  "SCS_F_P out of range"
+; scs.c      58	#endif
+; scs.c      59	// Check fVCO
+; scs.c      60	#if SCS_VCOSEL == 0
+; scs.c      61	#  if SCS_F_VCO < 48000000 || SCS_F_VCO > 112000000
+; scs.c      62	#   error  "SCS_F_VCO out of range for VCOSEL = 0"
+; scs.c      63	#  endif
+; scs.c      64	#else
+; scs.c      65	#  if SCS_F_VCO < 96000000 || SCS_F_VCO > 160000000
+; scs.c      66	#   error  "SCS_F_VCO out of range for VCOSEL = 1"
+; scs.c      67	#  endif
+; scs.c      68	#endif
+; scs.c      69	// Check P divider
+; scs.c      70	#if SCS_P < 1 || SCS_P > 16
+; scs.c      71	#   error  "SCS_P out of range"
+; scs.c      72	#endif
+; scs.c      73	// Check N divider
+; scs.c      74	#if SCS_VCOSEL == 0
+; scs.c      75	#  if SCS_N < 8 || SCS_N > 28
+; scs.c      76	#   error  "SCS_N out of range for VCOSEL = 0"
+; scs.c      77	#  endif
+; scs.c      78	#else
+; scs.c      79	#  if SCS_N < 16 || SCS_N > 40
+; scs.c      80	#   error  "SCS_N out of range for VCOSEL = 1"
+; scs.c      81	#  endif
+; scs.c      82	#endif
+; scs.c      83	// Check K2 divider and additional K2 divider steps if defined
+; scs.c      84	#if SCS_K2 < 1 || SCS_K2 > 512
+; scs.c      85	#   error  "SCS_K2 out of range"
+; scs.c      86	#endif
+; scs.c      87	#ifdef SCS_K2_1
+; scs.c      88	#  if SCS_K2_1 < 1 || SCS_K2_1 > 512
+; scs.c      89	#     error  "SCS_K2_1 out of range"
+; scs.c      90	#  endif
+; scs.c      91	#endif
+; scs.c      92	#ifdef SCS_K2_2
+; scs.c      93	#  if SCS_K2_2 < 1 || SCS_K2_2 > 512
+; scs.c      94	#     error  "SCS_K2_2 out of range"
+; scs.c      95	#  endif
+; scs.c      96	#endif
+; scs.c      97	#ifdef SCS_K2_3
+; scs.c      98	#  if SCS_K2_3 < 1 || SCS_K2_3 > 512
+; scs.c      99	#     error  "SCS_K2_3 out of range"
+; scs.c     100	#  endif
+; scs.c     101	#endif
+; scs.c     102	#ifdef SCS_K2_4
+; scs.c     103	#  if SCS_K2_4 < 1 || SCS_K2_4 > 512
+; scs.c     104	#     error  "SCS_K2_4 out of range"
+; scs.c     105	#  endif
+; scs.c     106	#endif
+; scs.c     107	// Check K2 K2 divider and additional K2 divider steps for switch to/from WU if defined
+; scs.c     108	#if SCS_K2_WU_1 < 1 || SCS_K2_WU_1 > 512
+; scs.c     109	#   error  "SCS_K2_WU_1 out of range"
+; scs.c     110	#endif
+; scs.c     111	#ifdef SCS_K2_WU_2
+; scs.c     112	#  if SCS_K2_WU_2 < 1 || SCS_K2_WU_2 > 512
+; scs.c     113	#     error  "SCS_K2_WU_2 out of range"
+; scs.c     114	#  endif
+; scs.c     115	#endif
+; scs.c     116	#ifdef SCS_K2_WU_3
+; scs.c     117	#  if SCS_K2_WU_3 < 1 || SCS_K2_WU_3 > 512
+; scs.c     118	#     error  "SCS_K2_WU_3 out of range"
+; scs.c     119	#  endif
+; scs.c     120	#endif
+; scs.c     121	#ifdef SCS_K2_WU_4
+; scs.c     122	#  if SCS_K2_WU_4 < 1 || SCS_K2_WU_4 > 512
+; scs.c     123	#     error  "SCS_K2_WU_4 out of range"
+; scs.c     124	#  endif
+; scs.c     125	#endif
+; scs.c     126	// Check start clocks for XTAL
+; scs.c     127	#if SCS_CLOCKS_XTAL_START < 1 || SCS_CLOCKS_XTAL_START > 65535
+; scs.c     128	#   error  "SCS_CLOCKS_XTAL_START out of range"
+; scs.c     129	#endif
+; scs.c     130	// Check FREQSEL
+; scs.c     131	#if SCS_FREQSEL < 0 || SCS_FREQSEL > 3
+; scs.c     132	#   error  "SCS_FREQSEL out of range"
+; scs.c     133	#endif
+; scs.c     134	// Check PWSEL
+; scs.c     135	#if SCS_PWSEL < 0 || SCS_PWSEL > 3
+; scs.c     136	#   error  "SCS_PWSEL out of range"
+; scs.c     137	#endif
+; scs.c     138	
+; scs.c     139	
+; scs.c     140	//****************************************************************************
+; scs.c     141	// @Typedefs
+; scs.c     142	//****************************************************************************
+; scs.c     143	
+; scs.c     144	// Type for CLKSEL setting
+; scs.c     145	
+; scs.c     146	typedef enum
+; scs.c     147	{
+; scs.c     148	  SCS_CLKSEL_F_WU   = 0, // wakeup oscillator frequency
+; scs.c     149	  SCS_CLKSEL_F_OSC  = 1, // HP oscillator frequency
+; scs.c     150	  SCS_CLKSEL_F_PLL  = 2  // PLL frequency
+; scs.c     151	} SCS_CLKSEL_Type;
+; scs.c     152	
+; scs.c     153	
+; scs.c     154	
+; scs.c     155	//****************************************************************************
+; scs.c     156	// @Imported Global Variables
+; scs.c     157	//****************************************************************************
+; scs.c     158	
+; scs.c     159	
+; scs.c     160	
+; scs.c     161	//****************************************************************************
+; scs.c     162	// @Global Variables
+; scs.c     163	//****************************************************************************
+; scs.c     164	
+; scs.c     165	
+; scs.c     166	
+; scs.c     167	//****************************************************************************
+; scs.c     168	// @External Prototypes
+; scs.c     169	//****************************************************************************
+; scs.c     170	
+; scs.c     171	
+; scs.c     172	
+; scs.c     173	//****************************************************************************
+; scs.c     174	// @Prototypes Of Local Functions
+; scs.c     175	//****************************************************************************
+; scs.c     176	
+; scs.c     177	
+; scs.c     178	
+; scs.c     179	//****************************************************************************
+; scs.c     180	// @Local Functions
+; scs.c     181	//****************************************************************************
+; scs.c     182	
+; scs.c     183	//****************************************************************************;
+; scs.c     184	// @Function      void SetK2(unsigned int K2)
+; scs.c     185	//
+; scs.c     186	//-----------------------------------------------------------------------------
+; scs.c     187	// @Description   Sets K2 divider and waits until PLL is locked.
+; scs.c     188	//
+; scs.c     189	//-----------------------------------------------------------------------------
+; scs.c     190	// @Returnvalue   None
+; scs.c     191	//
+; scs.c     192	//-----------------------------------------------------------------------------
+; scs.c     193	// @Parameters    K2: K2 divider
+; scs.c     194	//
+; scs.c     195	//-----------------------------------------------------------------------------
+; scs.c     196	// @Date          9/28/2023
+; scs.c     197	//
+; scs.c     198	//-----------------------------------------------------------------------------
+; scs.c     199	
+; scs.c     200	// USER CODE BEGIN (SetK2,1)
+; scs.c     201	
+; scs.c     202	// USER CODE END
+; scs.c     203	
+; scs.c     204	void SetK2(unsigned int K2)
+; scs.c     205	{
+SCS_1_PR	SECTION	CODE WORD PUBLIC 'CPROGRAM'
+	?LINE	205
+	PUBLIC	_SetK2
+	?SYMB	'SetK2',_SetK2,37,1
+	?SYMB	'',205,8,34
+	?SYMB	'uword',18,13,261
+	?SYMB	'',010000H,7,262
+	?SYMB	'',010001H,7,263
+	?SYMB	'',010002H,7,264
+	?SYMB	'',010003H,7,265
+	?SYMB	'',010004H,7,266
+	?SYMB	'',010005H,7,267
+	?SYMB	'',010006H,7,268
+	?SYMB	'',010007H,7,269
+	?SYMB	'',010000H,7,270
+	?SYMB	'',010001H,7,271
+	?SYMB	'',010002H,7,272
+	?SYMB	'',010003H,7,273
+	?SYMB	'',010004H,7,274
+	?SYMB	'',010005H,7,275
+	?SYMB	'',010006H,7,276
+	?SYMB	'',010007H,7,277
+	?SYMB	'T$1',0,40,278
+	?SYMB	'bit0',0,23,262
+	?SYMB	'bit1',1,23,263
+	?SYMB	'bit2',2,23,264
+	?SYMB	'bit3',3,23,265
+	?SYMB	'bit4',4,23,266
+	?SYMB	'bit5',5,23,267
+	?SYMB	'bit6',6,23,268
+	?SYMB	'bit7',7,23,269
+	?SYMB	'bit8',8,23,270
+	?SYMB	'bit9',9,23,271
+	?SYMB	'bit10',10,23,272
+	?SYMB	'bit11',11,23,273
+	?SYMB	'bit12',12,23,274
+	?SYMB	'bit13',13,23,275
+	?SYMB	'bit14',14,23,276
+	?SYMB	'bit15',15,23,277
+	?SYMB	'',16,18,0
+	?SYMB	'T_Reg16',278,13,279
+_SetK2	PROC	FAR
+	?SYMB	'',00H,95,0
+	MOV	[-R0],R12
+	?SYMB	'',$,96,2
+; Locals:
+;     K2 = offset 0
+; 
+; Statics:
+; 
+; CSEs:
+; 
+	?SYMB	'K2',1,99,18
+	?SYMB	'-2',$,101,1
+; scs.c     206	   // set K2DIV and enable K2 acknowledge
+; scs.c     207	    SCU_PLLCON3 =
+; scs.c     208	     ((K2-1U)<<0U)| // K2DIV K2-Divider Value
+; scs.c     209	                     // 0..511 : K2-Divider = K2DIV + 1
+; scs.c     210	     (1U    <<15U);  // K2ACK K2-Divider Ready Acknowledge
+	?LINE	210
+	MOV	R12,[R0]
+	SUB	R12,#01h
+	BSET	R12.15
+	MOV	0F1BEh,R12
+; scs.c     211	                     // Provides acknowledge to K2RDY
+; scs.c     212	     // restart VCO lock detection
+; scs.c     213	     SCU_PLLCON1_RESLD = 1;
+	?LINE	213
+	MOV	R12,#0F1BAh
+	MOV	R13,[R12]
+	BFLDL	R13,#04h,#04h
+	MOV	[R12],R13
+; scs.c     214	
+; scs.c     215	
+; scs.c     216	     // wait until VCO lock status is OK
+; scs.c     217	     while (!(SCU_PLLSTAT &
+	?LINE	217
+	JMPR	cc_UC,_5
+; scs.c     218	       ((0U   <<0U) | // VCOBYST VCO Bypass Status Freerunning/Normal (rh)
+; scs.c     219	       (0U    <<1U) | // PWDSTAT Power-saving Mode Status (rh)
+; scs.c     220	       (0U    <<2U) | // OSCSELST Oscillator Input Selection Status OSC_PLL (rh)
+; scs.c     221	       (1U    <<3U) | // OVCOLOCK PLL VCO Lock Status (rh)
+; scs.c     222	       (0U    <<4U) | // BY Bypass Mode Status (rh)
+; scs.c     223	       (0U    <<5U) | // PRDY P-Divider Ready Status (rh)
+; scs.c     224	       (0U    <<6U) | // NRDY N-Divider Ready Status (rh)
+; scs.c     225	       (0U    <<7U) | // K1RDY K1-Divider Ready Status (rh)
+; scs.c     226	       (0U    <<8U) | // K2RDY K1-Divider Ready Status (rh)
+; scs.c     227	       (0U    <<9U) | // FINDIS Input Clock Disconnect Select Status (rh)
+; scs.c     228	       (0U    <<10U)| // VCOL0 VCO Lock Detection Lost Status (falling edge VCOLOCK) (rh)
+; scs.c     229	       (0U    <<11U)| // VCOL1 VCO Lock Detection Reached Status (rh)
+; scs.c     230	       (0U    <<12U))))// REGSTAT PLL Power Regulator Status powered (operation possible) (rh)
+	?LINE	230
+_5:
+_6:
+	MOV	R12,0F0BCh
+	JNB	R12.3,_6
+; scs.c     231	     {
+; scs.c     232	         // wait
+; scs.c     233	         // in case MISRA-C check is activated you need to install a timeout loop here.
+; scs.c     234	     }
+; scs.c     235	} // end of function SetK2
+	?SYMB	'',$,102,1
+	?LINE	235
+	ADD	R0,#02h
+	?SYMB	'',$,96,0
+	RETS
+_SetK2	ENDP
+	?SYMB	'',$,17,235
+; scs.c     236	
+; scs.c     237	//****************************************************************************;
+; scs.c     238	// @Function      void EnableVcoBypass(void)
+; scs.c     239	//
+; scs.c     240	//-----------------------------------------------------------------------------
+; scs.c     241	// @Description   Enables VCO bypass and waits until bypass status is OK.
+; scs.c     242	//
+; scs.c     243	//-----------------------------------------------------------------------------
+; scs.c     244	// @Returnvalue   None
+; scs.c     245	//
+; scs.c     246	//-----------------------------------------------------------------------------
+; scs.c     247	// @Parameters    None
+; scs.c     248	//
+; scs.c     249	//-----------------------------------------------------------------------------
+; scs.c     250	// @Date          9/28/2023
+; scs.c     251	//
+; scs.c     252	//-----------------------------------------------------------------------------
+; scs.c     253	
+; scs.c     254	// USER CODE BEGIN (EnableVcoBypass,1)
+; scs.c     255	
+; scs.c     256	// USER CODE END
+; scs.c     257	
+; scs.c     258	void EnableVcoBypass(void)
+; scs.c     259	{
+	?LINE	259
+	PUBLIC	_EnableVcoBypass
+	?SYMB	'EnableVcoBypass',_EnableVcoBypass,37,1
+	?SYMB	'',259,8,34
+_EnableVcoBypass	PROC	FAR
+	?SYMB	'',00H,95,0
+; Locals:
+; 
+; Statics:
+; 
+; CSEs:
+; 
+; scs.c     260	   // enable VCO bypass
+; scs.c     261	    SCU_PLLCON0_VCOBY = 1;
+	?LINE	261
+	MOV	R12,#0F1B8h
+	MOV	R13,[R12]
+	BFLDL	R13,#01h,#01h
+	MOV	[R12],R13
+; scs.c     262	
+; scs.c     263	   // wait until VCO bypass status is entered
+; scs.c     264	   while (SCU_PLLSTAT &
+	?LINE	264
+	JMPR	cc_UC,_9
+; scs.c     265	     ((1U   <<0U) | // VCOBYST VCO Bypass Status Freerunning/Normal (rh)
+; scs.c     266	     (0U    <<1U) | // PWDSTAT Power-saving Mode Status (rh)
+; scs.c     267	     (0U    <<2U) | // OSCSELST Oscillator Input Selection Status OSC_PLL (rh)
+; scs.c     268	     (0U    <<3U) | // OVCOLOCK PLL VCO Lock Status (rh)
+; scs.c     269	     (0U    <<4U) | // BY Bypass Mode Status (rh)
+; scs.c     270	     (0U    <<5U) | // PRDY P-Divider Ready Status (rh)
+; scs.c     271	     (0U    <<6U) | // NRDY N-Divider Ready Status (rh)
+; scs.c     272	     (0U    <<7U) | // K1RDY K1-Divider Ready Status (rh)
+; scs.c     273	     (0U    <<8U) | // K2RDY K1-Divider Ready Status (rh)
+; scs.c     274	     (0U    <<9U) | // FINDIS Input Clock Disconnect Select Status (rh)
+; scs.c     275	     (0U    <<10U)| // VCOL0 VCO Lock Detection Lost Status (falling edge VCOLOCK) (rh)
+; scs.c     276	     (0U    <<11U)| // VCOL1 VCO Lock Detection Reached Status (rh)
+; scs.c     277	     (0U    <<12U)))// REGSTAT PLL Power Regulator Status powered (operation possible) (rh)
+	?LINE	277
+_9:
+_10:
+	MOV	R12,0F0BCh
+	JB	R12.0,_10
+; scs.c     278	     {
+; scs.c     279	         // wait
+; scs.c     280	         // in case MISRA-C check is activated you need to install a timeout loop here.
+; scs.c     281	     }
+; scs.c     282	} // end of function EnableVcoBypass
+	?LINE	282
+	RETS
+_EnableVcoBypass	ENDP
+	?SYMB	'',$,17,282
+; scs.c     283	
+; scs.c     284	//****************************************************************************;
+; scs.c     285	// @Function      void DisableVcoBypass(void)
+; scs.c     286	//
+; scs.c     287	//-----------------------------------------------------------------------------
+; scs.c     288	// @Description   Disables VCO bypass and waits until bypass status is OK.
+; scs.c     289	//
+; scs.c     290	//-----------------------------------------------------------------------------
+; scs.c     291	// @Returnvalue   None
+; scs.c     292	//
+; scs.c     293	//-----------------------------------------------------------------------------
+; scs.c     294	// @Parameters    None
+; scs.c     295	//
+; scs.c     296	//-----------------------------------------------------------------------------
+; scs.c     297	// @Date          9/28/2023
+; scs.c     298	//
+; scs.c     299	//-----------------------------------------------------------------------------
+; scs.c     300	
+; scs.c     301	// USER CODE BEGIN (DisableVcoBypass,1)
+; scs.c     302	
+; scs.c     303	// USER CODE END
+; scs.c     304	
+; scs.c     305	void DisableVcoBypass(void)
+; scs.c     306	{
+	?LINE	306
+	PUBLIC	_DisableVcoBypass
+	?SYMB	'DisableVcoBypass',_DisableVcoBypass,37,1
+	?SYMB	'',306,8,34
+_DisableVcoBypass	PROC	FAR
+	?SYMB	'',00H,95,0
+; Locals:
+; 
+; Statics:
+; 
+; CSEs:
+; 
+; scs.c     307	   // disable VCO bypass, don't touch other bits
+; scs.c     308	    SCU_PLLCON0_VCOBY = 0;
+	?LINE	308
+	MOV	R12,#0F1B8h
+	MOV	R13,[R12]
+	AND	R13,#0FFFEh
+	MOV	[R12],R13
+; scs.c     309	
+; scs.c     310	   // wait until VCO bypass status is left
+; scs.c     311	   while (!(SCU_PLLSTAT &
+	?LINE	311
+	JMPR	cc_UC,_13
+; scs.c     312	     ((1U   <<0U) | // VCOBYST VCO Bypass Status Freerunning/Normal (rh)
+; scs.c     313	     (0U    <<1U) | // PWDSTAT Power-saving Mode Status (rh)
+; scs.c     314	     (0U    <<2U) | // OSCSELST Oscillator Input Selection Status OSC_PLL (rh)
+; scs.c     315	     (0U    <<3U) | // OVCOLOCK PLL VCO Lock Status (rh)
+; scs.c     316	     (0U    <<4U) | // BY Bypass Mode Status (rh)
+; scs.c     317	     (0U    <<5U) | // PRDY P-Divider Ready Status (rh)
+; scs.c     318	     (0U    <<6U) | // NRDY N-Divider Ready Status (rh)
+; scs.c     319	     (0U    <<7U) | // K1RDY K1-Divider Ready Status (rh)
+; scs.c     320	     (0U    <<8U) | // K2RDY K1-Divider Ready Status (rh)
+; scs.c     321	     (0U    <<9U) | // FINDIS Input Clock Disconnect Select Status (rh)
+; scs.c     322	     (0U    <<10U)| // VCOL0 VCO Lock Detection Lost Status (falling edge VCOLOCK) (rh)
+; scs.c     323	     (0U    <<11U)| // VCOL1 VCO Lock Detection Reached Status (rh)
+; scs.c     324	     (0U    <<12U))))// REGSTAT PLL Power Regulator Status powered (operation possible) (rh)
+	?LINE	324
+_13:
+_14:
+	MOV	R12,0F0BCh
+	JNB	R12.0,_14
+; scs.c     325	     {
+; scs.c     326	         // wait
+; scs.c     327	         // in case MISRA-C check is activated you need to install a timeout loop here.
+; scs.c     328	     }
+; scs.c     329	} // end of function DisableVcoBypass
+	?LINE	329
+	RETS
+_DisableVcoBypass	ENDP
+	?SYMB	'',$,17,329
+; scs.c     330	
+; scs.c     331	//****************************************************************************;
+; scs.c     332	// @Function      void WaitForTimer13Stop(void)
+; scs.c     333	//
+; scs.c     334	//-----------------------------------------------------------------------------
+; scs.c     335	// @Description   This function waits until CCU6 timer T13 has stopped.
+; scs.c     336	//                Notes:
+; scs.c     337	//                - Function StartT13 should have been called before.
+; scs.c     338	//
+; scs.c     339	//-----------------------------------------------------------------------------
+; scs.c     340	// @Returnvalue   None
+; scs.c     341	//
+; scs.c     342	//-----------------------------------------------------------------------------
+; scs.c     343	// @Parameters    None
+; scs.c     344	//
+; scs.c     345	//-----------------------------------------------------------------------------
+; scs.c     346	// @Date          9/28/2023
+; scs.c     347	//
+; scs.c     348	//-----------------------------------------------------------------------------
+; scs.c     349	
+; scs.c     350	// USER CODE BEGIN (WaitForTimer13Stop,1)
+; scs.c     351	
+; scs.c     352	// USER CODE END
+; scs.c     353	
+; scs.c     354	void WaitForTimer13Stop(void)
+; scs.c     355	{
+	?LINE	355
+	PUBLIC	_WaitForTimer13Stop
+	?SYMB	'WaitForTimer13Stop',_WaitForTimer13Stop,37,1
+	?SYMB	'',355,8,34
+_WaitForTimer13Stop	PROC	FAR
+	?SYMB	'',00H,95,0
+; Locals:
+; 
+; Statics:
+; 
+; CSEs:
+; 
+; scs.c     356	   // wait until Timer 13 is stopped 
+; scs.c     357	   while (CCU60_TCTR0 &
+	?LINE	357
+	JMPR	cc_UC,_17
+; scs.c     358	     ((0U    <<4U) | // T12R T12 Run Bit (rh)
+; scs.c     359	      (0U    <<5U) | // STE12 T12 Shadow Transfer Enable (rh)
+; scs.c     360	      (0U    <<6U) | // CDIR T12 Count Direction (rh)
+; scs.c     361	      (1U    <<12U)| // T13R T13 Run Bit (rh)
+; scs.c     362	      (0U    <<13U)))// STE13 T13 Shadow Transfer Enable (rh)
+	?LINE	362
+_17:
+_18:
+	MOV	R12,0EA2Ch
+	JB	R12.12,_18
+; scs.c     363	     {
+; scs.c     364	         // wait
+; scs.c     365	         // in case MISRA-C check is activated you need to install a timeout loop here.
+; scs.c     366	     }
+; scs.c     367	} // end of function WaitForTimer13Stop
+	?LINE	367
+	RETS
+_WaitForTimer13Stop	ENDP
+	?SYMB	'',$,17,367
+; scs.c     368	
+; scs.c     369	//****************************************************************************;
+; scs.c     370	// @Function      void SCS_StartXtalOsc(unsigned int UseTimer)
+; scs.c     371	//
+; scs.c     372	//-----------------------------------------------------------------------------
+; scs.c     373	// @Description   This function starts the crystal oscillator at XTAL1 and
+; scs.c     374	//                XTAL2 or enables the external oscillator input at XTAL1.
+; scs.c     375	//                If specified, the function enables and starts CCU6 timer T13
+; scs.c     376	//                and sets EXTCLK for counting XTAL clocks; if required, PLL 
+; scs.c     377	//                frequency will be increased for synchronization purposes.
+; scs.c     378	//                
+; scs.c     379	//                Notes:
+; scs.c     380	//                - If UseTimer is set, the function will enable CCU6 and will
+; scs.c     381	//                  overwrite previous settings for T13; additionally, it will
+; scs.c     382	//                  overwrite previous EXTCLK clock multiplexer settings.
+; scs.c     383	//                - The user is responsible for disabling the register
+; scs.c     384	//                protection.
+; scs.c     385	//
+; scs.c     386	//-----------------------------------------------------------------------------
+; scs.c     387	// @Returnvalue   None
+; scs.c     388	//
+; scs.c     389	//-----------------------------------------------------------------------------
+; scs.c     390	// @Parameters    UseTimer: 0 = no XTAL clock counting, >0 = XTAL clock counting
+; scs.c     391	//                via T13
+; scs.c     392	//
+; scs.c     393	//-----------------------------------------------------------------------------
+; scs.c     394	// @Date          9/28/2023
+; scs.c     395	//
+; scs.c     396	//-----------------------------------------------------------------------------
+; scs.c     397	
+; scs.c     398	// USER CODE BEGIN (SCS_StartXtalOsc,1)
+; scs.c     399	
+; scs.c     400	// USER CODE END
+; scs.c     401	
+; scs.c     402	void SCS_StartXtalOsc(unsigned int UseTimer)
+; scs.c     403	{
+	?LINE	403
+	PUBLIC	_SCS_StartXtalOsc
+	?SYMB	'SCS_StartXtalOsc',_SCS_StartXtalOsc,37,1
+	?SYMB	'',403,8,34
+_SCS_StartXtalOsc	PROC	FAR
+	?SYMB	'',00H,95,0
+	MOV	[-R0],R12
+	?SYMB	'',$,96,2
+; Locals:
+;     UseTimer = offset 0
+; 
+; Statics:
+; 
+; CSEs:
+; 
+	?SYMB	'UseTimer',1,99,18
+	?SYMB	'-2',$,101,1
+; scs.c     404	   // enable HP oscillator with crystal or external clock
+; scs.c     405	   SCU_HPOSCCON =
+; scs.c     406	     (0U    <<1U) | // OSCWDTRST Oscillator Watchdog Reset
+; scs.c     407	                    // 0 : Osc. watchdog is not reset and remains active
+; scs.c     408	                    // 1 : Osc. watchdog is reset and restarted
+; scs.c     409	     (0U    <<2U) | // MODE Oscillator Mode
+; scs.c     410	                    // 0 : External crystal/clock, no osc. power-saving mode
+; scs.c     411	                    // 1 : OSC_HP disabled, no osc. power-saving mode
+; scs.c     412	                    // 2 : External clock, osc. power-saving mode
+; scs.c     413	                    // 3 : OSC_HP disabled, osc. power-saving mode
+; scs.c     414	     (0U    <<7U) | // X1DEN XTAL1 Data Enable
+; scs.c     415	                    // 0 : 0 Bit X1D is not updated
+; scs.c     416	                    // 1 : 1 Bit X1D can be updated
+; scs.c     417	     (0U    <<8U) | // SHBY Shaper Bypass
+; scs.c     418	                    // 0 : 0 Shaper is not bypassed
+; scs.c     419	                    // 1 : 1 Shaper is bypassed
+; scs.c     420	     (0U    <<9U) | // EMCLKEN OSCWDT Emergency System Clock Source Select Enable
+; scs.c     421	                    // 0 : MCM controlled by SYSCON0.CLKSEL in OSCWDT emergency case
+; scs.c     422	                    // 1 : MCM controlled by SYSCON0.EMCLKSEL in OSCWDT emergency case
+; scs.c     423	     (0U    <<10U); // EMFINDISEN Emergency Input Clock Disconnect Enable
+	?LINE	423
+	MOV	R12,#00h
+	MOV	0F1B4h,R12
+; scs.c     424	                    // 0 : PLLSTAT.FINDIS not updated in OSCWDT emergency case
+; scs.c     425	                    // 1 : PLLSTAT.FINDIS is set in OSCWDT emergency case
+; scs.c     426	   if (UseTimer)
+	?LINE	426
+	MOV	R12,[R0]
+	JMPR	cc_Z,_20
+; scs.c     427	   {
+; scs.c     428	      #ifdef SCS_K2_WAIT
+; scs.c     429	         // if system frequency < 2 * fXTAL:
+; scs.c     430	      #  ifdef SCS_K2_WAIT_1
+; scs.c     431	         //  set additional K2 divider step(s) if needed
+; scs.c     432	         SetK2((unsigned int)SCS_K2_WAIT_1);
+; scs.c     433	      #    ifdef SCS_K2_WAIT_2
+; scs.c     434	             SetK2((unsigned int)SCS_K2_WAIT_2);
+; scs.c     435	      #    endif // SCS_K2_WAIT_2
+; scs.c     436	      #  endif // SCS_K2_WAIT_1
+; scs.c     437	         // set final K2 divider for XTAL waiting time
+; scs.c     438	         SetK2((unsigned int)SCS_K2_WAIT);
+	?LINE	438
+	MOV	R12,#04h
+	CALLS	SEG _SetK2,_SetK2
+; scs.c     439	      #endif // SCS_K2_WAIT
+; scs.c     440	      // Count SCS_CLOCKS_XTAL_START HP oscillator clocks
+; scs.c     441	      SCS_CountClocksWithTimer(SCS_EXTCLK_F_OSC, SCS_CLOCKS_XTAL_START);
+	?LINE	441
+	MOV	R12,#03h
+	MOV	R13,#03E8h
+	CALLS	SEG _SCS_CountClocksWithTimer,_SCS_CountClocksWithTimer
+; scs.c     442	   }
+	?LINE	442
+_20:
+; scs.c     443	
+; scs.c     444	} // end of function SCS_StartXtalOsc
+	?SYMB	'',$,102,1
+	?LINE	444
+	ADD	R0,#02h
+	?SYMB	'',$,96,0
+	RETS
+_SCS_StartXtalOsc	ENDP
+	?SYMB	'',$,17,444
+; scs.c     445	
+; scs.c     446	//****************************************************************************;
+; scs.c     447	// @Function      void SCS_SwitchSystemClock(unsigned int UseTimer)
+; scs.c     448	//
+; scs.c     449	//-----------------------------------------------------------------------------
+; scs.c     450	// @Description   This function switches the system clock from its state after
+; scs.c     451	//                boot program execution (internal oscillator and VCO usage) to
+; scs.c     452	//                XTAL clock (crystal or external oscillator) and VCO usage.
+; scs.c     453	//                If specified, the function waits for a certain number of XTAL
+; scs.c     454	//                clocks before switching to this clock.
+; scs.c     455	//                
+; scs.c     456	//                Notes:
+; scs.c     457	//                - It is assumed that the HP oscillator has been started.
+; scs.c     458	//                - UseTimer > 0 should be used only if SCS_StartXtal() with
+; scs.c     459	//                  parameter UseTimer > 0 has been called before.
+; scs.c     460	//                - If UseTimer = 0, it must be guaranteed that XTAL
+; scs.c     461	//                clock is stable.
+; scs.c     462	//                - The user is responsible for disabling the register
+; scs.c     463	//                protection.
+; scs.c     464	//
+; scs.c     465	//-----------------------------------------------------------------------------
+; scs.c     466	// @Returnvalue   None
+; scs.c     467	//
+; scs.c     468	//-----------------------------------------------------------------------------
+; scs.c     469	// @Parameters    UseTimer: 0 = no XTAL clock counting, > 0 = XTAL clock counting
+; scs.c     470	//                via T13
+; scs.c     471	//
+; scs.c     472	//-----------------------------------------------------------------------------
+; scs.c     473	// @Date          9/28/2023
+; scs.c     474	//
+; scs.c     475	//-----------------------------------------------------------------------------
+; scs.c     476	
+; scs.c     477	// USER CODE BEGIN (SCS_SwitchSystemClock,1)
+; scs.c     478	
+; scs.c     479	// USER CODE END
+; scs.c     480	
+; scs.c     481	void SCS_SwitchSystemClock(unsigned int UseTimer)
+; scs.c     482	{
+	?LINE	482
+	PUBLIC	_SCS_SwitchSystemClock
+	?SYMB	'SCS_SwitchSystemClock',_SCS_SwitchSystemClock,37,1
+	?SYMB	'',482,8,34
+_SCS_SwitchSystemClock	PROC	FAR
+	?SYMB	'',00H,95,0
+	MOV	[-R0],R12
+	?SYMB	'',$,96,2
+; Locals:
+;     UseTimer = offset 0
+; 
+; Statics:
+; 
+; CSEs:
+; 
+	?SYMB	'UseTimer',1,99,18
+	?SYMB	'-2',$,101,1
+; scs.c     483	   if (UseTimer)
+	?LINE	483
+	MOV	R12,[R0]
+	JMPR	cc_Z,_22
+; scs.c     484	   {
+; scs.c     485	      // wait until T13 is stopped
+; scs.c     486	      WaitForTimer13Stop();
+	?LINE	486
+	CALLS	SEG _WaitForTimer13Stop,_WaitForTimer13Stop
+; scs.c     487	
+; scs.c     488	      #ifdef SCS_K2_WAIT
+; scs.c     489	         // if system frequency was increased by using SCS_K2_WAIT:
+; scs.c     490	      #  ifdef SCS_K2_WAIT_1
+; scs.c     491	         // set additional K2 divider step(s) SCS_K2_WAIT_<x> if needed
+; scs.c     492	      #    ifdef SCS_K2_WAIT_2
+; scs.c     493	             SetK2((unsigned int)SCS_K2_WAIT_2);
+; scs.c     494	      #     endif // SCS_K2_WAIT_2
+; scs.c     495	           SetK2((unsigned int)SCS_K2_WAIT_1);
+; scs.c     496	      #  endif // SCS_K2_WAIT_1
+; scs.c     497	         // set original K2 value SCS_K2_BOOT
+; scs.c     498	           SetK2((unsigned int)SCS_K2_BOOT);
+	?LINE	498
+	MOV	R12,#08h
+	CALLS	SEG _SetK2,_SetK2
+; scs.c     499	      #endif // SCS_K2_WAIT
+; scs.c     500	   }
+	?LINE	500
+_22:
+; scs.c     501	   // set K1 divider = 1, enable K1 acknowledge  
+; scs.c     502	   SCU_PLLCON2 =
+; scs.c     503	     (0U    <<0U) | // K1DIV K1-Divider Value
+; scs.c     504	                    // 0..511 : K1-Divider = K1DIV + 1
+; scs.c     505	     (1U    <<15U); // K1ACK K1-Divider Ready Acknowledge
+	?LINE	505
+	MOV	R12,#08000h
+	MOV	0F1BCh,R12
+; scs.c     506	                    // Provides acknowledge to K1RDY
+; scs.c     507	   EnableVcoBypass();
+	?LINE	507
+	CALLS	SEG _EnableVcoBypass,_EnableVcoBypass
+; scs.c     508	   // switch to PLL external oscillator, set P divider SCS_P and enable P acknowledge
+; scs.c     509	   SCU_PLLCON1 = 
+; scs.c     510	     (0U    <<0U) | // PLLPWD PLL Power Saving Mode
+; scs.c     511	                    // 0 : Normal behavior
+; scs.c     512	                    // 1 : PLL block is put into power saving mode
+; scs.c     513	     (0U    <<1U) | // OSCSEL Oscillator Input Selection
+; scs.c     514	                    // 0 : PLL external oscillator
+; scs.c     515	                    // 1 : PLL internal oscillator
+; scs.c     516	     (0U    <<2U) | // RESLD Restart VCO Lock Detection (w)
+; scs.c     517	                    // Resets PLLSTAT.VCOLOCK and restarts VCO lock detection
+; scs.c     518	     (0U    <<3U) | // AOSCSEL Asynchronous Oscillator Input Selection
+; scs.c     519	                    // 0 : PLL external oscillator is selected asynchronously
+; scs.c     520	                    // 1 : PLL internal oscillator is selected asynchronously
+; scs.c     521	     (0U    <<5U) | // EMCLKEN VCOLCK Emergency System Clock Source Select Enable
+; scs.c     522	                    // 0 : MCM controlled by SYSCON0.CLKSEL in VCOLCK emergency case
+; scs.c     523	                    // 1 : MCM controlled by SYSCON0.EMCLKSEL in VCOLCK emergency case
+; scs.c     524	     (0U    <<6U) | // EMFINDISEN Emergency Input Clock Disconnect Enable
+; scs.c     525	                    // 0 : PLLSTAT.FINDIS not updated in VCOLCK emergency case
+; scs.c     526	                    // 1 : PLLSTAT.FINDIS is set in VCOLCK emergency case
+; scs.c     527	     (((unsigned int)(SCS_P) - 1U)
+; scs.c     528	            <<8U) | // PDIV P-Divider Value
+; scs.c     529	                    // 0..15 : P-Divider = PDIV + 1
+; scs.c     530	     (1U    <<15U); // PACK P-Divider Ready Acknowledge
+	?LINE	530
+	MOV	R12,#08100h
+	MOV	0F1BAh,R12
+; scs.c     531	                    // Provides acknowledge to PRDY
+; scs.c     532	
+; scs.c     533	      // keep VCO bypass, set SCS_VCOSEL, set N divider SCS_N and enable N acknowledge
+; scs.c     534	     SCU_PLLCON0 = 
+; scs.c     535	       (1U    <<0U) | // VCOBY Bypass
+; scs.c     536	                      // 0 : Normal operation, VCO is not bypassed
+; scs.c     537	                      // 1 : Prescaler Mode; VCO is bypassed
+; scs.c     538	       (0U    <<1U) | // VCOPWD VCO Power Saving Mode
+; scs.c     539	                      // 0 : Normal behavior
+; scs.c     540	                      // 1 : VCO is put into power saving mode
+; scs.c     541	       ((unsigned int)(SCS_VCOSEL)
+; scs.c     542	              <<2U) | // VCOSEL VCO Range Select
+; scs.c     543	                      // 0 : 48...112 MHz
+; scs.c     544	                      // 1 : 96...160 MHz
+; scs.c     545	       (0U    <<4U) | // REGENCLR PLL Power Regulator Enable Clear (w)
+; scs.c     546	                      // 0 : Configuration for PLL power regulator  unchanged
+; scs.c     547	                      // 1 : PLL is not powered (no operation possible)
+; scs.c     548	       (0U    <<5U) | // REGENSET PLL PLL Power Regulator Enable Set (w)
+; scs.c     549	                      // 0 : Configuration for PLL power regulator unchanged
+; scs.c     550	                      // 1 : PLL is powered (operation possible)
+; scs.c     551	       (((unsigned int)(SCS_N) - 1U)
+; scs.c     552	             <<8U) |  // NDIV N-Divider Value
+; scs.c     553	                      // 0..63 : N-Divider = NDIV + 1
+; scs.c     554	       (1U    <<15U); // NACK N-Divider Ready Acknowledge
+	?LINE	554
+	MOV	R12,#09905h
+	MOV	0F1B8h,R12
+; scs.c     555	                      // Provides acknowledge to NRDY
+; scs.c     556	   #ifdef SCS_K2_1
+; scs.c     557	       // if additional frequency steps are required:
+; scs.c     558	       // Set 1st additional K2 divider step SCS_K2_1
+; scs.c     559	          SetK2((unsigned int)SCS_K2_1);
+	?LINE	559
+	MOV	R12,#05h
+	CALLS	SEG _SetK2,_SetK2
+; scs.c     560	
+; scs.c     561	          DisableVcoBypass();
+	?LINE	561
+	CALLS	SEG _DisableVcoBypass,_DisableVcoBypass
+; scs.c     562	
+; scs.c     563	      // set additional K2 divider steps SCS_K2_<x> if needed
+; scs.c     564	  #  ifdef SCS_K2_2
+; scs.c     565	     SetK2((unsigned int)SCS_K2_2);
+	?LINE	565
+	MOV	R12,#03h
+	CALLS	SEG _SetK2,_SetK2
+; scs.c     566	  #    ifdef SCS_K2_3
+; scs.c     567	     SetK2((unsigned int)SCS_K2_3);
+; scs.c     568	  #    endif // SCS_K2_3
+; scs.c     569	  #  endif // SCS_K2_2
+; scs.c     570	
+; scs.c     571	    // set final K2 divider SCS_K2
+; scs.c     572	    SetK2((unsigned int)SCS_K2);
+	?LINE	572
+	MOV	R12,#02h
+	CALLS	SEG _SetK2,_SetK2
+; scs.c     573	
+; scs.c     574	  #else
+; scs.c     575	    // no additional frequency steps required:
+; scs.c     576	    // set final K2 divider
+; scs.c     577	    SetK2((unsigned int)SCS_K2);
+; scs.c     578	    DisableVcoBypass();
+; scs.c     579	  #endif // SCS_K2_1
+; scs.c     580	
+; scs.c     581	  // Reset all the CCU60 registers used in SCS_CountClocksWithTimer().
+; scs.c     582	    // reset port input select register high
+; scs.c     583	    CCU60_PISELH = 0x0000;
+	?LINE	583
+	MOV	R12,#00h
+	MOV	0EA06h,R12
+; scs.c     584	    // reset timer control register 4
+; scs.c     585	    CCU60_TCTR4 = 0x0000;
+	?LINE	585
+	MOV	R12,#00h
+	MOV	0EA26h,R12
+; scs.c     586	    // reset timer control register 2
+; scs.c     587	    CCU60_TCTR2 = 0x0000;
+	?LINE	587
+	MOV	R12,#00h
+	MOV	0EA2Eh,R12
+; scs.c     588	    // reset timer 13 period register
+; scs.c     589	    CCU60_T13PR = 0x0000;
+	?LINE	589
+	MOV	R12,#00h
+	MOV	0EA32h,R12
+; scs.c     590	    // reset kernel state configuration register
+; scs.c     591	    CCU60_KSCFG  = 0x0002;
+	?LINE	591
+	MOV	R12,#02h
+	MOV	0EA00h,R12
+; scs.c     592	
+; scs.c     593	} // end of function SCS_SwitchSystemClock
+	?SYMB	'',$,102,1
+	?LINE	593
+	ADD	R0,#02h
+	?SYMB	'',$,96,0
+	RETS
+_SCS_SwitchSystemClock	ENDP
+	?SYMB	'',$,17,593
+; scs.c     594	
+; scs.c     595	
+; scs.c     596	//****************************************************************************;
+; scs.c     597	// @Function      void SCS_SwitchToHighPrecBandgap(void)
+; scs.c     598	//
+; scs.c     599	//-----------------------------------------------------------------------------
+; scs.c     600	// @Description   This function switches to high precision bandgap which is
+; scs.c     601	//                required e. g. for flash operation.
+; scs.c     602	//
+; scs.c     603	//                Notes: 
+; scs.c     604	//                - It is assumed that high precision bandgap has been enabled
+; scs.c     605	//                  a sufficient time ago.
+; scs.c     606	//                - The user is responsible for disabling the register
+; scs.c     607	//                  protection.
+; scs.c     608	//-----------------------------------------------------------------------------
+; scs.c     609	// @Returnvalue   None
+; scs.c     610	//
+; scs.c     611	//-----------------------------------------------------------------------------
+; scs.c     612	// @Parameters    None
+; scs.c     613	//
+; scs.c     614	//-----------------------------------------------------------------------------
+; scs.c     615	// @Date          9/28/2023
+; scs.c     616	//
+; scs.c     617	//-----------------------------------------------------------------------------
+; scs.c     618	
+; scs.c     619	// USER CODE BEGIN (SCS_SwitchToHighPrecBandgap,1)
+; scs.c     620	
+; scs.c     621	// USER CODE END
+; scs.c     622	
+; scs.c     623	void SCS_SwitchToHighPrecBandgap(void)
+; scs.c     624	{
+	?LINE	624
+	PUBLIC	_SCS_SwitchToHighPrecBandgap
+	?SYMB	'SCS_SwitchToHighPrecBandgap',_SCS_SwitchToHighPrecBandgap,37,1
+	?SYMB	'',624,8,34
+_SCS_SwitchToHighPrecBandgap	PROC	FAR
+	?SYMB	'',00H,95,0
+; Locals:
+; 
+; Statics:
+; 
+; CSEs:
+; 
+; scs.c     625	   // set DMP1 = 1,5 V with high precision bandgap selected in STEP0
+; scs.c     626	    SCU_STEP0 &=
+; scs.c     627	    ~((0U    <<0U) | // VM DMP_M Voltage Configuration
+; scs.c     628	                     // 0 : 1.5 V with high precision bandgap selected
+; scs.c     629	                     // 1 : 1.0 V with low power bandgap selected
+; scs.c     630	                     // 2 : 1.2 V with low power bandgap selected
+; scs.c     631	                     // 3 : 1.5 V with low power bandgap selected
+; scs.c     632	                     // 4..7 : 0 V
+; scs.c     633	    (7U    <<3U) |   // V1 DMP_1 Voltage Configuration
+; scs.c     634	                     // 0 : 1.5 V with high precision bandgap selected
+; scs.c     635	                     //     keep setting for core-core isolation and for DMP_1 clock
+; scs.c     636	                     // 1 : 1.0 V with low power bandgap selected
+; scs.c     637	                     //     keep setting for core-core isolation and for DMP_1 clock
+; scs.c     638	                     // 2 : 1.2 V with low power bandgap selected
+; scs.c     639	                     //     keep setting for core-core isolation and for DMP_1 clock
+; scs.c     640	                     // 3 : 1.5 V with low power bandgap selected
+; scs.c     641	                     //     keep setting for core-core isolation and for DMP_1 clock
+; scs.c     642	                     // 4 : 0 V; core-core isolation is active, DMP_1 clock is disabled
+; scs.c     643	                     // 5 : Configuration is unchanged; core-core isolation is inactive
+; scs.c     644	                     // 6 : Configuration is unchanged; DMP_1 clock is enabled
+; scs.c     645	                     // 7 : Configuration is unchanged; DMP_1 clock is disabled
+; scs.c     646	    (0U    <<6U) | // CLKENM System Clock Enable for DMP_M until next step
+; scs.c     647	    (0U    <<7U) | // CLKEN1 System Clock Enable for DMP_1 until next step
+; scs.c     648	    (0U    <<8U) | // TRGSEL Trigger Selection (for continuation)
+; scs.c     649	                   // 0 : None of the signals
+; scs.c     650	                   // 1 : OK 1 from PVC_M
+; scs.c     651	                   // 2 : OK 2 from PVC_M
+; scs.c     652	                   // 3 : OK 1 from PVC_M AND OK 2 from PVC_M
+; scs.c     653	                   // 4 : OK 1 from PVC_1
+; scs.c     654	                   // 5 : OK 1 from PVC_M AND OK 1 from PVC_1
+; scs.c     655	                   // 6 : OK 2 from PVC_M AND OK 1 from PVC_1
+; scs.c     656	                   // 7 : OK 1 from PVC_M AND OK 2 from PVC_M AND OK 1 from PVC_1
+; scs.c     657	                   // 8 : OK 2 from PVC_1
+; scs.c     658	                   // 9 : OK 1 from PVC_M AND OK 2 from PVC_1
+; scs.c     659	                   // 10: OK 2 from PVC_M AND OK 2 from PVC_1
+; scs.c     660	                   // 11: OK 1 from PVC_M AND OK 2 from PVC_M AND OK 2 from PVC_1
+; scs.c     661	                   // 12: OK 1 from PVC_1 AND OK 2 from PVC_1
+; scs.c     662	                   // 13: OK 1 from PVC_M AND OK 1 from PVC_1 AND OK 2 from PVC_1
+; scs.c     663	                   // 14: OK 2 from PVC_M AND OK 1 from PVC_1 AND OK2 from PVC_1
+; scs.c     664	                   // 15: OK 1 from PVC_M AND OK 2 from PVC_M AND OK 1 from PVC_1 AND OK2 from PVC_1
+; scs.c     665	    (0U    <<12U)| // SYSDIV System Clock Divider
+; scs.c     666	                   // 0 : The sequence is continued after 1 fSYS cycles
+; scs.c     667	                   // 1 : The sequence is continued after 64 fSYS cycles
+; scs.c     668	    (0U    <<13U)| // PVCMOFF PVC_M No valid results for this step
+; scs.c     669	    (0U    <<14U)| // PVC1OFF PVC_1 No valid results for this step
+; scs.c     670	    (0U    <<15U));// Read as 1, should be written with 1
+	?LINE	670
+	MOV	R12,#0FEF2h
+	MOV	R13,[R12]
+	AND	R13,#0FFC7h
+	MOV	[R12],R13
+; scs.c     671	
+; scs.c     672	} // end of function SCS_SwitchToHighPrecBandgap
+	?LINE	672
+	RETS
+_SCS_SwitchToHighPrecBandgap	ENDP
+	?SYMB	'',$,17,672
+; scs.c     673	
+; scs.c     674	//****************************************************************************;
+; scs.c     675	// @Function      void SCS_CountClocksWithTimer (SCS_EXTCLK_Type Source,
+; scs.c     676	//                unsigned int Clocks)
+; scs.c     677	//-----------------------------------------------------------------------------
+; scs.c     678	// @Description   This function enables and starts CCU6 timer T13 for counting
+; scs.c     679	//                a certain number of ticks at EXTCLK. After that time, T13
+; scs.c     680	//                will stop.
+; scs.c     681	//
+; scs.c     682	//                Notes:
+; scs.c     683	//                - The function will enable CCU6 and will overwrite previous
+; scs.c     684	//                  settings for T13; additionally, it will overwrite previous
+; scs.c     685	//                  EXTCLK clock multiplexer settings.
+; scs.c     686	//                - System frequency must be >= 2 * clock frequency.
+; scs.c     687	//                - The user is responsible for disabling the register
+; scs.c     688	//                  protection.
+; scs.c     689	//
+; scs.c     690	//-----------------------------------------------------------------------------
+; scs.c     691	// @Returnvalue   None
+; scs.c     692	//
+; scs.c     693	//-----------------------------------------------------------------------------
+; scs.c     694	// @Parameters     Source: The following clock source options are possible:
+; scs.c     695	//                         SCS_EXTCLK_F_PLL     PLL output frequency
+; scs.c     696	//                         SCS_EXTCLK_F_OSC     HP oscillator frequency
+; scs.c     697	//                         SCS_EXTCLK_F_WU      wakeup oscillator frequency
+; scs.c     698	//                         SCS_EXTCLK_F_TCK     test clock at Pin 2.9
+; scs.c     699	//                         SCS_EXTCLK_F_OSC_FL  internal flash oscillator frequency
+; scs.c     700	//                         SCS_EXTCLK_F_RTC     real-time clock
+; scs.c     701	//
+; scs.c     702	//                 Clocks: Number of clocks to count, 1...65535
+; scs.c     703	//
+; scs.c     704	//-----------------------------------------------------------------------------
+; scs.c     705	// @Date          9/28/2023
+; scs.c     706	//
+; scs.c     707	//-----------------------------------------------------------------------------
+; scs.c     708	
+; scs.c     709	// USER CODE BEGIN (SCS_CountClocksWithTimer,1)
+; scs.c     710	
+; scs.c     711	// USER CODE END
+; scs.c     712	
+; scs.c     713	void SCS_CountClocksWithTimer(SCS_EXTCLK_Type Source, unsigned int Clocks)
+; scs.c     714	{
+	?LINE	714
+	PUBLIC	_SCS_CountClocksWithTimer
+	?SYMB	'SCS_CountClocksWithTimer',_SCS_CountClocksWithTimer,37,1
+	?SYMB	'',714,8,34
+_SCS_CountClocksWithTimer	PROC	FAR
+	?SYMB	'',00H,95,0
+	MOV	[-R0],R12
+	?SYMB	'',$,96,2
+	MOV	[-R0],R13
+	?SYMB	'',$,96,4
+	SUB	R0,#02h
+	?SYMB	'',$,96,6
+; Locals:
+;     Clocks = offset 2
+;     Source = offset 4
+;     Work = offset 0
+; 
+; Statics:
+; 
+; CSEs:
+; 
+	?SYMB	'Source',2,99,258
+	?SYMB	'-2',$,101,2
+	?SYMB	'Clocks',1,99,18
+	?SYMB	'-4',$,101,1
+; scs.c     715	   volatile unsigned int Work;
+	?SYMB	'Work',3,98,18
+	?SYMB	'-6',$,101,3
+; scs.c     716	
+; scs.c     717	   // enable CC6 module
+; scs.c     718	   CCU60_KSCFG |=
+; scs.c     719	     (1U    <<0U) | // MODEN Module Enable
+; scs.c     720	     (1U    <<1U) | // BPMODEN Bit Protection for MODEN, set to 1 for change (w)
+; scs.c     721	     (0U    <<4U) | // NOMCFG Normal Operation Mode Configuration
+; scs.c     722	                    // kernel mode applied in normal operation mode
+; scs.c     723	     (0U    <<7U) | // BPNOM Bit Protection for NOMCFG, set to 1 for change (w)
+; scs.c     724	     (0U    <<8U) | // SUMCFG Suspend Mode Configuration
+; scs.c     725	                    // Kernel mode applied in suspend mode
+; scs.c     726	     (0U    <<11U)| // BPSUM Bit Protection for SUMCFG, set to 1 for change (w)
+; scs.c     727	     (0U    <<12U)| // COMCFG Clock Off Mode Configuration
+; scs.c     728	                    // kernel mode applied in clock off mode
+; scs.c     729	     (0U    <<15U); // BPCOM Bit Protection for COMCFG, set to 1 for change (w)
+	?LINE	729
+	MOV	R12,#0EA00h
+	MOV	R13,[R12]
+	OR	R13,#03h
+	MOV	[R12],R13
+; scs.c     730	   // read SFR back to avoid pipeline effects
+; scs.c     731	   Work = CCU60_KSCFG;
+	?LINE	731
+	MOV	R12,0EA00h
+	MOV	[R0],R12
+; scs.c     732	   // enable T13 functionality
+; scs.c     733	   CCU60_MCFG |=
+; scs.c     734	     (0U    <<0U) | // T12 T12 Available
+; scs.c     735	     (1U    <<1U) | // T13 T13 Available
+; scs.c     736	     (0U    <<2U);  // MCM Multi-Channel Mode Available
+	?LINE	736
+	MOV	R12,#0EA0Ch
+	MOV	R13,[R12]
+	BSET	R13.1
+	MOV	[R12],R13
+; scs.c     737	 
+; scs.c     738	   // stop T13, clear T13
+; scs.c     739	   CCU60_TCTR4 =
+; scs.c     740	     (0U    <<0U) | // T12RR Timer 12 Run Reset (w)
+; scs.c     741	     (0U    <<1U) | // T12RS Timer 12 Run Set (w)
+; scs.c     742	     (0U    <<2U) | // T12RES Timer 12 Reset (w)
+; scs.c     743	     (0U    <<3U) | // DTRES Dead-Time Counter Reset (w)
+; scs.c     744	     (0U    <<5U) | // T12CNT Timer T12 Count Event if enabled (PISELH) (w)
+; scs.c     745	     (0U    <<6U) | // T12STR Timer 12 Shadow Transfer Request (w)
+; scs.c     746	     (0U    <<7U) | // T12STD Timer 12 Shadow Transfer Disable (w)
+; scs.c     747	     (1U    <<8U) | // T13RR Timer 13 Run Reset (w)
+; scs.c     748	     (0U    <<9U) | // T13RS Timer 13 Run Set (w)
+; scs.c     749	     (1U    <<10U)| // T13RES Timer 13 Reset (w)
+; scs.c     750	     (0U    <<13U)| // T13CNT Timer T13 Count Event if enabled (PISELH) (w)
+; scs.c     751	     (1U    <<14U)| // T13STR Timer 13 Shadow Transfer Request (w)
+; scs.c     752	     (0U    <<15U); // T13STD Timer 13 Shadow Transfer Disable (w)
+	?LINE	752
+	MOV	R12,#04500h
+	MOV	0EA26h,R12
+; scs.c     753	
+; scs.c     754	   // set T13 period
+; scs.c     755	   CCU60_T13PR = Clocks - 1;
+	?LINE	755
+	MOV	R12,[R0+#02H]
+	SUB	R12,#01h
+	MOV	0EA32h,R12
+; scs.c     756	
+; scs.c     757	   // enable T13 shadow transfer for period setting
+; scs.c     758	   CCU60_TCTR4 =
+; scs.c     759	     (0U    <<0U) | // T12RR Timer 12 Run Reset (w)
+; scs.c     760	     (0U    <<1U) | // T12RS Timer 12 Run Set (w)
+; scs.c     761	     (0U    <<2U) | // T12RES Timer 12 Reset (w)
+; scs.c     762	     (0U    <<3U) | // DTRES Dead-Time Counter Reset (w)
+; scs.c     763	     (0U    <<5U) | // T12CNT Timer T12 Count Event if enabled (PISELH) (w)
+; scs.c     764	     (0U    <<6U) | // T12STR Timer 12 Shadow Transfer Request (w)
+; scs.c     765	     (0U    <<7U) | // T12STD Timer 12 Shadow Transfer Disable (w)
+; scs.c     766	     (0U    <<8U) | // T13RR Timer 13 Run Reset (w)
+; scs.c     767	     (0U    <<9U) | // T13RS Timer 13 Run Set (w)
+; scs.c     768	     (0U    <<10U)| // T13RES Timer 13 Reset (w)
+; scs.c     769	     (0U    <<13U)| // T13CNT Timer T13 Count Event if enabled (PISELH) (w)
+; scs.c     770	     (1U    <<14U)| // T13STR Timer 13 Shadow Transfer Request (w)
+; scs.c     771	     (0U    <<15U); // T13STD Timer 13 Shadow Transfer Disable (w)
+	?LINE	771
+	MOV	R12,#04000h
+	MOV	0EA26h,R12
+; scs.c     772	
+; scs.c     773	   // enable T13 single-shot, clear other T13 bits, leave T12 bits unchanged
+; scs.c     774	   CCU60_TCTR2 =
+; scs.c     775	    (0U    <<0U) | // T12SSC T12 Single Shot Control
+; scs.c     776	    (1U    <<1U) | // T13SSC T13 Single Shot Control
+; scs.c     777	    (0U    <<2U) | // T13TEC T13 Trigger Event Control to start T13
+; scs.c     778	                   // 0: No action
+; scs.c     779	                   // 1: T13R set on T12 compare event on channel 0
+; scs.c     780	                   // 2: T13R set on T12 compare event on channel 1
+; scs.c     781	                   // 3: T13R set on T12 compare event on channel 2
+; scs.c     782	                   // 4: T13R set on any T12 compare event (ch. 0, 1, 2)
+; scs.c     783	                   // 5: T13R set on period-match of T12
+; scs.c     784	                   // 6: T13R set on zero-match of T12 (while counting up)
+; scs.c     785	                   // 7: Any edge of inputs CCPOSx
+; scs.c     786	    (0U    <<5U) | // T13TED T13 Trigger Event Direction for T13TEC trigger
+; scs.c     787	                   // 0: Reserved, no action
+; scs.c     788	                   // 1: While T12 is counting up
+; scs.c     789	                   // 2: While T12 is counting down
+; scs.c     790	                   // 3: Independent on the count direction of T12
+; scs.c     791	    (0U    <<8U) | // T12RSEL T12 External Run Selection
+; scs.c     792	                   // 0: External setting of T12R disabled
+; scs.c     793	                   // 1: T12R set on rising edge of T12HR
+; scs.c     794	                   // 2: T12R set on falling edge of T12HR
+; scs.c     795	                   // 3: T12R set on any edge of T12HR
+; scs.c     796	    (0U    <<10U)  // T13RSEL T13 External Run Selection
+; scs.c     797	                   // 0: External setting of T13R is disabled
+; scs.c     798	                   // 1: T13R set on rising edge of T13HR
+; scs.c     799	                   // 2: T13R set on falling edge of T13HR
+; scs.c     800	                   // 3: T13R set on any edge of T13HR
+; scs.c     801	    | (CCU60_TCTR2 & ((1U <<0U) | (3U <<8U)));
+	?LINE	801
+	MOV	R12,0EA2Eh
+	AND	R12,#0301h
+	BSET	R12.1
+	MOV	0EA2Eh,R12
+; scs.c     802	
+; scs.c     803	   // enable T13HRA input (rising edge), leave T12 bits unchanged
+; scs.c     804	    CCU60_PISELH =
+; scs.c     805	     (0U    <<0U) | // IST13HR T13 Input Select for T13HR
+; scs.c     806	                    // 0: T13HRA, 1: T13HRB, 2: T13HRC, 3: T13HRD
+; scs.c     807	     (0U    <<2U) | // ISCNT12 T12 Input Select for Counting Input
+; scs.c     808	                    // 0: T12 prescaler, 1: TCTR4.CNT12 written with 1,
+; scs.c     809	                    // 2: Rising edge on T12HR signal, 3: Falling edge on T12HR signal
+; scs.c     810	     (2U    <<4U)   // ISCNT13 T13 Input Select for Counting Input
+; scs.c     811	                    // 0: T13 prescaler, 1: TCTR4.CNT13 written with 1,
+; scs.c     812	                    // 2: Rising edge on T13HR signal, 3: Falling edge on T13HR signal
+; scs.c     813	     | (CCU60_PISELH & (3U <<2U));
+	?LINE	813
+	MOV	R12,0EA06h
+	AND	R12,#0Ch
+	BSET	R12.5
+	MOV	0EA06h,R12
+; scs.c     814	
+; scs.c     815	   // enable EXTCLK = fOSC, fOUT settings = 0
+; scs.c     816	   SCU_EXTCON =
+; scs.c     817	      (1U    <<0U) | // EN External Clock Enable
+; scs.c     818	                     // 0 : No external clock signal is provided
+; scs.c     819	                     // 1 : The configured external clock signal is provided
+; scs.c     820	      ((unsigned int)Source
+; scs.c     821	             <<1U) | // SEL External Clock Select
+; scs.c     822	                     // 0 : fSYS is selected
+; scs.c     823	                     // 1 : fOUT is selected
+; scs.c     824	                     // 2 : fPLL is selected
+; scs.c     825	                     // 3 : fOSC is selected
+; scs.c     826	                     // 4 : fWU is selected
+; scs.c     827	                     // 5 : fTCK is selected
+; scs.c     828	                     // 6 : fOSC_FL (flash module oscillator) is selected
+; scs.c     829	                     // 8 : fRTC is selected
+; scs.c     830	      (0U    <<8U) | // FORV Frequency Output Reload Value
+; scs.c     831	                     // Copied to FOCNT upon each underflow of FOCNT
+; scs.c     832	      (0U    <<14U)| // FOSS Frequency Output Signal Select
+; scs.c     833	                     // 0 : Output of the toggle latch
+; scs.c     834	                     // 1 : Output of the reload counter
+; scs.c     835	      (0U    <<15U); // FOEN Frequency Output Enable
+	?LINE	835
+	MOV	R12,[R0+#04H]
+	SHL	R12,#01h
+	BSET	R12.0
+	MOV	0FF5Eh,R12
+; scs.c     836	                     // 0 : Signal fOUT stops when fOUT is/becomes low
+; scs.c     837	                     // 1 : FOCNT is running
+; scs.c     838	
+; scs.c     839	    // start T13
+; scs.c     840	    CCU60_TCTR4 =
+; scs.c     841	      (0U    <<0U) | // T12RR Timer 12 Run Reset (w)
+; scs.c     842	      (0U    <<1U) | // T12RS Timer 12 Run Set (w)
+; scs.c     843	      (0U    <<2U) | // T12RES Timer 12 Reset (w)
+; scs.c     844	      (0U    <<3U) | // DTRES Dead-Time Counter Reset (w)
+; scs.c     845	      (0U    <<5U) | // T12CNT Timer T12 Count Event if enabled (PISELH) (w)
+; scs.c     846	      (0U    <<6U) | // T12STR Timer 12 Shadow Transfer Request (w)
+; scs.c     847	      (0U    <<7U) | // T12STD Timer 12 Shadow Transfer Disable (w)
+; scs.c     848	      (0U    <<8U) | // T13RR Timer 13 Run Reset (w)
+; scs.c     849	      (1U    <<9U) | // T13RS Timer 13 Run Set (w)
+; scs.c     850	      (0U    <<10U)| // T13RES Timer 13 Reset (w)
+; scs.c     851	      (0U    <<13U)| // T13CNT Timer T13 Count Event if enabled (PISELH) (w)
+; scs.c     852	      (0U    <<14U)| // T13STR Timer 13 Shadow Transfer Request (w)
+; scs.c     853	      (0U    <<15U); // T13STD Timer 13 Shadow Transfer Disable (w)
+	?LINE	853
+	MOV	R12,#0200h
+	MOV	0EA26h,R12
+; scs.c     854	
+; scs.c     855	
+; scs.c     856	} // end of function SCS_CountClocksWithTimer
+	?SYMB	'',$,102,3
+	?SYMB	'',$,102,1
+	?SYMB	'',$,102,2
+	?LINE	856
+	ADD	R0,#06h
+	?SYMB	'',$,96,0
+	RETS
+_SCS_CountClocksWithTimer	ENDP
+	?SYMB	'',$,17,856
+SCS_1_PR	ENDS
+
+C166_US	SECTION	LDAT WORD GLBUSRSTACK 'CUSTACK'
+	DS	12
+C166_US	ENDS
+
+	REGDEF	R0-R15
+	END
